@@ -8,6 +8,7 @@
 
 namespace Controller;
 
+use Model\ArticleManager;
 
 class ArticleController extends AbstractController
 {

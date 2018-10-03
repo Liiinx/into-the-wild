@@ -9,7 +9,7 @@
 namespace Model;
 
 
-class ArticleManager
+class ArticleManager extends AbstractManager
 {
     /**
      *
