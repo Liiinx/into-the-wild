@@ -19,4 +19,19 @@ class ArticleController extends AbstractController
 
         return $this->twig->render('Article/show.html.twig', ['article' => $article]);
     }
+    public function add()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $articleManager = new ArticleManager($this->getPdo());
+            $article = new Article();
+            $article->setTitre($_POST['titre']);
+            $article->setContenu($_POST['contenu']);
+            $id = $articleManager->insert($article);
+            header('Location:/item/' . $id);
+        }
+
+        return $this->twig->render('Article/add.html.twig');
+    }
+
 }
