@@ -8,6 +8,7 @@
 
 namespace Controller;
 
+use Model\Article;
 use Model\ArticleManager;
 
 class ArticleController extends AbstractController
@@ -28,7 +29,7 @@ class ArticleController extends AbstractController
             $article->setTitre($_POST['titre']);
             $article->setContenu($_POST['contenu']);
             $id = $articleManager->insert($article);
-            header('Location:/item/' . $id);
+            header('Location:/article/' . $id);
         }
 
         return $this->twig->render('Article/add.html.twig');

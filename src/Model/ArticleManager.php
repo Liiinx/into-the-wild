@@ -44,18 +44,24 @@ class ArticleManager extends AbstractManager
 */
 
 
-    public function insert(Article $article): int
+    public function insert(Article $article)
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO $this->table ('titre', 'contenu')
-                                                        VALUES (:titre, :contenu, :user_id)");
-        $statement->bindValue('titre', $article->getTitre(), \PDO::PARAM_STR);
-        $statement->bindValue('contenu', $article->getContenu(), \PDO::PARAM_STR);
-        /*$statement->bindValue('user_id', $article->getUserId(), \PDO::PARAM_INT); */
 
-        if ($statement->execute()) {
-            return $this->pdo->lastInsertId();
-        }
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (titre, contenu)
+    VALUES (:titre, :contenu)");
+
+
+        $statement->bindValue(':titre', $article->getTitre(), \PDO::PARAM_STR);
+        $statement->bindValue(':contenu', $article->getContenu(), \PDO::PARAM_STR);
+
+        // $statement->bindValue(':user_id', $user_id, \PDO::PARAM_STR);
+
+
+        $statement->execute();
+
+        return $this->pdo->lastInsertId();
+
     }
 
 
