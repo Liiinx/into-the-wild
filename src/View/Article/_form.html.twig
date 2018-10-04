@@ -1,0 +1,19 @@
+<form method="post">
+
+    <br/>
+    <input type="text" value="{{ Article.titre }}" name="titre">
+
+    <select name="menu">
+        <option> Wild breackfast
+        <option> Hackathon
+        <option> Article 3
+        <option selected> Categorie
+        <option> Article 4
+        <option> Article5
+    </select><br/><br/>
+
+
+    <textarea value="{{ article.contenu }}" name="contenu"></textarea>
+
+    <input type="submit" value="Valider">
+</form>
