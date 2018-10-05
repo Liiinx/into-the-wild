@@ -1,0 +1,6 @@
+.idea
+/vendor/
+.idea
+/temp/*
+*.cache
+app/db.php
