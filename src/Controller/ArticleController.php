@@ -6,8 +6,7 @@
  * Time: 12:05
  */
 
-namespace Controller;
-
+namespace Controller; //
 use Model\Article;
 use Model\ArticleManager;
 
@@ -35,4 +34,14 @@ class ArticleController extends AbstractController
         return $this->twig->render('Article/add.html.twig');
     }
 
+   // showListArticles, En tant qu'utilisateur je veux voir la liste des articles afin d'en choisir un(5)
+
+    public function showListArticles()
+    {
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $articles = $articleManager->selectAll();
+        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles]);
+
+    }
 }
