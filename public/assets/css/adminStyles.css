@@ -58,7 +58,12 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     margin-top: -10px;
     font-size: 12px;
 }
-.slide-admin-infos marquee,p
+.slide-admin-infos marquee
+{
+    color: white;
+    margin-top: 5px;
+}
+.slide-admin-infos p
 {
     color: white;
     margin-top: 5px;
