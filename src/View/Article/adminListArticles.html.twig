@@ -1,0 +1,21 @@
+{% extends 'adminLayout.html.twig' %}
+
+{% block content %}
+    <h1>Liste des articles</h1>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Titre</th>
+                <th>Contenu</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for articles in article %}
+            <tr>
+                <td><h4>{{ articles.titre  }}</h4></td>
+                <td>{{ articles.contenu }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

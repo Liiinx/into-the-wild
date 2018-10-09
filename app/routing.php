@@ -26,6 +26,7 @@ $routes = [
         ['edit', '/admin/article/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
         ['show', '/admin/article/{id:\d+}', 'GET'], // action, url, method
         ['delete', '/admin/article/delete/{id:\d+}', 'GET'], // action, url, method
+        ['adminShowArticles', '/admin/articles', 'GET'], // action, url, method
         ['showListArticles', '/articles', 'GET'], // action, url, method
     ],
 ];
