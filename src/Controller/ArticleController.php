@@ -41,6 +41,7 @@ class ArticleController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
+        //var_dump($articles);
         return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles]);
 
     }

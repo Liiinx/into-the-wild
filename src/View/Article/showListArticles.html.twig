@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Liste de nos articles</h1>
+    <ul>
+        {% for articles in article %}
+            <h2><li>{{ articles.titre  }}</li></h2>
+            <li>{{ articles.contenu }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
