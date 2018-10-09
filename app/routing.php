@@ -22,9 +22,10 @@
 $routes = [
     'Article' => [ // Controller
         ['index', '/', 'GET'], // action, url, method
-        ['add', '/article/add', ['GET', 'POST']], // action, url, method
-        ['edit', '/article/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
-        ['show', '/article/{id:\d+}', 'GET'], // action, url, method
-        ['delete', '/article/delete/{id:\d+}', 'GET'], // action, url, method
+        ['add', '/admin/article/add', ['GET', 'POST']], // action, url, method
+        ['edit', '/admin/article/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
+        ['show', '/admin/article/{id:\d+}', 'GET'], // action, url, method
+        ['delete', '/admin/article/delete/{id:\d+}', 'GET'], // action, url, method
+        ['showListArticles', '/articles', 'GET'], // action, url, method
     ],
 ];
