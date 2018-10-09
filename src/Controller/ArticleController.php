@@ -45,4 +45,12 @@ class ArticleController extends AbstractController
         return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles]);
 
     }
+        // voir listes des articles dans l'admin
+    public function adminShowArticles()
+    {
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $articles = $articleManager->selectAll();
+        return $this->twig->render('Article/adminListArticles.html.twig', ['article' => $articles]);
+    }
 }
