@@ -49,6 +49,46 @@ li.nav-item:nth-child(2) > a:nth-child(1) {
 li.nav-item:nth-child(4) > a:nth-child(1) {
     padding-right: 360px;
 }
+/* HOME PAGE */
+
+.banner
+{
+    margin-top: -10px;
+    height: 55vw;
+    background: url("../../assets/images/header_background.jpg") no-repeat fixed 50% 10%;
+    background-size: calc(100%);
+
+
+}
+.firstLetter
+{
+    color: orange;
+}
+.banner h1
+{
+    color: white;
+    padding-top: 15%;
+    font-size: 3vw;
+
+
+}
+
+
+/* END HOME PAGE */
+
+
+/*---------------------------------------------------*/
+
+/* -------SEPARATOR ----------*/
+.bg-separator
+{
+height: 20vw;
+background: url("../../assets/images/header_background.jpg");
+background-attachment: fixed;
+background-position: 50% 10%;
+background-repeat: no-repeat;
+background-size: calc(100%);
+}
 
 
 /* FOOTER */
@@ -82,9 +122,14 @@ body {
 .footer {
     background-color: #6D909C;
 }
+body
+{
+    background-color: #EDEDED;
+}
 
 body > .container {
     padding: 60px 15px 0;
+
 }
 
 .footer > .container {

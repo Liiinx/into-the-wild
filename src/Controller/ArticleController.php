@@ -53,4 +53,13 @@ class ArticleController extends AbstractController
         $articles = $articleManager->selectAll();
         return $this->twig->render('Article/adminListArticles.html.twig', ['article' => $articles]);
     }
+    public function homeShowListArticles()
+    {
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $articles = $articleManager->selectAll();
+        //var_dump($articles);
+        return $this->twig->render('Article/homePage.html.twig', ['article' => $articles]);
+
+    }
 }
