@@ -44,7 +44,15 @@ class ArticleManager extends AbstractManager
         return $this->pdo->lastInsertId();
 
     }
+    // fonction delete un article dans admin
+    public function delete($id)
+    {
+        $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id = :id");
+        $statement->execute([':id' => $id]);
 
+        //$_SERVER['HTTP_REFERER'] = Sert à retourner sur la page précédente
+        return header('Location: ' .  $_SERVER['HTTP_REFERER']);
+    }
 
 
 

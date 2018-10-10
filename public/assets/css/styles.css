@@ -113,3 +113,13 @@ code {
     font-size: 20px;
     color: white;
 }
+
+/* Admin */
+
+.preview_content {
+    display: block;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
