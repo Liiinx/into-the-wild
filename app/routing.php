@@ -29,4 +29,5 @@ $routes = [
         ['adminShowArticles', '/admin/articles', 'GET'], // action, url, method
         ['showListArticles', '/articles', 'GET'], // action, url, method
     ],
+
 ];
