@@ -19,6 +19,7 @@ class ArticleController extends AbstractController
 
         return $this->twig->render('Article/show.html.twig', ['article' => $article]);
     }
+
     public function add()
     {
 
@@ -44,5 +45,14 @@ class ArticleController extends AbstractController
         //var_dump($articles);
         return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles]);
 
+    }
+
+    public function showArticleUser(int $id)
+    {
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $article = $articleManager->selectOneById($id);
+
+        return $this->twig->render('Article/showOneArticleUser.html.twig', ['article' => $article]);
     }
 }
