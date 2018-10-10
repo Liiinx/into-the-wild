@@ -47,6 +47,15 @@ class ArticleController extends AbstractController
 
     }
 
+    public function showArticleUser(int $id)
+    {
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $article = $articleManager->selectOneById($id);
+
+        return $this->twig->render('Article/showOneArticleUser.html.twig', ['article' => $article]);
+    }
+
     // voir listes des articles dans l'admin
     public function adminShowArticles()
     {
