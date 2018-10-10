@@ -1,0 +1,29 @@
+{% extends 'adminLayout.html.twig' %}
+
+{% block content %}
+    <h1>Liste des articles</h1>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for articles in article %}
+            <tr>
+                <td><h4>{{ articles.titre }}</h4></td>
+
+                <td> <span class="preview_content">{{ articles.contenu[:50] ~ '...' }}</span> </td>
+                <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+                        <button type="button"  style="margin-right: 5px;" class="btn btn-outline-secondary"><i class="fas fa-pencil-alt"></i></button>
+                        <a type="button" href="/admin/article/delete/{{ articles.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
+
+                    </div></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

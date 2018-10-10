@@ -114,6 +114,7 @@ code {
     color: white;
 }
 
+
 /* showListArticles Camilo */
 
 .card-deck
@@ -142,3 +143,14 @@ code {
     max-width: 100%;
     margin-bottom: 5px;
 }
+
+/* Admin */
+
+.preview_content {
+    display: block;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+

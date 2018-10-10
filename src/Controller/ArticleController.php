@@ -35,7 +35,7 @@ class ArticleController extends AbstractController
         return $this->twig->render('Article/add.html.twig');
     }
 
-   // showListArticles, En tant qu'utilisateur je veux voir la liste des articles afin d'en choisir un(5)
+    // showListArticles, En tant qu'utilisateur je veux voir la liste des articles afin d'en choisir un(5)
 
     public function showListArticles()
     {
@@ -55,4 +55,24 @@ class ArticleController extends AbstractController
 
         return $this->twig->render('Article/showOneArticleUser.html.twig', ['article' => $article]);
     }
+
+    // voir listes des articles dans l'admin
+    public function adminShowArticles()
+    {
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $articles = $articleManager->selectAll();
+        return $this->twig->render('Article/adminListArticles.html.twig', ['article' => $articles]);
+    }
+
+    public function deleteArticle(int $id)
+    {
+
+        // TODO faire une securité qui permet de verifier si c'est bien un admin et qu'il est bien connecté.
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $deleteArticle = $articleManager->delete($id);
+
+    }
+
 }
