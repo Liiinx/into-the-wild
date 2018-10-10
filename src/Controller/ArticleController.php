@@ -10,8 +10,12 @@ namespace Controller; //
 use Model\Article;
 use Model\ArticleManager;
 
+
+
 class ArticleController extends AbstractController
 {
+
+    /* Fonction qui permet d'afficher tout les articles */
     public function show(int $id)
     {
         $articleManager = new ArticleManager($this->getPdo());
@@ -20,23 +24,34 @@ class ArticleController extends AbstractController
         return $this->twig->render('Article/show.html.twig', ['article' => $article]);
     }
 
+  
     public function add()
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
             $articleManager = new ArticleManager($this->getPdo());
             $article = new Article();
-            $article->setTitre($_POST['titre']);
-            $article->setContenu($_POST['contenu']);
-            $id = $articleManager->insert($article);
-            header('Location:/article/' . $id);
+
+            /* Validation des champs */
+            $this->validator->sendData($_POST);
+            $this->validator->isNotEmpty('titre');
+            $this->validator->isNotEmpty('contenu');
+
+            /* Si il n'y a pas d'erreurs */
+            if(empty($this->validator->getErrors())){
+                $article->setTitre($_POST['titre']);
+                $article->setContenu($_POST['contenu']);
+                $id = $articleManager->insert($article);
+                header('Location:/article/' . $id);
+            }
         }
 
-        return $this->twig->render('Article/add.html.twig');
+        return $this->twig->render('Article/add.html.twig', ['errors' => $this->validator->getErrors()]);
     }
 
-    // showListArticles, En tant qu'utilisateur je veux voir la liste des articles afin d'en choisir un(5)
-
+  
+    /* [CLIENT] afficher la liste globale de tout les articles */
     public function showListArticles()
     {
 
@@ -46,6 +61,7 @@ class ArticleController extends AbstractController
         return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles]);
 
     }
+
 
     public function showArticleUser(int $id)
     {
@@ -57,7 +73,8 @@ class ArticleController extends AbstractController
     }
 
     // voir listes des articles dans l'admin
-    public function adminShowArticles()
+
+  public function adminShowArticles()
     {
 
         $articleManager = new ArticleManager($this->getPdo());

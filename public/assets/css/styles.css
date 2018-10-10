@@ -6,23 +6,19 @@ body {
     text-align: center;
 }
 
-
 #navbarsExampleDefault {
     background-color: #6D909C;
     font-weight: bold;
 }
-
 
 .navbar {
     background-color: #6D909C !important;
     font-weight: bold;
 }
 
-
 .img_wcs {
     width: 40px;
 }
-
 
 .base_wcs_orange {
     text-transform: uppercase;
@@ -98,8 +94,6 @@ code {
 
 /* END FOOTER */
 
-
-
 .wcs_brand_orange {
     text-transform: uppercase;
     font-weight: bold;
@@ -115,7 +109,13 @@ code {
 }
 
 
-/* showListArticles Camilo */
+.gray-btn {
+
+    background-color: #6D909C !important;
+    border-color: #6D909C !important;
+
+}
+
 
 .card-deck
 {
@@ -152,5 +152,12 @@ code {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.gray-btn {
+
+    background-color: #6D909C !important;
+    border-color: #6D909C !important;
+
 }
 

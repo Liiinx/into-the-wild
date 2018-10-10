@@ -30,4 +30,5 @@ $routes = [
         ['showListArticles', '/articles', 'GET'], // action, url, method
         ['showArticleUser', '/article/{id:\d+}', 'GET']
     ],
+
 ];
