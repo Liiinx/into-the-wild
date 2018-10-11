@@ -69,10 +69,18 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     color: white;
     padding-top: 15%;
     font-size: 3vw;
-
-
 }
-
+.card-text
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.btn-sm
+{
+    background-color: orange;
+    border: none;
+}
 
 /* END HOME PAGE */
 
