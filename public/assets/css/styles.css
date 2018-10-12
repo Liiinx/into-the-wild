@@ -170,7 +170,7 @@ code {
 }
 
 
-.card-deck
+.cardDeck
 {
     max-width: 70%;
     background-color: white;
@@ -185,7 +185,7 @@ code {
     margin-right: 20px !important;
     margin-left: 20px !important;
 }
-.card-text {
+.cardText {
     width: 80%;
     height: 3.2em;
     text-align: justify;
