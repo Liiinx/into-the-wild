@@ -21,10 +21,9 @@ class ArticleController extends AbstractController
         $articleManager = new ArticleManager($this->getPdo());
         $article = $articleManager->selectOneById($id);
 
-        return $this->twig->render('Article/show.html.twig', ['article' => $article]);
+        return $this->twig->render('Article/adminshowArticle.html.twig', ['article' => $article]);
     }
 
-  
     public function add()
     {
 
