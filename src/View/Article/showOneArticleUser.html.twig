@@ -2,7 +2,21 @@
 
 {% block content %}
 
-    <h1>{{ article.titre }}</h1>
-    <p>{{ article.contenu }}</p>
+    <h2>Category : <span class="orange">Actualités à la Wild</span></h2>
+    <hr>
+
+
+    <div class="row">
+        <div class="col-4">
+            <img class="card-img-top imageArticle" src="/assets/images/pollen_colorized.jpg" alt="pollen">
+
+        </div>
+        <div class="col-5">
+            <h1>{{ article.titre }}</h1>
+            <p>{{ article.contenu }}</p>
+
+        </div>
+
+    </div>
 
 {% endblock %}
