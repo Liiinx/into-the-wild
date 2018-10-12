@@ -92,7 +92,6 @@ class ArticleController extends AbstractController
 
     }
 
-
     public function deleteArticle(int $id)
     {
 
