@@ -1,11 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-
-    <h2>Category : <span class="orange">Actualités à la Wild</span></h2>
-
-
-    <hr>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-10 offset-1">
+            <h2>Category : <span class="orange">Actualités à la Wild</span></h2>
+            <hr>
+        </div>
+    </div>
     <div class="row">
 
         <div class="col-4 offset-1">
@@ -13,12 +15,12 @@
             <img src="/assets/images/pollen_colorized.jpg" alt="pollen">
 
         </div>
-        <div class="col-5">
+        <div class="col-6">
             <h1>{{ article.titre }}</h1>
-            <p>{{ article.contenu }}</p>
+            <p class="motcoupe">{{ article.contenu }}</p>
 
         </div>
 
     </div>
-
+</div>
 {% endblock %}
