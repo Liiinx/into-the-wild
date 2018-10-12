@@ -1,31 +1,33 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+    <div class="container">
     <h1>Liste de nos articles</h1>
+    </div>
 
 
     <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                {% for articles in article %}
+                    <!-- <marquee scrollamount="350"> DEFILEMENT MARRANT-->
 
-    <div class="card-deck cardDeck">
-
-    {% for articles in article %}
-        <!-- <marquee scrollamount="350"> DEFILEMENT MARRANT-->
-
-        <div class="col-xs-12 col-md-6 col-lg-3 card cardArticle p-2 flex-fill">
-                <img class="card-img-top imageArticle" src="/assets/images/lauriane.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ articles.titre  }}</h5>
-                    <p class="card-text cardText">{{ articles.contenu[:50] ~ '...' }}</p>
-                    <a href="/article/{{ articles.id }}" target="_blank">
-                        <button type="button" class="btn btn-secondary">Voir plus...</button>
-                    </a>
-                </div>
+                    <div class="col-xs-12 col-md-6 col-lg-4">
+                        <div class="card p-3 m-2">
+                            <img class="card-img-top imageArticle" src="/assets/images/cartePostale.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ articles.titre  }}</h5>
+                                <p class="card-text cardText">{{ articles.contenu[:50] ~ '...' }}</p>
+                                <a href="/article/{{ articles.id }}" target="_blank">
+                                    <button type="button" class="btn btn-secondary">Voir plus...</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-    {% endfor %}
-
         </div>
-
-            </div>
+    </div>
     <nav aria-label="..." >
         <ul class="pagination pagination-md justify-content-center">
 
