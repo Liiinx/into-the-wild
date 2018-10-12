@@ -6,7 +6,7 @@
 
     <div class="row">
 
-    <div class="card-deck">
+    <div class="card-deck cardDeck">
 
     {% for articles in article %}
         <!-- <marquee scrollamount="350"> DEFILEMENT MARRANT-->
@@ -15,7 +15,7 @@
                 <img class="card-img-top imageArticle" src="/assets/images/lauriane.jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{ articles.titre  }}</h5>
-                    <p class="card-text">{{ articles.contenu[:50] ~ '...' }}</p>
+                    <p class="card-text cardText">{{ articles.contenu[:50] ~ '...' }}</p>
                     <a href="/article/{{ articles.id }}" target="_blank">
                         <button type="button" class="btn btn-secondary">Voir plus...</button>
                     </a>

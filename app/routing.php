@@ -28,6 +28,7 @@ $routes = [
         ['deleteArticle', '/admin/article/delete/{id:\d+}', 'GET'], // action, url, method
         ['adminShowArticles', '/admin/articles', 'GET'], // action, url, method
         ['showListArticles', '/articles', 'GET'], // action, url, method
+        ['homeShowListArticles', '/home', 'GET'], // home page
         ['showArticleUser', '/article/{id:\d+}', 'GET']
     ],
 
