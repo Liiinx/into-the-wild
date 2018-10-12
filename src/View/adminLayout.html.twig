@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap style -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+
+    <!-- Personal style -->
+    <link rel="stylesheet" href="/assets/css/adminStyles.css">
+
+    <!-- Font awesome style -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+
+    {% block stylesheet %}{% endblock %}
+    <link rel="icon" href="/assets/images/favicon.png">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <img class="navbar-brand img-fluid img_wcs" src="/assets/images/adminLogo.png" alt="logo">
+    <a class="navbar-brand" href="#"><span class="base_wcs_orange">wcs</span><span class="base_wcs_white">.admin</span></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+        <ul class="navbar-nav mr-auto">
+
+
+
+        </ul>
+
+        <ul class="navbar-nav mr-auto">
+
+
+        </ul>
+
+
+    </div>
+</nav>
+
+<!-- SLIDE BAR INFOS -->
+
+<div class="slide-admin-infos container-fluid d-flex justify-content-between">
+    <div class="col-4">
+        <p>Connectés-></p>
+    </div>
+    <div class="col-8">
+        <marquee>Le texte à faire défiler</marquee>
+    </div>
+</div>
+
+<!-- END SLIDE BAR INFOS -->
+
+<main role="main" class="container">
+
+{% block content %}{% endblock %}
+
+
+
+{% block javascript %}{% endblock %}
+
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+
+        <span class="text-muted"> <span class="wcs_brand_orange">WCS</span> <span class="wcs_brand_white">.COM</span> </span>
+
+
+
+
+    </div>
+</footer>
+
+</body>
+</html>

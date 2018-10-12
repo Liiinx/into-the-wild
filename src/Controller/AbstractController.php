@@ -14,6 +14,7 @@ use Twig_Environment;
 
 use App\Connection;
 
+use Controller\Validator;
 /**
  *
  */
@@ -28,6 +29,11 @@ abstract class AbstractController
      * @var \PDO
      */
     protected $pdo;
+
+    /**
+     * @var \Controller\Validator
+     */
+    protected $validator;
 
     /**
      *  Initializes this class.
@@ -46,6 +52,8 @@ abstract class AbstractController
 
         $connection = new Connection();
         $this->pdo = $connection->getPdoConnection();
+
+        $this->validator = new Validator();
     }
 
     /**
