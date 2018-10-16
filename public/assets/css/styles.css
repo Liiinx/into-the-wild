@@ -1,0 +1,225 @@
+body {
+    padding-top: 5rem;
+}
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+#navbarsExampleDefault {
+    background-color: #6D909C;
+    font-weight: bold;
+}
+
+.navbar {
+    background-color: #6D909C !important;
+    font-weight: bold;
+}
+
+.img_wcs {
+    width: 40px;
+}
+
+.base_wcs_orange {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+    color: orange;
+}
+
+
+.base_wcs_white {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+}
+
+
+li.nav-item:nth-child(2) > a:nth-child(1) {
+    margin-right: 40px;
+    margin-left: 75px;
+}
+
+
+li.nav-item:nth-child(4) > a:nth-child(1) {
+    padding-right: 360px;
+}
+/* HOME PAGE */
+
+.banner
+{
+    margin-top: -10px;
+    height: 55vw;
+    background: url("../../assets/images/header_background.jpg") no-repeat fixed 50% 10%;
+    background-size: calc(100%);
+
+
+}
+.firstLetter
+{
+    color: orange;
+}
+.banner h1
+{
+    color: white;
+    padding-top: 15%;
+    font-size: 3vw;
+}
+.card-text
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.btn-sm
+{
+    background-color: orange;
+    border: none;
+}
+
+/* END HOME PAGE */
+
+
+/*---------------------------------------------------*/
+
+/* -------SEPARATOR ----------*/
+.bg-separator
+{
+    height: 20vw;
+    background: url("../../assets/images/header_background.jpg");
+    background-attachment: fixed;
+    background-position: 50% 10%;
+    background-repeat: no-repeat;
+    background-size: calc(100%);
+}
+
+
+/* FOOTER */
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.footer {
+    background-color: #6D909C;
+}
+body
+{
+    background-color: #EDEDED;
+}
+
+body > .container {
+    padding: 60px 15px 0;
+
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+code {
+    font-size: 80%;
+}
+
+/* END FOOTER */
+
+.wcs_brand_orange {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    color: orange;
+}
+
+.wcs_brand_white {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+
+.gray-btn {
+
+    background-color: #6D909C !important;
+    border-color: #6D909C !important;
+
+}
+
+
+.cardDeck
+{
+    max-width: 70%;
+    background-color: white;
+    justify-content: center;
+}
+
+.cardArticle {
+
+    box-shadow: 3px 3px 25px black;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    margin-right: 20px !important;
+    margin-left: 20px !important;
+}
+.cardText {
+    width: 80%;
+    height: 3.2em;
+    text-align: justify;
+    overflow: hidden;
+}
+.imageArticle
+{
+    max-width: 100%;
+    margin-bottom: 5px;
+}
+
+/* Admin */
+
+.preview_content {
+    display: block;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.gray-btn {
+
+    background-color: #6D909C !important;
+    border-color: #6D909C !important;
+
+}
+
+/*-----------------------------------------------------------
+showOneArticleUser    vue d'un article en front, coté user */
+
+.orange {
+    color: orange;
+}
+.motcoupe {
+    word-break: break-all;
+}
