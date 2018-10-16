@@ -137,7 +137,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ articles.titre  }}</h5>
             <p class="card-text">{{ articles.contenu }}</p>
-            <a href="/article/{id:\d+}" target="_blank" class="btn btn-primary btn-sm">Read me!</a>
+            <a href="/article/{{ articles.id }}" class="btn btn-primary btn-sm">Read me!</a>
         </div>
     </div>
     {% endfor %}

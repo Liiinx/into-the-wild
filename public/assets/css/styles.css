@@ -176,12 +176,7 @@ code {
     justify-content: flex-start;
 }
 
-.cardText {
-    width: 80%;
-    height: 3.2em;
-    text-align: justify;
-    overflow: hidden;
-}
+
 .imageArticle
 {
     max-width: 100%;
