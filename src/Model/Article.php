@@ -12,10 +12,10 @@ namespace Model;
 class Article
 {
     private $id;
-    private $titre;
-    private $contenu;
+    private $title;
+    private $content;
     private $user_id;
-    private $categorie_id;
+    private $category_id;
 
     /**
      * @return mixed
@@ -36,33 +36,33 @@ class Article
     /**
      * @return mixed
      */
-    public function getTitre()
+    public function getTitle()
     {
-        return $this->titre;
+        return $this->title;
     }
 
     /**
-     * @param mixed $titre
+     * @param mixed $title
      */
-    public function setTitre($titre)
+    public function setTitle($title)
     {
-        $this->titre = $titre;
+        $this->title = $title;
     }
 
     /**
      * @return mixed
      */
-    public function getContenu()
+    public function getContent()
     {
-        return $this->contenu;
+        return $this->content;
     }
 
     /**
-     * @param mixed $contenu
+     * @param mixed $content
      */
-    public function setContenu($contenu)
+    public function setContent($content)
     {
-        $this->contenu = $contenu;
+        $this->content = $content;
     }
 
     /**
@@ -84,17 +84,17 @@ class Article
     /**
      * @return mixed
      */
-    public function getCategorieId()
+    public function getCategoryId()
     {
-        return $this->categorie_id;
+        return $this->category_id;
     }
 
     /**
-     * @param mixed $categorie_id
+     * @param mixed $category_id
      */
-    public function setCategorieId($categorie_id)
+    public function setCategoryId($category_id)
     {
-        $this->categorie_id = $categorie_id;
+        $this->category_id = $category_id;
     }
 
 }

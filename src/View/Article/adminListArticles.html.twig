@@ -13,9 +13,9 @@
         <tbody>
             {% for articles in article %}
             <tr>
-                <td><h4>{{ articles.titre }}</h4></td>
+                <td><h4>{{ articles.title }}</h4></td>
 
-                <td> <span class="preview_content">{{ articles.contenu[:50] ~ '...' }}</span> </td>
+                <td> <span class="preview_content">{{ articles.content[:50] ~ '...' }}</span> </td>
                 <td><div class="btn-group btn-group-toggle" data-toggle="buttons">
 
                         <button type="button"  style="margin-right: 5px;" class="btn btn-outline-secondary" disabled><i class="fas fa-pencil-alt"></i></button>
