@@ -15,6 +15,11 @@ use Model\ArticleManager;
 class ArticleController extends AbstractController
 {
 
+
+    public function index(){
+        return $this->twig->render('Article/homePage.html.twig');
+    }
+
     /* Fonction qui permet d'afficher tout les articles */
     public function show(int $id)
     {
@@ -42,7 +47,7 @@ class ArticleController extends AbstractController
                 $article->setTitre($_POST['titre']);
                 $article->setContenu($_POST['contenu']);
                 $id = $articleManager->insert($article);
-                header('Location:/article/' . $id);
+                return header('Location: /admin/articles');
             }
         }
 

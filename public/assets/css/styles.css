@@ -86,12 +86,12 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
 /* -------SEPARATOR ----------*/
 .bg-separator
 {
-height: 20vw;
-background: url("../../assets/images/header_background.jpg");
-background-attachment: fixed;
-background-position: 50% 10%;
-background-repeat: no-repeat;
-background-size: calc(100%);
+    height: 20vw;
+    background: url("../../assets/images/header_background.jpg");
+    background-attachment: fixed;
+    background-position: 50% 10%;
+    background-repeat: no-repeat;
+    background-size: calc(100%);
 }
 
 
@@ -173,9 +173,25 @@ code {
 .cardDeck
 {
     max-width: 70%;
-    justify-content: flex-start;
+    background-color: white;
+    justify-content: center;
 }
 
+
+.cardArticle {
+
+    box-shadow: 3px 3px 25px black;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    margin-right: 20px !important;
+    margin-left: 20px !important;
+}
+.cardText {
+    width: 80%;
+    height: 3.2em;
+    text-align: justify;
+    overflow: hidden;
+}
 
 .imageArticle
 {
@@ -201,7 +217,6 @@ code {
 }
 
 /*-----------------------------------------------------------
-
 showOneArticleUser    vue d'un article en front, coté user */
 
 .orange {
