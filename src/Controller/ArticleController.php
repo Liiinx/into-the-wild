@@ -15,16 +15,20 @@ use Model\ArticleManager;
 class ArticleController extends AbstractController
 {
 
+
+    public function index(){
+        return $this->twig->render('Article/homePage.html.twig');
+    }
+
     /* Fonction qui permet d'afficher tout les articles */
     public function show(int $id)
     {
         $articleManager = new ArticleManager($this->getPdo());
         $article = $articleManager->selectOneById($id);
 
-        return $this->twig->render('Article/show.html.twig', ['article' => $article]);
+        return $this->twig->render('Article/adminshowArticle.html.twig', ['article' => $article]);
     }
 
-  
     public function add()
     {
 
@@ -43,7 +47,7 @@ class ArticleController extends AbstractController
                 $article->setTitre($_POST['titre']);
                 $article->setContenu($_POST['contenu']);
                 $id = $articleManager->insert($article);
-                header('Location:/article/' . $id);
+                return header('Location: /admin/articles');
             }
         }
 
@@ -80,6 +84,16 @@ class ArticleController extends AbstractController
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
         return $this->twig->render('Article/adminListArticles.html.twig', ['article' => $articles]);
+    }
+
+    public function homeShowListArticles()
+    {
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $articles = $articleManager->selectAll();
+        //var_dump($articles);
+        return $this->twig->render('Article/homePage.html.twig', ['article' => $articles]);
+
     }
 
     public function deleteArticle(int $id)
