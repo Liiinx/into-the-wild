@@ -29,12 +29,12 @@ class ArticleManager extends AbstractManager
     {
         // prepared request
 
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (titre, contenu)
-    VALUES (:titre, :contenu)");
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (title, content)
+    VALUES (:title, :content)");
 
 
-        $statement->bindValue(':titre', $article->getTitre(), \PDO::PARAM_STR);
-        $statement->bindValue(':contenu', $article->getContenu(), \PDO::PARAM_STR);
+        $statement->bindValue(':title', $article->getTitle(), \PDO::PARAM_STR);
+        $statement->bindValue(':content', $article->getContent(), \PDO::PARAM_STR);
 
         // $statement->bindValue(':user_id', $user_id, \PDO::PARAM_STR);
 

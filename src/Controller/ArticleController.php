@@ -39,13 +39,13 @@ class ArticleController extends AbstractController
 
             /* Validation des champs */
             $this->validator->sendData($_POST);
-            $this->validator->isNotEmpty('titre');
-            $this->validator->isNotEmpty('contenu');
+            $this->validator->isNotEmpty('title');
+            $this->validator->isNotEmpty('content');
 
             /* Si il n'y a pas d'erreurs */
             if(empty($this->validator->getErrors())){
-                $article->setTitre($_POST['titre']);
-                $article->setContenu($_POST['contenu']);
+                $article->setTitle($_POST['title']);
+                $article->setContent($_POST['content']);
                 $id = $articleManager->insert($article);
                 return header('Location: /admin/articles');
             }

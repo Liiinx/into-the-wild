@@ -18,7 +18,7 @@
         <!-- <br/>
         <br/>
         <label>Contenu : </label><br/>
-        <textarea value="{{ article.contenu }}" name="contenu" rows="6" cols="30"></textarea>
+        <textarea value="{{ article.content }}" name="content" rows="6" cols="30"></textarea>
         <br/>
         <br/>
         <input type="submit" value="Valider">
@@ -27,13 +27,13 @@
 <form method="post">
 
         <div class="form-group">
-                <label for="titre">Titre de l'article : </label>
-                <input type="text" name="titre" value="{{ article.titre }}" class="form-control" placeholder="Titre de votre article">
+                <label for="title">Titre de l'article : </label>
+                <input type="text" name="title" value="{{ article.title }}" class="form-control" placeholder="Titre de votre article">
         </div>
 
         <div class="form-group">
-                <label for="contenu">Contenu de l'article : </label>
-                <textarea name="contenu" rows="6" cols="30" class="form-control" placeholder="Contenu de l'article">{{ article.contenu }}</textarea>
+                <label for="content">Contenu de l'article : </label>
+                <textarea name="content" rows="6" cols="30" class="form-control" placeholder="Contenu de l'article">{{ article.content }}</textarea>
         </div>
 
         <div style="padding-bottom: 20px;">
