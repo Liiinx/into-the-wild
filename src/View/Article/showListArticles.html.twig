@@ -1,44 +1,51 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <div class="container">
+    <div class="container mb-4">
     <h1>Liste de nos articles</h1>
-    </div>
 
-
-    <div class="row">
-        <div class="col-md-8">
-            <div class="row">
-                {% for articles in article %}
-                    <!-- <marquee scrollamount="350"> DEFILEMENT MARRANT-->
-
-                    <div class="col-xs-12 col-md-6 col-lg-4">
-                        <div class="card p-3 m-2">
-                            <img class="card-img-top imageArticle" src="/assets/images/cartePostale.png" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ articles.title  }}</h5>
-                                <p class="card-text cardText">{{ articles.content[:50] ~ '...' }}</p>
-                                <a href="/article/{{ articles.id }}" target="_blank">
-                                    <button type="button" class="btn btn-secondary">Voir plus...</button>
-                                </a>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    {% for articles in article %}
+                        <!-- <marquee scrollamount="350"> DEFILEMENT MARRANT-->
+                        <div class="col-xs-12 col-md-6 col-lg-6">
+                            <div class="card p-3 m-2">
+                                <img class="card-img-top imageArticle" src="/assets/images/pollen_colorized.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ articles.title  }}</h5>
+                                    <p class="card-text cardText">{{ articles.content[:50] ~ '...' }}</p>
+                                    <a href="/article/{{ articles.id }}">
+                                        <button type="button" class="btn btn-secondary">Voir plus...</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
-    <nav aria-label="..." >
-        <ul class="pagination pagination-md justify-content-center">
 
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item"><a class="page-link" href="#">6</a></li>
-            <li class="page-item"><a class="page-link" href="#">7</a></li>
-        </ul>
-    </nav>
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 
 {% endblock %}
