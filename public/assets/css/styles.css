@@ -161,3 +161,30 @@ code {
 
 }
 
+.admin-infos-card {
+    text-align: center;
+    margin-left: 50%;
+    font-weight: bold;
+    font-size: 45px;
+}
+.admin-infos-card-button {
+    text-align: center;
+    padding-top: 30px;
+}
+
+.admin-infos-card-color {
+    background-color: #6D909C;
+}
+
+.admin-infos-table {
+    border-radius: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 50%;
+    margin: 0px auto;
+    float: none;
+}
+
+.thead-admin-gray {
+    background-color: orange;
+}

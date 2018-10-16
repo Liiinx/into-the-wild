@@ -31,4 +31,8 @@ $routes = [
         ['showArticleUser', '/article/{id:\d+}', 'GET']
     ],
 
+
+    'Admin' => [ // Route concernant l'administration.
+      ['index', '/admin/', 'GET'], // Route qui affiche la page d'accueil
+    ],
 ];
