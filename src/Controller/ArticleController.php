@@ -39,13 +39,13 @@ class ArticleController extends AbstractController
 
             /* Validation des champs */
             $this->validator->sendData($_POST);
-            $this->validator->isNotEmpty('titre');
-            $this->validator->isNotEmpty('contenu');
+            $this->validator->isNotEmpty('title');
+            $this->validator->isNotEmpty('content');
 
             /* Si il n'y a pas d'erreurs */
             if(empty($this->validator->getErrors())){
-                $article->setTitre($_POST['titre']);
-                $article->setContenu($_POST['contenu']);
+                $article->setTitle($_POST['title']);
+                $article->setContent($_POST['content']);
                 $id = $articleManager->insert($article);
                 return header('Location: /admin/articles');
             }
@@ -106,4 +106,28 @@ class ArticleController extends AbstractController
 
     }
 
+    //modification d'un article coté admin
+    public function edit(int $id): string
+    {
+        $articleManager = new ArticleManager($this->getPdo());
+        $article = $articleManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            /* Validation des champs */
+            $this->validator->sendData($_POST);
+            $this->validator->isNotEmpty('title');
+            $this->validator->isNotEmpty('content');
+
+            /* Si il n'y a pas d'erreurs */
+            if(empty($this->validator->getErrors())) {
+                $article->setTitle($_POST['title']);
+                $article->setContent($_POST['content']);
+                $articleManager->update($article);
+                return header('Location: /admin/articles');
+
+            }
+        }
+        return $this->twig->render('Article/edit.html.twig', ['errors' => $this->validator->getErrors(), 'article' => $article]);
+    }
 }

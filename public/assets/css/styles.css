@@ -177,6 +177,7 @@ code {
     justify-content: center;
 }
 
+
 .cardArticle {
 
     box-shadow: 3px 3px 25px black;
@@ -191,6 +192,7 @@ code {
     text-align: justify;
     overflow: hidden;
 }
+
 .imageArticle
 {
     max-width: 100%;

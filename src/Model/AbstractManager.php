@@ -24,7 +24,7 @@ abstract class AbstractManager
      */
     protected $table;
     /**
-     * @var string
+     * @var string  $this->selectAll();
      */
     protected $className;
 

@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 <div class="container-fluid banner">
 
 
@@ -135,9 +134,9 @@
     <div class="card mb-1 justify-content-center" style="width: 18rem;">
         <img class="card-img-top" src="/assets/images/Atable.jpeg" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">{{ articles.titre  }}</h5>
-            <p class="card-text">{{ articles.contenu }}</p>
-            <a href="/article/{id:\d+}" target="_blank" class="btn btn-primary btn-sm">Read me!</a>
+            <h5 class="card-title">{{ articles.title  }}</h5>
+            <p class="card-text">{{ articles.content }}</p>
+            <a href="/article/{{ articles.id }}" class="btn btn-primary btn-sm">Read me!</a>
         </div>
     </div>
     {% endfor %}

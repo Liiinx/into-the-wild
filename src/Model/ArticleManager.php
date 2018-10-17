@@ -29,12 +29,12 @@ class ArticleManager extends AbstractManager
     {
         // prepared request
 
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (titre, contenu)
-    VALUES (:titre, :contenu)");
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (title, content)
+    VALUES (:title, :content)");
 
 
-        $statement->bindValue(':titre', $article->getTitre(), \PDO::PARAM_STR);
-        $statement->bindValue(':contenu', $article->getContenu(), \PDO::PARAM_STR);
+        $statement->bindValue(':title', $article->getTitle(), \PDO::PARAM_STR);
+        $statement->bindValue(':content', $article->getContent(), \PDO::PARAM_STR);
 
         // $statement->bindValue(':user_id', $user_id, \PDO::PARAM_STR);
 
@@ -54,6 +54,19 @@ class ArticleManager extends AbstractManager
         return header('Location: ' .  $_SERVER['HTTP_REFERER']);
     }
 
+    //fonction edit un article dans admin
+    public function update(Article $article):int
+    {
+
+        // prepared request
+        $statement = $this->pdo->prepare("UPDATE $this->table SET title = :title, content = :content WHERE id=:id");
+        $statement->bindValue('id', $article->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('title', $article->getTitle(), \PDO::PARAM_STR);
+        $statement->bindValue('content', $article->getContent(), \PDO::PARAM_STR);
+
+
+        return $statement->execute();
+    }
 
 
 }
