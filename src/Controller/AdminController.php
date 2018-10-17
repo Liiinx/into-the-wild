@@ -8,10 +8,12 @@
 
 namespace Controller; //
 
+use Model\UserManager;
+
 class AdminController extends AbstractController
 {
     public function index()
     {
-        return $this->twig->render('Admin/index.html.twig'); //
+        return $this->twig->render('Admin/index.html.twig');
     }
 }
