@@ -31,6 +31,14 @@ class Validator {
 
     public function sendData(array $data){
         $this->data = $data;
+    }    /**
+     * @param string $data
+     * @return Validator
+     */
+    public function setData(string $data): Validator
+    {
+        $this->data = $data;
+        return $this;
     }
 
     /**
@@ -73,6 +81,16 @@ class Validator {
         return true;
     }
 
+
+    /* Validation d'adresse email */
+    public function isEmail($value){
+        if(!filter_var($this->getField($value), FILTER_VALIDATE_EMAIL)){
+            $this->errors[$value] = "Merci de mettre une adresse email valide !";
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Récupération des erreurs
      * @return array
@@ -83,5 +101,6 @@ class Validator {
             return $this->errors;
         }
     }
+
 
 }

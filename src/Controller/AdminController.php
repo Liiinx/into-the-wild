@@ -8,18 +8,17 @@
 
 namespace Controller; //
 
+use Model\UserManager;
+
 use Model\AdminManager;
 
 class AdminController extends AbstractController
 {
     public function index()
     {
-        $countAricles = new AdminManager($this->getPdo());
-
-
-        $countTotalArticles = $countAricles->selectAll();
-
-
+     
+        $countArticles = new AdminManager($this->getPdo());
+        $countTotalArticles = $countArticles->selectAll();
         return $this->twig->render('Admin/index.html.twig', ['countArticles' => $countTotalArticles]); //
     }
 }

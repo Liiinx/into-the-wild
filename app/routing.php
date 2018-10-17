@@ -25,6 +25,7 @@ $routes = [
         ['add', '/admin/article/add', ['GET', 'POST']], // action, url, method
         ['edit', '/admin/article/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
         ['show', '/admin/article/{id:\d+}', 'GET'], // action, url, method
+
         ['deleteArticle', '/admin/article/delete/{id:\d+}', 'GET'], // action, url, method
         ['adminShowArticles', '/admin/articles', 'GET'], // action, url, method
         ['showListArticles', '/articles', 'GET'], // action, url, method
@@ -32,6 +33,10 @@ $routes = [
         ['showArticleUser', '/article/{id:\d+}', 'GET']
     ],
 
+    'User' => [
+        ['form', '/login', ['GET', 'POST']],
+        ['inscription', '/login/inscription', ['GET', 'POST']],
+    ],
 
     'Admin' => [ // Route concernant l'administration.
       ['index', '/admin/', 'GET'], // Route qui affiche la page d'accueil
