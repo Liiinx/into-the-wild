@@ -8,7 +8,8 @@
 
 namespace Controller;
 
-use Model\ItemManager;
+//use Model\ItemManager;
+use Model\User;
 use Model\UserManager;
 
 
@@ -53,6 +54,23 @@ class UserController extends AbstractController
         }
 
         return $this->twig->render('login.html.twig', ['errors' => $this->validator->getErrors()]);
+    }
+
+    public function inscription()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $UserManager = new UserManager($this->getPdo());
+            $user = new User();
+            $user->setName($_POST['name']);
+            $user->setFirstname($_POST['firstname']);
+            $user->setMail($_POST['mail']);
+            $user->setPassword($_POST['password']);
+            $id = $UserManager->insert($user);
+            header('Location:/');
+        }
+
+        return $this->twig->render('User/inscription.html.twig');
     }
 
 }

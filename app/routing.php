@@ -37,6 +37,7 @@ $routes = [
 
     'User' => [
         ['form', '/login', ['GET', 'POST']],
+        ['inscription', '/login/inscription', ['GET', 'POST']],
     ],
 
     'Admin' => [ // Route concernant l'administration.
