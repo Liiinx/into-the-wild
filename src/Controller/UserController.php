@@ -28,18 +28,26 @@ class UserController extends AbstractController
 
         if($_SERVER['REQUEST_METHOD'] === "POST"){
 
+            /* Espace validation */
             $this->validator->sendData($_POST);
             $this->validator->isNotEmpty('username');
             $this->validator->isNotEmpty('password');
             $this->validator->isEmail('username');
 
-            $user = new UserManager($this->getPdo());
-            $val = $user->selectOneByField("mail", "root@root.com");
+            /* Espace vérification */
 
-            if(password_verify("root", $val->getPassword())){
-                echo "Bon !";
+            $user = new UserManager($this->getPdo());
+            $val = $user->selectOneByField("mail", $_POST['username']);
+
+
+            if($val != false && password_verify($_POST['password'], $val->getPassword())){
+
+
+                echo "Obon !";
+
+
             } else {
-                echo "Pas bon !";
+                echo "Le mot de passe n'est pas bon !";
             }
 
         }

@@ -1,34 +1,36 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Connexion</h1><hr/>
 
-    {% if errors %}
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Du calme !</strong> Une ou des erreurs sont présentes.<br/><br/>
-        {% for error in errors %}
-            <p>{{ error }}</p>
-        {% endfor %}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    {% endif %}
+    <div class="container">
 
-    <form method="POST">
+        <h1>Connexion</h1><hr/>
 
-        <div class="form-group">
-            <label for="username">Votre pseudo :</label>
-            <input type="text" name="username" class="form-control" placeholder="Votre pseudo">
-        </div>
+        {% if errors %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Merci de verifier les champs !</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endif %}
 
-        <div class="form-group">
-            <label for="password">Votre mot de passe :</label>
-            <input type="password" name="password" class="form-control" placeholder="Votre mot de passe">
-        </div>
+        <form method="POST">
 
-        <button type="submit" class="btn btn-success">Connexion</button>
+            <div class="form-group">
+                <label for="username">Votre pseudo :</label>
+                <input type="text" name="username" class="form-control" placeholder="Votre pseudo">
+            </div>
 
-    </form>
+            <div class="form-group">
+                <label for="password">Votre mot de passe :</label>
+                <input type="password" name="password" class="form-control" placeholder="Votre mot de passe">
+            </div>
+
+            <button type="submit" class="btn btn-success">Connexion</button>
+
+        </form>
+
+    </div>
 
 {% endblock %}
