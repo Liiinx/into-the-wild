@@ -11,6 +11,7 @@ namespace Controller;
 //use Model\ItemManager;
 use Model\User;
 use Model\UserManager;
+use Model\ArticleManager;
 
 
 class UserController extends AbstractController
@@ -24,7 +25,8 @@ class UserController extends AbstractController
      * @throws \Twig_Error_Syntax
      */
 
-    public function form ()
+    /* Affiche page login */
+    public function login ()
     {
 
         if($_SERVER['REQUEST_METHOD'] === "POST"){
@@ -56,6 +58,7 @@ class UserController extends AbstractController
         return $this->twig->render('login.html.twig', ['errors' => $this->validator->getErrors()]);
     }
 
+    /* Affiche page inscription */
     public function inscription()
     {
 
@@ -71,6 +74,38 @@ class UserController extends AbstractController
         }
 
         return $this->twig->render('User/inscription.html.twig');
+    }
+
+    /* Affiche un seul article */
+    public function showArticleUser(int $id)
+    {
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $article = $articleManager->selectOneById($id);
+
+        return $this->twig->render('Article/showOneArticleUser.html.twig', ['article' => $article]);
+    }
+
+    /* Affiche les articles page accueil */
+    public function homeShowListArticles()
+    {
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $articles = $articleManager->selectAll();
+        //var_dump($articles);
+        return $this->twig->render('Article/homePage.html.twig', ['article' => $articles]);
+
+    }
+
+    /* Afficher la liste globale des articles */
+    public function showListArticles()
+    {
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $articles = $articleManager->selectAll();
+        //var_dump($articles);
+        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles]);
+
     }
 
 }
