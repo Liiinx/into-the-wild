@@ -11,6 +11,7 @@ namespace Controller; //
 use Model\Article;
 use Model\AdminManager;
 use Model\ArticleManager;
+use Model\User;
 use Model\CommentManager;
 use Model\UserManager;
 
@@ -50,13 +51,20 @@ class AdminController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $userManager = new UserManager($this->getPdo());
+        $commentsManager = new CommentManager($this->getPdo());
+
 
         $articleCount = $articleManager->countArticle();
         $countTable['article'] = $articleCount;
 
-
         $userCount = $userManager->countUsers();
         $countTable['users'] = $userCount;
+
+        $commentsCount = $commentsManager->countComments();
+        $countTable['comments'] = $commentsCount;
+
+
+
         return $this->twig->render('Admin/index.html.twig', ['countTable' => $countTable]);
 
     }
@@ -131,6 +139,15 @@ class AdminController extends AbstractController
         $deleteArticle = $articleManager->delete($id);
 
     }
+    public function deleteUser(int $id)
+    {
+        // Camilo pour le bouton delete user
+
+        $userManager = new UserManager($this->getPdo());
+        $deleteUser = $userManager->delete($id);
+
+    }
+
 
     /* Affiche tout les articles */
     public function adminShowArticles()
@@ -141,11 +158,23 @@ class AdminController extends AbstractController
         return $this->twig->render('Article/adminListArticles.html.twig', ['article' => $articles]);
     }
 
+
     /* Affiche tous les commentaires */
     public function showComment()
     {
         $commentManager = new CommentManager($this->getPdo());
         $comments = $commentManager->selectComments();
         return $this->twig->render('Admin/showComments.html.twig', ['comments' => $comments]);
+    }
+
+    /* Affiche tout les users */
+    public function adminShowUsers()
+    {
+
+        $userManager = new UserManager($this->getPdo());
+        $users = $userManager->selectAll();
+        //var_dump($users);
+        return $this->twig->render('User/adminListUsers.html.twig', ['users' => $users]);
+
     }
 }
