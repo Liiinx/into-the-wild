@@ -24,7 +24,7 @@ abstract class AbstractManager
      */
     protected $table;
     /**
-     * @var string
+     * @var string  $this->selectAll();
      */
     protected $className;
 
@@ -68,4 +68,18 @@ abstract class AbstractManager
 
         return $statement->fetch();
     }
+
+    /* Selectionner une valeur par rapport à sont champ en base de données.  */
+    public function selectOneByField(string $field, string $value)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("SELECT * FROM $this->table WHERE $field = '$value'");
+        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
+        $statement->bindValue($value, $field, \PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetch();
+    }
+
+
 }

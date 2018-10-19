@@ -31,6 +31,14 @@ class Validator {
 
     public function sendData(array $data){
         $this->data = $data;
+    }    /**
+     * @param string $data
+     * @return Validator
+     */
+    public function setData(string $data): Validator
+    {
+        $this->data = $data;
+        return $this;
     }
 
     /**
@@ -66,8 +74,45 @@ class Validator {
      */
 
     public function isAlpha($value){
-        if(!preg_match('/^[a-zA-Z0-9_]+$/', $this->getField($value))){
+        if(!preg_match('/^[a-zA-Z]+$/', $this->getField($value))){
                 $this->errors[$value] = "Le champ $value n'est pas valide";
+            return false;
+        }
+        return true;
+    }
+
+
+    /* Validation d'adresse email */
+    public function isEmail($value){
+        if(!filter_var($this->getField($value), FILTER_VALIDATE_EMAIL)){
+            $this->errors[$value] = "Merci de mettre une adresse email valide !";
+            return false;
+        }
+        return true;
+    }
+
+    /* fonction de verification de champs */
+
+    public function isSecure($value){
+
+        if(empty(trim(strip_tags($this->getField($value))))){
+            $this->errors[$value] = "Le champs : $value n'est pas valide !";
+
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Fonction qui sert à verifier si deux valeurs sont les mêmes ou non
+     * @param string $first
+     * @param string $last
+     * @return bool
+     */
+    public function isSame(string $first, string $last){
+
+        if($this->getField($first) != $this->getField($last)){
+            $this->errors["confirmation"] = "Le champ $first n'est pas le même que $last";
             return false;
         }
         return true;
@@ -82,6 +127,11 @@ class Validator {
         if(!empty($this->errors)){
             return $this->errors;
         }
+    }
+
+    public function setErrors($errorMsg){
+        array_push($this->errors, $errorMsg);
+        return false;
     }
 
 }

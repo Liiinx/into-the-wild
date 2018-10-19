@@ -1,0 +1,21 @@
+{% extends 'adminLayout.html.twig' %}
+
+{% block content %}
+    <h1>Edit article {{ article.title }}</h1>
+
+
+
+    {% if(errors) %}
+            <div class="alert alert-danger">
+                <b>OH snap !</b>
+        {% for error in errors %}
+            <ul>
+                <li>{{ error }}</li>
+            </ul>
+        {% endfor %}
+            </div>
+    {% endif %}
+
+    {% include 'Article/_form.html.twig' %}
+    <a href="/admin/articles">Back</a>
+{% endblock %}

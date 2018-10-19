@@ -10,7 +10,7 @@
     <!-- Bootstrap style -->
     <link rel="stylesheet" href="/assets/css/bootstrap.css">
 
-    <!-- Personal style -->
+    <!-- Personal admin style -->
     <link rel="stylesheet" href="/assets/css/adminStyles.css">
 
     <!-- Font awesome style -->
@@ -21,28 +21,24 @@
 </head>
 
 <body>
+<div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top  justify-content-between">
+    <div><img class="navbar-brand img-fluid img_wcs " src="/assets/images/adminLogo.png" alt="logo">
+    <a class="navbar-brand" href="/admin/"><span class="base_wcs_orange">wcs</span><span class="base_wcs_white">.admin</span></a>
+    </div>
+    <a class="navbar-brand "   href="/deconnexion" role="button">Déconnexion</a>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <img class="navbar-brand img-fluid img_wcs" src="/assets/images/adminLogo.png" alt="logo">
-    <a class="navbar-brand" href="#"><span class="base_wcs_orange">wcs</span><span class="base_wcs_white">.admin</span></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+</div>
+
+
     </button>
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
 
         <ul class="navbar-nav mr-auto">
-
-
-
         </ul>
-
         <ul class="navbar-nav mr-auto">
-
-
         </ul>
-
-
     </div>
 </nav>
 
@@ -59,24 +55,37 @@
 
 <!-- END SLIDE BAR INFOS -->
 
-<main role="main" class="container">
+<div role="main" class="container row">
 
-{% block content %}{% endblock %}
+        <div class="col-12 col-md-3 mt-4">
+                <h6 class="dropdown-header">Menu</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/admin/articles">Articles</a>
+
+                <a class="dropdown-item" href="/admin/article/add">Créer article</a>
+                <a class="dropdown-item" href="#">Commentaires</a>
+                <a class="dropdown-item" href="#">Utilisateurs</a>
 
 
+
+        </div>
+        <div class="col-12 col-md-9">
+
+            {% include "flashes.html.twig" %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </div>
 
 {% block javascript %}{% endblock %}
-
-
-</main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <footer class="footer">
     <div class="container">
 
         <span class="text-muted"> <span class="wcs_brand_orange">WCS</span> <span class="wcs_brand_white">.COM</span> </span>
-
-
-
 
     </div>
 </footer>
