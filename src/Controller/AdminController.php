@@ -11,6 +11,7 @@ namespace Controller; //
 use Model\Article;
 use Model\AdminManager;
 use Model\ArticleManager;
+use Model\CommentManager;
 use Model\UserManager;
 
 class AdminController extends AbstractController
@@ -140,4 +141,11 @@ class AdminController extends AbstractController
         return $this->twig->render('Article/adminListArticles.html.twig', ['article' => $articles]);
     }
 
+    /* Affiche tous les commentaires */
+    public function showComment()
+    {
+        $commentManager = new CommentManager($this->getPdo());
+        $comments = $commentManager->selectComments();
+        return $this->twig->render('Admin/showComments.html.twig', ['comments' => $comments]);
+    }
 }
