@@ -139,9 +139,9 @@ class UserController extends AbstractController
                 $UserManager = new UserManager($this->getPdo());
                 $user = new User();
                 $user->setName(strip_tags(trim(htmlspecialchars($_POST['name']))));
-                $user->setFirstnamestrip_tags(trim(htmlspecialchars($_POST['firstname'])));
+                $user->setFirstname(strip_tags(trim(htmlspecialchars($_POST['firstname']))));
                 $user->setMail(strip_tags(trim(htmlspecialchars($_POST['mail']))));
-                $mdpCrypt=password_hash(strip_tags(trim(htmlspecialchars($_POST['password'], PASSWORD_BCRYPT))));
+                $mdpCrypt=password_hash(strip_tags(trim(htmlspecialchars($_POST['password']))), PASSWORD_BCRYPT);
                 $user->setPassword($mdpCrypt);//
                 $id = $UserManager->insert($user);
                 header('Location:/');
