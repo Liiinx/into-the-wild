@@ -12,6 +12,7 @@ use Model\Article;
 use Model\AdminManager;
 use Model\ArticleManager;
 use Model\User;
+use Model\CommentManager;
 use Model\UserManager;
 
 class AdminController extends AbstractController
@@ -50,13 +51,20 @@ class AdminController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $userManager = new UserManager($this->getPdo());
+        $commentsManager = new CommentManager($this->getPdo());
+
 
         $articleCount = $articleManager->countArticle();
         $countTable['article'] = $articleCount;
 
-
         $userCount = $userManager->countUsers();
         $countTable['users'] = $userCount;
+
+        $commentsCount = $commentsManager->countComments();
+        $countTable['comments'] = $commentsCount;
+
+
+
         return $this->twig->render('Admin/index.html.twig', ['countTable' => $countTable]);
 
     }
