@@ -46,4 +46,5 @@ class UserManager extends AbstractManager
         return $query->fetch(\PDO::FETCH_NUM)[0];
     }
 
+
 }

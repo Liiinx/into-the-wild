@@ -33,6 +33,7 @@ $routes = [
     'Admin' => [ // Route concernant l'administration.
       ['index', '/admin/', 'GET'], // Route qui affiche la page d'accueil
       ['adminShowArticles', '/admin/articles', 'GET'], // action, url, method
+      ['adminShowUsers', '/admin/users', 'GET'], // action, url, method
       ['add', '/admin/article/add', ['GET', 'POST']], // action, url, method
       ['show', '/admin/article/{id:\d+}', 'GET'], // action, url, method
       ['edit', '/admin/article/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
