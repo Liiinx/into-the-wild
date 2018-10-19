@@ -56,10 +56,11 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item ">
-                <a class="nav-link" href="#">CONNEXION</a>
+                <a class="nav-link" href="/connexion">CONNEXION</a>
             </li>
+
             <li class="nav-item ">
-                <a class="nav-link" href="#">INSCRIPTION</a>
+                    <a class="nav-link" href="#">INSCRIPTION</a>
             </li>
         </ul>
 
@@ -67,9 +68,9 @@
     </div>
 </nav>
 
+    {% include 'flashes.html.twig' %}
 
 {% block content %}{% endblock %}
-
 
 
 {% block javascript %}

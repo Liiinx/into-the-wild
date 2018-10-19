@@ -27,6 +27,7 @@ $routes = [
         ['showArticleUser', '/article/{id:\d+}', 'GET'],
         ['login', '/connexion', ['GET', 'POST']],
         ['inscription', '/inscription', ['GET', 'POST']],
+        ['disconnect', '/deconnexion', ['GET', 'POST']],
     ],
 
     'Admin' => [ // Route concernant l'administration.
