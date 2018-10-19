@@ -92,6 +92,21 @@ class Validator {
     }
 
     /**
+     * Fonction qui sert à verifier si deux valeurs sont les mêmes ou non
+     * @param string $first
+     * @param string $last
+     * @return bool
+     */
+    public function isSame(string $first, string $last){
+
+        if($this->getField($first) != $this->getField($last)){
+            $this->errors["confirmation"] = "Le champ $first n'est pas le même que $last";
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Récupération des erreurs
      * @return array
      */

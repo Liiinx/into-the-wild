@@ -42,8 +42,7 @@ class UserController extends AbstractController
             $this->validator->isNotEmpty('username');
             $this->validator->isNotEmpty('password');
             $this->validator->isEmail('username');
-
-            /* Espace vérification */
+            /* Espace  vérification */
             $user = new UserManager($this->getPdo());
             $val = $user->selectOneByField("mail", $_POST['username']);
 
