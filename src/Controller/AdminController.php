@@ -22,10 +22,27 @@ class AdminController extends AbstractController
      * @throws \Twig_Error_Syntax
      */
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        /**
+         * Si la session de l'utilisateur à comme status_id la valeur "1"
+         * il est donc admin. Alors il peut utiliser la totalité de l'administration.
+         * sinon il ne peut rien faire...
+         */
+
+        if($_SESSION["user"]["status_id"] != 1 || !isset($_SESSION["user"])){
+            header("Location: /");
+        } else {
+            return true;
+        }
+
+    }
+
     /* Affiche le dashboard */
     public function index()
     {
-     
         $countArticles = new AdminManager($this->getPdo());
         $countTotalArticles = $countArticles->selectAll();
         return $this->twig->render('Admin/index.html.twig', ['countArticles' => $countTotalArticles]); //
