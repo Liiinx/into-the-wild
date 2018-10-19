@@ -74,7 +74,7 @@ class Validator {
      */
 
     public function isAlpha($value){
-        if(!preg_match('/^[a-zA-Z0-9_]+$/', $this->getField($value))){
+        if(!preg_match('/^[a-zA-Z]+$/', $this->getField($value))){
                 $this->errors[$value] = "Le champ $value n'est pas valide";
             return false;
         }
@@ -86,6 +86,18 @@ class Validator {
     public function isEmail($value){
         if(!filter_var($this->getField($value), FILTER_VALIDATE_EMAIL)){
             $this->errors[$value] = "Merci de mettre une adresse email valide !";
+            return false;
+        }
+        return true;
+    }
+
+    /* fonction de verification de champs */
+
+    public function isSecure($value){
+
+        if(empty(trim(strip_tags($this->getField($value))))){
+            $this->errors[$value] = "Le champs : $value n'est pas valide !";
+
             return false;
         }
         return true;
