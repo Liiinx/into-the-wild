@@ -68,5 +68,10 @@ class ArticleManager extends AbstractManager
         return $statement->execute();
     }
 
+    public function countArticle()
+    {
+        $query = $this->pdo->query('SELECT COUNT(*) FROM ' . $this->table);
+        return $query->fetch(\PDO::FETCH_NUM)[0];
+    }
 
 }

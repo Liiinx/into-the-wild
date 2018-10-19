@@ -12,7 +12,7 @@
                     <i class="fas fa-users"></i> Nombre Utilisateurs
                 </div>
                 <div class="card-body">
-                    <p class="card-text"><span class="admin-infos-card">30 </span></p>
+                    <p class="card-text"><span class="admin-infos-card">{{ countTable.users }} </span></p>
                     <div class="admin-infos-card-button"><a href="" class="btn btn-outline-primary"><i class="fas fa-list-ol"></i> Liste complète</a></div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                     <i class="fas fa-newspaper"></i> Nombre articles
                 </div>
                 <div class="card-body">
-                    <p class="card-text"><span class="admin-infos-card">{{ countArticles|length }} </span></p>
+                    <p class="card-text"><span class="admin-infos-card">{{ countTable.article }} </span></p>
                     <div class="admin-infos-card-button"><a href="/admin/articles" class="btn btn-outline-warning"><i class="fas fa-list-ol"></i> Liste complète</a></div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                     <i class="fas fa-comments"></i> Nombre Commentaires
                 </div>
                 <div class="card-body">
-                    <p class="card-text"><span class="admin-infos-card">30 </span></p>
+                    <p class="card-text"><span class="admin-infos-card">- </span></p>
                     <div class="admin-infos-card-button"><a href="#" class="btn btn-outline-danger"><i class="fas fa-list-ol"></i> Liste complète</a></div>
                 </div>
             </div>

@@ -11,6 +11,7 @@ namespace Controller; //
 use Model\Article;
 use Model\AdminManager;
 use Model\ArticleManager;
+use Model\UserManager;
 
 class AdminController extends AbstractController
 {
@@ -25,10 +26,18 @@ class AdminController extends AbstractController
     /* Affiche le dashboard */
     public function index()
     {
-     
-        $countArticles = new AdminManager($this->getPdo());
-        $countTotalArticles = $countArticles->selectAll();
-        return $this->twig->render('Admin/index.html.twig', ['countArticles' => $countTotalArticles]); //
+        $countTable = [];
+
+        $articleManager = new ArticleManager($this->getPdo());
+        $userManager = new UserManager($this->getPdo());
+
+        $articleCount = $articleManager->countArticle();
+        $countTable['article'] = $articleCount;
+
+
+        $userCount = $userManager->countUsers();
+        $countTable['users'] = $userCount;
+        return $this->twig->render('Admin/index.html.twig', ['countTable' => $countTable]);
     }
 
     /* Ajout d'un article */

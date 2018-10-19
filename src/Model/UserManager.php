@@ -40,5 +40,10 @@ class UserManager extends AbstractManager
         return $this->pdo->lastInsertId();
 
     }
+    public function countUsers()
+    {
+        $query = $this->pdo->query('SELECT COUNT(*) FROM ' . $this->table);
+        return $query->fetch(\PDO::FETCH_NUM)[0];
+    }
 
 }
