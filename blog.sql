@@ -41,7 +41,7 @@ CREATE TABLE `article` (
   KEY `categorie_id` (`category_id`),
   CONSTRAINT `article_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `article_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,7 +50,7 @@ CREATE TABLE `article` (
 
 LOCK TABLES `article` WRITE;
 /*!40000 ALTER TABLE `article` DISABLE KEYS */;
-INSERT INTO `article` VALUES (1,'Intervention de Pollen','jcdhidihjcicoijoijcojdpojcpoekjcpoecpocojcpozcpozkcpozkcpozkcpozkcpodzkcpozkcpozkcpon kjhdhcdoihc ,asncashcoia janscdoiuahcohza aljschoiahcoiahc jashcoiahcoizah',NULL,NULL),(2,'Je suis un titre','Je suis le contenu.',NULL,NULL),(3,'Je suis le titre du contenu normalement 3','Je usis le contenu 3',NULL,NULL),(25,'A table!','dshfdshdsqhcsjc',NULL,NULL),(26,'Bonjour!!','Salut la compagnie, comment ça va?',NULL,NULL),(27,'hjfdjzodzkj','odkvpokdvdk ofkokf',NULL,NULL),(28,'lksjcksljclks','mlskdcmlklm acmlsadoskjc p',NULL,NULL),(29,'feuhfduez','ifjoidjcoidzjc',NULL,NULL),(30,'Bonjour!!!','Il était une fois.....',NULL,NULL);
+INSERT INTO `article` VALUES (1,'Intervention de Pollen ','Bonjour la compagnie!\r\n\r\nJeudi après midi le directeur......\r\n\r\n',NULL,NULL),(2,'Je suis un titre bizarre','Je suis le contenu',NULL,NULL),(3,'Je suis le titre du contenu normalement 3','Je usis le contenu 3',NULL,NULL),(30,'Bonjour!!! hello','les bisounours',NULL,NULL),(32,'ogres','shrek!',NULL,NULL);
 /*!40000 ALTER TABLE `article` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,13 +141,13 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `firstname` varchar(100) NOT NULL,
-  `mail` text NOT NULL,
-  `status_id` int(11) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `mail` varchar(255) NOT NULL,
+  `status_id` int(11) NOT NULL DEFAULT '2',
+  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `status_id` (`status_id`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`status_id`) REFERENCES `status` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,7 +156,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'root','root','root@yahoo.fr',1,'$2y$10$dNOeJ5bzFjKRfYwpYKTSy.2VvQXrGmr0igI03nmS3JwOTjeavDY.S');
+INSERT INTO `user` VALUES (1,'root','root','root@yahoo.fr',1,'$2y$10$dNOeJ5bzFjKRfYwpYKTSy.2VvQXrGmr0igI03nmS3JwOTjeavDY.S'),(21,'Smith','John','John@gmail.com',2,'$2y$10$E2IIxoFbGs4bryjV17bdYOSapD.OJ1dTdaVZ0vcowilEBqKEhT1hG'),(22,'Dupont','Samuel','samuel@gmail.com',2,'$2y$10$BhpTmcYKdhGjP9RceK0rHOD3mQrtyL/FVELQiO7u5YigAhtnMcSyq');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -169,4 +169,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-16 14:48:48
+-- Dump completed on 2018-10-19 12:06:34
