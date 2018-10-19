@@ -4,3 +4,4 @@
 /temp/*
 *.cache
 app/db.php
+.DS_Store
