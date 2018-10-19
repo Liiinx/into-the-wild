@@ -38,5 +38,6 @@ $routes = [
       ['show', '/admin/article/{id:\d+}', 'GET'], // action, url, method
       ['edit', '/admin/article/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
       ['deleteArticle', '/admin/article/delete/{id:\d+}', 'GET'], // action, url, method
+      ['deleteUser', '/admin/user/delete/{id:\d+}', 'GET'], // action, url, method
     ],
 ];
