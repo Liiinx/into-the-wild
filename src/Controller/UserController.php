@@ -113,21 +113,51 @@ class UserController extends AbstractController
             header("Location: /");
         }
 
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $UserManager = new UserManager($this->getPdo());
-            $user = new User();
-            $user->setName($_POST['name']);
-            $user->setFirstname($_POST['firstname']);
-            $user->setMail($_POST['mail']);
-            $user->setPassword($_POST['password']);
-            $id = $UserManager->insert($user);
-            header('Location:/');
+
+            $this->validator->sendData($_POST);
+            // test name
+            $this->validator->isNotEmpty('name');
+            $this->validator->isAlpha('name');
+
+            // test firstname
+            $this->validator->isNotEmpty('firstname');
+            $this->validator->isAlpha('firstname');
+            // test email
+            $this->validator->isNotEmpty('mail');
+            $this->validator->isEmail('mail');
+
+            // test password
+            $this->validator->isNotEmpty('password');
+            $this->validator->isNotEmpty('password2');
+            $this->validator->isSame('password', 'password2');
+
+            // test si ya pas des erreurs
+                // insertion
+
+            if(empty($this->validator->getErrors())) {
+                $UserManager = new UserManager($this->getPdo());
+                $user = new User();
+                $user->setName(strip_tags(trim(htmlspecialchars($_POST['name']))));
+                $user->setFirstnamestrip_tags(trim(htmlspecialchars($_POST['firstname'])));
+                $user->setMail(strip_tags(trim(htmlspecialchars($_POST['mail']))));
+                $mdpCrypt=password_hash(strip_tags(trim(htmlspecialchars($_POST['password'], PASSWORD_BCRYPT))));
+                $user->setPassword($mdpCrypt);//
+                $id = $UserManager->insert($user);
+                header('Location:/');
+            }
+
         }
 
-        return $this->twig->render('User/inscription.html.twig');
-    }
 
+        return $this->twig->render('User/inscription.html.twig', ["errors" => $this->validator->getErrors()]);
+    }
+    public function verif($data){
+        $data = trim($data);
+        $data = strip_tags($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
     /* Affiche un seul article */
     public function showArticleUser(int $id)
     {

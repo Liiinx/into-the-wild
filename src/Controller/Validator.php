@@ -91,6 +91,18 @@ class Validator {
         return true;
     }
 
+    /* fonction de verification de champs */
+
+    public function isSecure($value){
+
+        if(empty(trim(strip_tags($this->getField($value))))){
+            $this->errors[$value] = "Le champs : $value n'est pas valide !";
+
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Fonction qui sert à verifier si deux valeurs sont les mêmes ou non
      * @param string $first
