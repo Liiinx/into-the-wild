@@ -139,6 +139,15 @@ class AdminController extends AbstractController
         $deleteArticle = $articleManager->delete($id);
 
     }
+    public function deleteUser(int $id)
+    {
+        // Camilo pour le bouton delete user
+
+        $userManager = new UserManager($this->getPdo());
+        $deleteUser = $userManager->delete($id);
+
+    }
+
 
     /* Affiche tout les articles */
     public function adminShowArticles()
