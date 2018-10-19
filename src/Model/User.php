@@ -114,4 +114,14 @@ class User
         $this->password = $password;
     }
 
+    public function getAll(){
+        return [
+            'id' =>$this->id,
+            'name' => $this->name,
+            'firstname' => $this->firstname,
+            'mail' => $this->mail,
+            'status_id' => $this->status_id,
+        ];
+    }
+
 }

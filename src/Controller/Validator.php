@@ -74,7 +74,7 @@ class Validator {
      */
 
     public function isAlpha($value){
-        if(!preg_match('/^[a-zA-Z0-9_]+$/', $this->getField($value))){
+        if(!preg_match('/^[a-zA-Z]+$/', $this->getField($value))){
                 $this->errors[$value] = "Le champ $value n'est pas valide";
             return false;
         }
@@ -102,5 +102,9 @@ class Validator {
         }
     }
 
+    public function setErrors($errorMsg){
+        array_push($this->errors, $errorMsg);
+        return false;
+    }
 
 }

@@ -1,0 +1,7 @@
+{% if(session["flash"]) %}
+    {% for sessionKey, sessionValue in session["flash"] %}
+        <div class="alert alert-{{ sessionKey }}">
+            {{ sessionValue }}
+        </div>
+    {% endfor %}
+{% endif %}

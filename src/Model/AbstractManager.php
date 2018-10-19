@@ -69,6 +69,7 @@ abstract class AbstractManager
         return $statement->fetch();
     }
 
+    /* Selectionner une valeur par rapport à sont champ en base de données.  */
     public function selectOneByField(string $field, string $value)
     {
         // prepared request
