@@ -119,6 +119,33 @@ class Validator {
     }
 
     /**
+     * Fonction qui sert à verifier extension d'une image
+     * @param string $imageName
+     * @return bool
+     */
+    public function checkExtension(string $imageName){
+        $fileExtension = strrchr($imageName, ".");
+        $extensionAllow = array(".jpg", ".png", ".gif");
+        if (!in_array($fileExtension, $extensionAllow)) {
+            $this->errors['verif'] = "Seuls les fichiers .jpg, .png et .gif sont autorisés";
+            return false;
+        }
+        return true;
+    }
+    /**
+     * Fonction qui sert à verifier taille d'une image
+     * @param string $imageSize
+     * @return bool
+     */
+    public function checkSize(int $imageSize){
+        if ($imageSize > 1000000 || $imageSize == 0) {
+            $this->errors['checkSize'] = "La taille de fichier ne doit pas être supérieur à 1 MO";
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Récupération des erreurs
      * @return array
      */
