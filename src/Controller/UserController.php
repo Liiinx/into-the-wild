@@ -169,9 +169,6 @@ class UserController extends AbstractController
         $comment = $commentManager->selectArticleComments($id);
         $articleComment = [$article, $comment];
 
-        //echo '<pre>';
-        //var_dump($articleComment);
-        //echo '</pre>';
         return $this->twig->render('Article/showOneArticleUser.html.twig', ['articleComment' => $articleComment]);
     }
 

@@ -41,8 +41,9 @@ class CommentManager extends AbstractManager
     public function selectArticleComments($id) {
 
         // prepared request
-        $statement = $this->pdo->prepare("SELECT comment.comment,comment.article_id FROM 
-  $this->table INNER JOIN article ON article.id=comment.article_id WHERE article_id=:id");
+        $statement = $this->pdo->prepare("SELECT comment.comment,comment.article_id, user.name FROM 
+  $this->table INNER JOIN user ON comment.user_id=user.id
+   INNER JOIN article ON article.id=comment.article_id WHERE article_id=:id");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();

@@ -34,7 +34,9 @@
     <div class="row">
         <div class="col-10 offset-1">
             {% for comment in articleComment[1] %}
+                <p>{{ comment.name }}</p>
                 <p>{{ comment.comment }}</p>
+
             {% endfor %}
 
         </div>
