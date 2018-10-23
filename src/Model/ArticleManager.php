@@ -60,10 +60,11 @@ class ArticleManager extends AbstractManager
     {
 
         // prepared request
-        $statement = $this->pdo->prepare("UPDATE $this->table SET title = :title, content = :content WHERE id=:id");
+        $statement = $this->pdo->prepare("UPDATE $this->table SET title = :title, content = :content, imageName = :imageName WHERE id=:id");
         $statement->bindValue('id', $article->getId(), \PDO::PARAM_INT);
         $statement->bindValue('title', $article->getTitle(), \PDO::PARAM_STR);
         $statement->bindValue('content', $article->getContent(), \PDO::PARAM_STR);
+        $statement->bindValue('imageName', $article->getImageName(), \PDO::PARAM_STR);
 
 
         return $statement->execute();
