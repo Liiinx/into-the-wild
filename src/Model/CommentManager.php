@@ -44,5 +44,9 @@ class CommentManager extends AbstractManager
         return $query->fetch(\PDO::FETCH_NUM)[0];
     }
 
-
+    public function deleteComment($id)
+    {
+        $statement = $this->pdo->query("DELETE FROM $this->table WHERE id = :id");
+        $statement->execute([':id' => $id]);
+    }
 }

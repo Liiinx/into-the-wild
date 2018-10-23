@@ -9,6 +9,7 @@
 namespace Controller;
 
 //use Model\ItemManager;
+use Model\CommentManager;
 use Model\User;
 use Model\UserManager;
 use Model\ArticleManager;
@@ -190,4 +191,10 @@ class UserController extends AbstractController
 
     }
 
+    /* Supprimer 1 commentaire */
+    public function deleteComment($id)
+    {
+        $commentManager = new CommentManager($this->getPdo());
+        $comment = $commentManager->deleteComment($id);
+    }
 }
