@@ -51,7 +51,7 @@ CREATE TABLE `article` (
 
 LOCK TABLES `article` WRITE;
 /*!40000 ALTER TABLE `article` DISABLE KEYS */;
-INSERT INTO `article` VALUES (30,'Bonjour!!! hello','les bisounours hghghgh   dddd',NULL,NULL,NULL),(73,'kookijiojio','drggf',NULL,NULL,'image5bcd7f7474898.png'),(75,'david','avec une image',NULL,NULL,'image5bcdbd587da0f.jpg'),(76,'dfgsg','wfbwfv',NULL,NULL,'image5bcdc343bfbc2.png');
+INSERT INTO `article` VALUES (73,'kookijiojio','drggf',NULL,NULL,'image5bcd7f7474898.png'),(76,'dfgsg','wfbwfv',NULL,NULL,'image5bcdc343bfbc2.png');
 /*!40000 ALTER TABLE `article` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,9 +116,9 @@ CREATE TABLE `comment` (
   PRIMARY KEY (`id`),
   KEY `article_id` (`article_id`),
   KEY `user_id` (`user_id`),
-  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
+  CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`) ON DELETE CASCADE,
   CONSTRAINT `comment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,37 +127,8 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (1,'Superbe article !!',30,21);
+INSERT INTO `comment` VALUES (5,'C\'est null!!!!!!',73,1);
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `commentaire`
---
-
-DROP TABLE IF EXISTS `commentaire`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `commentaire` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `commentaire` text,
-  `article_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `article_id` (`article_id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `commentaire_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
-  CONSTRAINT `commentaire_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `commentaire`
---
-
-LOCK TABLES `commentaire` WRITE;
-/*!40000 ALTER TABLE `commentaire` DISABLE KEYS */;
-/*!40000 ALTER TABLE `commentaire` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -223,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-23  9:40:47
+-- Dump completed on 2018-10-23 11:07:33
