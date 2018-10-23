@@ -23,13 +23,21 @@
 
         <div class="col-12 col-md-4 offset-1">
 
-            <img class="img-fluid" src="/assets/images/{{ article.imageName }}" alt="">
+            <img class="img-fluid" src="/assets/images/{{ articleComment[0].imageName }}" alt="">
         </div>
         <div class="col-12 col-md-6">
-            <h1>{{ article.title }}</h1>
-            <p>{{ article.content }}</p>
+            <h1>{{ articleComment[0].title }}</h1>
+            <p>{{ articleComment[0].content }}</p>
         </div>
 
+    </div>
+    <div class="row">
+        <div class="col-10 offset-1">
+            {% for comment in articleComment[1] %}
+                <p>{{ comment.comment }}</p>
+            {% endfor %}
+
+        </div>
     </div>
 </div>
 {% endblock %}

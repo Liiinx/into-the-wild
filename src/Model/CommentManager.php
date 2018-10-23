@@ -38,6 +38,18 @@ class CommentManager extends AbstractManager
    $this->table INNER JOIN article ON comment.article_id=article.id INNER JOIN user ON comment.user_id=user.id", \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 
+    public function selectArticleComments($id) {
+
+        // prepared request
+        $statement = $this->pdo->prepare("SELECT comment.comment,comment.article_id FROM 
+  $this->table INNER JOIN article ON article.id=comment.article_id WHERE article_id=:id");
+        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
+
     public function countComments()
     {
         $query = $this->pdo->query('SELECT COUNT(*) FROM ' . $this->table);
