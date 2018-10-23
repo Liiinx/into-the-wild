@@ -165,8 +165,11 @@ class UserController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $article = $articleManager->selectOneById($id);
+        $commentManager = new CommentManager($this->getPdo());
+        $comment = $commentManager->selectArticleComments($id);
+        $articleComment = [$article, $comment];
 
-        return $this->twig->render('Article/showOneArticleUser.html.twig', ['article' => $article]);
+        return $this->twig->render('Article/showOneArticleUser.html.twig', ['articleComment' => $articleComment]);
     }
 
     /* Affiche les articles page accueil */
@@ -186,7 +189,9 @@ class UserController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
+        //echo '<pre>';
         //var_dump($articles);
+        //echo '</pre>';
         return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles]);
 
     }
