@@ -123,16 +123,17 @@
 
 
     <!--  Articles View -->
-    <h2 class="mt-3 text-center">Liste de nos articles</h2>
+
+<div class="container d-flex flex-wrap shadow p-3 mt-5 bg-white rounded justify-content-around">
+    <h2 class="mt-3 mb-3 text-center">Liste de nos articles</h2>
     <div class="container-fluid d-flex justify-content-center">
 
         <img src="/assets/images/separator.png" class="img-fluid">
 
     </div>
-<div class="container d-flex">
-    {% for articles in article %}
-    <div class="card mb-1 justify-content-center" style="width: 18rem;">
-        <img class="card-img-top" src="/assets/images/Atable.jpeg" alt="Card image cap">
+    {% for articles in article | slice(length -3) %}
+    <div class="card mb-3 justify-content-center" style="width: 18rem;">
+        <img class="card-img-top" src="/assets/images/{{ articles.imageName }}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">{{ articles.title  }}</h5>
             <p class="card-text">{{ articles.content }}</p>
