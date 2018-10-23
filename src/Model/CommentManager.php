@@ -41,7 +41,7 @@ class CommentManager extends AbstractManager
     public function selectArticleComments($id) {
 
         // prepared request
-        $statement = $this->pdo->prepare("SELECT comment.comment,comment.article_id, user.name FROM 
+        $statement = $this->pdo->prepare("SELECT comment.id,comment.comment,comment.article_id, user.name FROM 
   $this->table INNER JOIN user ON comment.user_id=user.id
    INNER JOIN article ON article.id=comment.article_id WHERE article_id=:id");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
@@ -55,11 +55,15 @@ class CommentManager extends AbstractManager
     {
         $query = $this->pdo->query('SELECT COUNT(*) FROM ' . $this->table);
         return $query->fetch(\PDO::FETCH_NUM)[0];
+
     }
 
     public function deleteComment($id)
     {
-        $statement = $this->pdo->query("DELETE FROM $this->table WHERE id = :id");
+        $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
         $statement->execute([':id' => $id]);
+
+        //$_SERVER['HTTP_REFERER'] = Sert à retourner sur la page précédente
+        return header('Location: ' .  $_SERVER['HTTP_REFERER']);
     }
 }

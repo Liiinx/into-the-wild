@@ -36,6 +36,7 @@
             {% for comment in articleComment[1] %}
                 <p>{{ comment.name }}</p>
                 <p>{{ comment.comment }}</p>
+                <a type="button" href="/comment/delete/{{ comment.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
 
             {% endfor %}
 
