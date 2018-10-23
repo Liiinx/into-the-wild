@@ -131,7 +131,7 @@
         <img src="/assets/images/separator.png" class="img-fluid">
 
     </div>
-    {% for articles in article | slice(0, 3) %}
+    {% for articles in article | slice(length -3) %}
     <div class="card mb-3 justify-content-center" style="width: 18rem;">
         <img class="card-img-top" src="/assets/images/{{ articles.imageName }}" alt="Card image cap">
         <div class="card-body">
