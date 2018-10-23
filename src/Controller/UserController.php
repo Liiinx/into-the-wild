@@ -169,9 +169,7 @@ class UserController extends AbstractController
         $comment = $commentManager->selectArticleComments($id);
         $articleComment = [$article, $comment];
 
-        //echo '<pre>';
-        //var_dump($articleComment);
-        //echo '</pre>';
+
         return $this->twig->render('Article/showOneArticleUser.html.twig', ['articleComment' => $articleComment]);
     }
 
@@ -192,11 +190,15 @@ class UserController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
-        //echo '<pre>';
-        //var_dump($articles);
-        //echo '</pre>';
         return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles]);
 
     }
 
+    /* Supprimer 1 commentaire */
+    public function deleteComment($id)
+    {
+        $commentManager = new CommentManager($this->getPdo());
+        $comment = $commentManager->deleteComment($id);
+
+    }
 }

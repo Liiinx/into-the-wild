@@ -27,6 +27,7 @@ $routes = [
         ['showArticleUser', '/article/{id:\d+}', 'GET'],
         ['login', '/connexion', ['GET', 'POST']],
         ['inscription', '/inscription', ['GET', 'POST']],
+        ['deleteComment', '/comment/delete/{id:\d+}', 'GET'], // action, url, method
         ['disconnect', '/deconnexion', ['GET', 'POST']],
     ],
 
