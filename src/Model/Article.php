@@ -16,6 +16,23 @@ class Article
     private $content;
     private $user_id;
     private $category_id;
+    private $imageName;
+
+    /**
+     * @return mixed
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * @param mixed $image_name
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+    }
 
     /**
      * @return mixed

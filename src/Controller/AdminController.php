@@ -72,7 +72,6 @@ class AdminController extends AbstractController
     /* Ajout d'un article */
     public function add()
     {
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $articleManager = new ArticleManager($this->getPdo());
@@ -82,11 +81,24 @@ class AdminController extends AbstractController
             $this->validator->sendData($_POST);
             $this->validator->isNotEmpty('title');
             $this->validator->isNotEmpty('content');
+            $this->validator->checkExtension($_FILES['image']['name']);
+            $this->validator->checkSize($_FILES['image']['size']);
 
             /* Si il n'y a pas d'erreurs */
             if(empty($this->validator->getErrors())){
                 $article->setTitle($_POST['title']);
                 $article->setContent($_POST['content']);
+                // chargement des images
+                $uploadDir = 'assets/images/';
+                if(isset($_FILES) && !empty($_FILES)) {
+                    $filename = $_FILES['image']['name'];
+                    $extension = pathinfo($filename, PATHINFO_EXTENSION); //récupère l'extension
+                    $filename = 'image' . uniqid() . '.' .$extension; //numéro unique
+                    $article->setImageName($filename);
+                    $uploadFile = $uploadDir . basename($filename);
+                    move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
+                }
+
                 $id = $articleManager->insert($article);
                 return header('Location: /admin/articles');
             }
