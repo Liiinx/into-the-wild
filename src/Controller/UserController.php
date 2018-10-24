@@ -178,6 +178,7 @@ class UserController extends AbstractController
         $comments = $commentManager->selectArticleComments($id);
 
         return $this->twig->render('Article/showOneArticleUser.html.twig', ['article' => $article, 'comments' => $comments]);
+
     }
 
     /* Affiche les articles page accueil */
@@ -200,4 +201,11 @@ class UserController extends AbstractController
 
     }
 
+    /* Supprimer 1 commentaire */
+    public function deleteComment($id)
+    {
+        $commentManager = new CommentManager($this->getPdo());
+        $comment = $commentManager->deleteComment($id);
+
+    }
 }

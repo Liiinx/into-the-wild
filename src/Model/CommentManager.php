@@ -1,15 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
-<<<<<<< HEAD
  * User: wilder
  * Date: 19/10/18
  * Time: 17:16
-=======
- * User: bobbywcs
- * Date: 16/10/18
- * Time: 17:21
->>>>>>> b93eadf36bc44e119d6225e72c3da498fcac8d5f
  */
 
 namespace Model;
@@ -55,6 +49,7 @@ class CommentManager extends AbstractManager
     {
         $query = $this->pdo->query('SELECT COUNT(*) FROM ' . $this->table);
         return $query->fetch(\PDO::FETCH_NUM)[0];
+
     }
 
     // insérer un commentaire
@@ -73,5 +68,12 @@ VALUES (:comment, :article_id, :user_id)");
 
     }
 
+    public function deleteComment($id)
+    {
+        $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
+        $statement->execute([':id' => $id])
 
+        //$_SERVER['HTTP_REFERER'] = Sert à retourner sur la page précédente
+        return header('Location: ' .  $_SERVER['HTTP_REFERER']);
+    }
 }
