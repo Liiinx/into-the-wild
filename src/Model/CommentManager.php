@@ -41,9 +41,9 @@ class CommentManager extends AbstractManager
     public function selectArticleComments($id) {
 
         // prepared request
-        $statement = $this->pdo->prepare("SELECT comment.comment,comment.article_id, user.name FROM 
+        $statement = $this->pdo->prepare("SELECT comment.comment,comment.article_id, comment.date, user.name, user.firstname FROM 
   $this->table INNER JOIN user ON comment.user_id=user.id
-   INNER JOIN article ON article.id=comment.article_id WHERE article_id=:id");
+   INNER JOIN article ON article.id=comment.article_id WHERE article_id=:id ORDER BY comment.date DESC");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
@@ -55,6 +55,22 @@ class CommentManager extends AbstractManager
     {
         $query = $this->pdo->query('SELECT COUNT(*) FROM ' . $this->table);
         return $query->fetch(\PDO::FETCH_NUM)[0];
+    }
+
+    // insérer un commentaire
+    public function insert(Comment $comment)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (comment, article_id, user_id) 
+VALUES (:comment, :article_id, :user_id)");
+
+        $statement->bindValue(':comment', $comment->getComment(), \PDO::PARAM_STR);
+        $statement->bindValue(':article_id', $comment->getArticleId(), \PDO::PARAM_STR);
+        $statement->bindValue(':user_id', $comment->getUserId(), \PDO::PARAM_STR);
+        $statement->execute();
+
+        return $this->pdo->lastInsertId();
+
     }
 
 
