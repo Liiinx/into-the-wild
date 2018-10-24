@@ -21,26 +21,43 @@
     </div>
     <div class="row">
 
-        <div class="col-12 col-md-4 offset-1">
+        <div class="col-10 offset-1">
 
-            <img class="img-fluid" src="/assets/images/{{ articleComment[0].imageName }}" alt="">
-        </div>
-        <div class="col-12 col-md-6">
-            <h1>{{ articleComment[0].title }}</h1>
-            <p>{{ articleComment[0].content }}</p>
-        </div>
+            <img style="float: left" class="img-fluid mr-3 mb-1" src="/assets/images/{{ article.imageName }}" alt="">
 
+                <h1>{{ article.title }}</h1>
+                <p class="text-justify">{{ article.content }}</p>
+
+        </div>
     </div>
     <div class="row">
-        <div class="col-10 offset-1">
-            {% for comment in articleComment[1] %}
-                <p>{{ comment.name }}</p>
-                <p>{{ comment.comment }}</p>
-                <a type="button" href="/comment/delete/{{ comment.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
-
-            {% endfor %}
+        <div class="col-8 offset-2">
+            <form method="post">
+                <div class="form-group">
+                    <label for="comment">Votre commentaire : </label>
+                    <textarea name="comment" rows="2" cols="30" class="form-control" placeholder="Votre commentaire"></textarea>
+                </div>
+                <div style="padding-bottom: 20px;">
+                    <input type="submit" style="background-color: #6D909C; border-color: #6D909C;" class="btn btn-success" value="Envoyer">
+                </div>
+            </form>
 
         </div>
+    </div>
+
+    <div class="row">
+        {% for comment in comments %}
+        <div class="col-2 offset-2">
+
+            <h5>{{ comment.name ~ ' ' ~ comment.firstname }}</h5>
+            <span class="orange">{{ comment.date }}</span>
+        </div>
+
+        <div class="col-6 rounded bg-light mb-4">
+            <p class="p-2 text-justify">{{ comment.comment }}</p>
+
+        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

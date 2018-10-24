@@ -9,6 +9,7 @@
 namespace Controller;
 
 //use Model\ItemManager;
+use Model\Comment;
 use Model\CommentManager;
 use Model\User;
 use Model\UserManager;
@@ -162,15 +163,22 @@ class UserController extends AbstractController
     /* Affiche un seul article */
     public function showArticleUser(int $id)
     {
-
         $articleManager = new ArticleManager($this->getPdo());
         $article = $articleManager->selectOneById($id);
+
         $commentManager = new CommentManager($this->getPdo());
-        $comment = $commentManager->selectArticleComments($id);
-        $articleComment = [$article, $comment];
+        if (!empty($_POST)) {
+            //var_dump($_POST);
+            $comment = new Comment();
+            $comment->setComment($_POST['comment']);
+            $comment->setArticleId($article->getId());
+            $comment->setUserId($_SESSION["user"]["id"]);
+            $commentManager->insert($comment);
+        }
+        $comments = $commentManager->selectArticleComments($id);
 
+        return $this->twig->render('Article/showOneArticleUser.html.twig', ['article' => $article, 'comments' => $comments]);
 
-        return $this->twig->render('Article/showOneArticleUser.html.twig', ['articleComment' => $articleComment]);
     }
 
     /* Affiche les articles page accueil */
@@ -179,7 +187,6 @@ class UserController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
-        //var_dump($articles);
         return $this->twig->render('Article/homePage.html.twig', ['article' => $articles]);
 
     }

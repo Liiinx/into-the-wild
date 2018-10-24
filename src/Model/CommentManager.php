@@ -1,15 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
-<<<<<<< HEAD
  * User: wilder
  * Date: 19/10/18
  * Time: 17:16
-=======
- * User: bobbywcs
- * Date: 16/10/18
- * Time: 17:21
->>>>>>> b93eadf36bc44e119d6225e72c3da498fcac8d5f
  */
 
 namespace Model;
@@ -41,9 +35,9 @@ class CommentManager extends AbstractManager
     public function selectArticleComments($id) {
 
         // prepared request
-        $statement = $this->pdo->prepare("SELECT comment.id,comment.comment,comment.article_id, user.name FROM 
+        $statement = $this->pdo->prepare("SELECT comment.comment,comment.article_id, comment.date, user.name, user.firstname FROM 
   $this->table INNER JOIN user ON comment.user_id=user.id
-   INNER JOIN article ON article.id=comment.article_id WHERE article_id=:id");
+   INNER JOIN article ON article.id=comment.article_id WHERE article_id=:id ORDER BY comment.date DESC");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
@@ -58,10 +52,26 @@ class CommentManager extends AbstractManager
 
     }
 
+    // insérer un commentaire
+    public function insert(Comment $comment)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (comment, article_id, user_id) 
+VALUES (:comment, :article_id, :user_id)");
+
+        $statement->bindValue(':comment', $comment->getComment(), \PDO::PARAM_STR);
+        $statement->bindValue(':article_id', $comment->getArticleId(), \PDO::PARAM_STR);
+        $statement->bindValue(':user_id', $comment->getUserId(), \PDO::PARAM_STR);
+        $statement->execute();
+
+        return $this->pdo->lastInsertId();
+
+    }
+
     public function deleteComment($id)
     {
         $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
-        $statement->execute([':id' => $id]);
+        $statement->execute([':id' => $id])
 
         //$_SERVER['HTTP_REFERER'] = Sert à retourner sur la page précédente
         return header('Location: ' .  $_SERVER['HTTP_REFERER']);
