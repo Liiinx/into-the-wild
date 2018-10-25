@@ -46,7 +46,13 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     padding-right: 360px;
 }
 /* HOME PAGE */
+.speratorHomePage
+{
+    background-image: url("");
+}
+.card-img-top:hover{
 
+}
 .banner
 {
     margin-top: -10px;
@@ -128,7 +134,7 @@ body {
 }
 body
 {
-    background-color: #EDEDED;
+    background: url("http://patincekupele.sk/wp-content/uploads/2014/10/Triangle-White-Seamless-Patterns.jpg");
 }
 
 body > .container {
