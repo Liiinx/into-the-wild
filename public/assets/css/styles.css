@@ -46,6 +46,9 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     padding-right: 360px;
 }
 /* HOME PAGE */
+.carouselExampleControls h1{
+    font-family: lobsterregular;
+}
 .speratorHomePage
 {
     background-image: url("");
