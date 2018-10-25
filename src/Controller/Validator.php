@@ -6,7 +6,8 @@ namespace Controller;
  * Class Validator
  * Cette classe sert à faire des validations de champs.
  * @package Controller
- * @copyright 2018 MARGERIT Frédéric
+ * @copyright 2018 MARGERIT Frédéric and all contributors
+
  */
 
 class Validator {
@@ -134,7 +135,7 @@ class Validator {
     }
     /**
      * Fonction qui sert à verifier taille d'une image
-     * @param string $imageSize
+     * @param int $imageSize
      * @return bool
      */
     public function checkSize(int $imageSize){

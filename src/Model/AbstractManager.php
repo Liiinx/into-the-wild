@@ -81,5 +81,15 @@ abstract class AbstractManager
         return $statement->fetch();
     }
 
+    public function selectAllByField(string $table, string $field, string $value)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("SELECT * FROM $table WHERE $field = '$value'");
+        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
+        $statement->bindValue($value, $field, \PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
 
 }
