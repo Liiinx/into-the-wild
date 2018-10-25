@@ -197,7 +197,9 @@ class UserController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
+        //var_dump($_SESSION);
         return $this->twig->render('Article/homePage.html.twig', ['article' => $articles]);
+
 
     }
 
