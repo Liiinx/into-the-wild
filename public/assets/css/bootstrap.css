@@ -5944,9 +5944,9 @@ button.close {
   -ms-flex-pack: center;
   justify-content: center;
   width: 15%;
-  color: #fff;
+  color: #FFA948;
   text-align: center;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .carousel-control-prev:hover, .carousel-control-prev:focus,
