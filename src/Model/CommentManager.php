@@ -25,13 +25,13 @@ class CommentManager extends AbstractManager
     {
         parent ::__construct(self::TABLE, $pdo);
     }
-
+    //Affiche tous les commentaires côté Admin
     public function selectComments()
     {
-        return $this->pdo->query("SELECT comment.comment, article.title, user.name FROM
-   $this->table INNER JOIN article ON comment.article_id=article.id INNER JOIN user ON comment.user_id=user.id", \PDO::FETCH_CLASS, $this->className)->fetchAll();
+        return $this->pdo->query("SELECT comment.comment, comment.id,comment.date, article.title, user.name FROM
+   $this->table INNER JOIN article ON comment.article_id=article.id INNER JOIN user ON comment.user_id=user.id ORDER BY date DESC", \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
-
+    //Affiche la liste des commentaires côté user
     public function selectArticleComments($id) {
 
         // prepared request
@@ -67,12 +67,21 @@ VALUES (:comment, :article_id, :user_id)");
         return $this->pdo->lastInsertId();
 
     }
-
+    //suppression d'un commentaire côté user
     public function deleteComment($id)
     {
         $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
         $statement->execute([':id' => $id]);
 
+        //$_SERVER['HTTP_REFERER'] = Sert à retourner sur la page précédente
+        return header('Location: ' .  $_SERVER['HTTP_REFERER']);
+    }
+
+    //supprimer un article côté admin
+    public function adminDeleteComment($id)
+    {
+        $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
+        $statement->execute([':id' => $id]);
         //$_SERVER['HTTP_REFERER'] = Sert à retourner sur la page précédente
         return header('Location: ' .  $_SERVER['HTTP_REFERER']);
     }

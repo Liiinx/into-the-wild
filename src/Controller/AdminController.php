@@ -188,7 +188,7 @@ class AdminController extends AbstractController
 
 
     /* Affiche tous les commentaires */
-    public function showComment()
+    public function showComments()
     {
         $commentManager = new CommentManager($this->getPdo());
         $comments = $commentManager->selectComments();
@@ -204,5 +204,12 @@ class AdminController extends AbstractController
         //var_dump($users);
         return $this->twig->render('User/adminListUsers.html.twig', ['users' => $users]);
 
+    }
+
+    //supprimer un commentaire
+    public function deleteComment($id)
+    {
+        $commentManager = new CommentManager($this->getPdo());
+        $deleteComment = $commentManager->adminDeleteComment($id);
     }
 }

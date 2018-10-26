@@ -87,7 +87,7 @@ class UserController extends AbstractController
                     exit();
                 } else {
                     $this->flasher->setFlash('success', "Vous êtes dès à présent connecté !");
-                    header("location: /dashboard");
+                    header("location: /");
                 }
             } else {
                 $this->validator->setErrors("Echec de la connexion !");

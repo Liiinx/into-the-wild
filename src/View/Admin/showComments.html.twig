@@ -9,19 +9,19 @@
             <th>Contenu</th>
             <th>Article</th>
             <th>User</th>
+            <th>Date / Heure</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
         {% for comment in comments %}
-            <tr>
-                <td>{{ comment.comment }}</td>
+            <tr data-toggle="tooltip" data-placement="bottom" data-html="true" title="{{ comment.comment }}">
+                <td>{{ comment.comment[:50] ~ '...'  }}</td>
                 <td>{{ comment.title}}</td>
                 <td>{{ comment.name}}</td>
+                <td>{{ comment.date}}</td>
                 <td>
-                    <!--<a type="button" href="/admin/article/edit/{{ users.id }}" class="btn btn-outline-secondary"><i class="fas fa-pencil-alt"></i></a> -->
-
-                    <a type="button" href="/admin/article/delete/{{ users.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
+                    <a type="button" href="/admin/comment/delete/{{ comment.id}}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
         {% endfor %}
