@@ -8,6 +8,7 @@
             <tr>
                 <th>Titre</th>
                 <th>Contenu</th>
+                <th>Date / Heure</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -17,6 +18,7 @@
                 <td><h4>{{ articles.title }}</h4></td>
 
                 <td> <span class="preview_content">{{ articles.content[:50] ~ '...' }}</span> </td>
+                <td> <span class="preview_content">{{ articles.date}}</span> </td>
 
                 <td>
                         <a type="button" href="/admin/article/edit/{{ articles.id }}" style="margin-right: 5px;" class="btn btn-outline-secondary"><i class="fas fa-pencil-alt"></i></a>

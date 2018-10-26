@@ -39,7 +39,8 @@ $routes = [
       ['show', '/admin/article/{id:\d+}', 'GET'], // action, url, method
       ['edit', '/admin/article/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
       ['deleteArticle', '/admin/article/delete/{id:\d+}', 'GET'], // action, url, method
-      ['showComment', '/admin/comment', 'GET'], // action, url, method
+      ['showComments', '/admin/comment', 'GET'], // action, url, method
+      ['deleteComment', '/admin/comment/delete/{id:\d+}', 'GET'], // action, url, method
       ['deleteUser', '/admin/user/delete/{id:\d+}', 'GET'], // action, url, method
     ],
 ];
