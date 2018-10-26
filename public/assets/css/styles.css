@@ -230,3 +230,9 @@ showOneArticleUser    vue d'un article en front, coté user */
 .orange {
     color: orange;
 }
+.imgArticle {
+    max-height: 250px!important;
+    object-fit: cover;
+    float: left;
+    width: 40%;
+}
