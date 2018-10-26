@@ -51,7 +51,7 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
 }
 .speratorHomePage
 {
-    background-image: url("");
+
 }
 .card-img-top:hover{
 
@@ -90,8 +90,17 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
 /* END HOME PAGE */
 
 
-/*---------------------------------------------------*/
-
+/*-----------------------Caroussel----------------------------*/
+.titleCaroussel
+{
+    font-family: "lobsterregular";
+    font-size: 4vw;
+}
+.titleCarouselItems h2
+{
+    font-family: "airbag_freeregular";
+    font-size: 3vw;
+}
 /* -------SEPARATOR ----------*/
 .bg-separator
 {
