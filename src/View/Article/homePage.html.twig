@@ -144,7 +144,7 @@
         <img class="card-img-top" src="/assets/images/{{ articles.imageName }}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">{{ articles.title  }}</h5>
-            <p class="card-text">{{ articles.content }}</p>
+            <p class="card-text">{{ articles.content[:50] ~ " ..." }}</p>
             <a href="/article/{{ articles.id }}" class="btn btn-primary btn-sm">Read me!</a>
         </div>
     </div>
