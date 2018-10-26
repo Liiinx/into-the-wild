@@ -46,9 +46,7 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     padding-right: 360px;
 }
 /* HOME PAGE */
-.carouselExampleControls h1{
-    font-family: lobsterregular;
-}
+
 .speratorHomePage
 {
 
@@ -92,8 +90,9 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
 }
 .titleCarouselItems h2
 {
-    font-family: "airbag_freeregular";
-    font-size: 3vw;
+    font-family: "arial";
+    font-size: 2vw;
+    padding-left: 2vw;
 }
 /* -------SEPARATOR ----------*/
 .bg-separator
