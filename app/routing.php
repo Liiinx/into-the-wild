@@ -23,6 +23,7 @@ $routes = [
 
     'User' => [ // Route côté client
         ['homeShowListArticles', '/', 'GET'],
+        ['dashboard', '/dashboard', 'GET'],
         ['showListArticles', '/articles', 'GET'],
         ['showArticleUser', '/article/{id:\d+}', ['GET', 'POST']],
         ['login', '/connexion', ['GET', 'POST']],

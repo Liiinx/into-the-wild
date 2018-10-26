@@ -1,7 +1,7 @@
 {% if(session["flash"]) %}
     {% for sessionKey, sessionValue in session["flash"] %}
-        <div class="alert alert-{{ sessionKey }}">
-            {{ sessionValue }}
+        <div id="wcs-flasher" class="alert alert-{{ sessionKey }} animated bounce">
+            <b style="display: block; text-align: center;" class="animated bounce">{{ sessionValue }}</b>
         </div>
     {% endfor %}
 {% endif %}

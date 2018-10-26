@@ -23,12 +23,11 @@
 
         <div class="col-10 offset-1">
 
-            <img style="float: left" class="img-fluid mr-3 mb-1" src="/assets/images/{{ article.imageName }}" alt="">
+            <img style="float: left; max-width: 50%;" class="img-fluid mr-3 mb-1" src="/assets/images/{{ article.imageName }}" alt="" >
 
                 <h1>{{ article.title }}</h1>
-                <p class="text-justify">{{ article.content }}</p>
+                <p class="text-justify">{{ article.content|nl2br }}</p>
                 <p class="text-justify publish py-3">Publié le {{ article.date }}</p>
-
         </div>
     </div>
     <div class="row">
@@ -55,7 +54,7 @@
         </div>
 
         <div class="col-6 rounded bg-light mb-4">
-            <p class="p-2 text-justify">{{ comment.comment }}</p>
+            <p class="p-2 text-justify">{{ comment.comment|nl2br }}</p>
 
         </div>
         {% endfor %}

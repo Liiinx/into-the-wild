@@ -27,13 +27,21 @@ class UserController extends AbstractController
      * @throws \Twig_Error_Syntax
      */
 
+    /* Dashboard user */
+    public function dashboard() {
+        $commentsInstance = new CommentManager($this->getPdo());
+        $allComments = $commentsInstance->selectAllByField('comment', 'user_id', $this->flasher->read('user')["id"]);
+        return $this->twig->render('User/dashboard.html.twig', ['allComments' => $allComments]);
+    }
+
     /* Affiche page login */
     public function login ()
     {
 
         /* Si l'utilisateur est déjà connecté alors */
         if(!empty($this->flasher->read('user'))){
-            header("Location: /");
+            $this->flasher->setFlash("dark", "Erreur, vous êtes déjà connecté !");
+            header("Location: /dashboard");
         }
 
         /* Si ont est en post */
@@ -78,8 +86,8 @@ class UserController extends AbstractController
                     header("location: /admin/");
                     exit();
                 } else {
-                    // $this->flasher->setFlash('success', "Vous êtes dès à présent connecté !");
-                    header("location: /");
+                    $this->flasher->setFlash('success', "Vous êtes dès à présent connecté !");
+                    header("location: /dashboard");
                 }
             } else {
                 $this->validator->setErrors("Echec de la connexion !");
@@ -154,6 +162,8 @@ class UserController extends AbstractController
 
         return $this->twig->render('User/inscription.html.twig', ["errors" => $this->validator->getErrors()]);
     }
+    /* Verification ??? à changé de place */
+    //TODO Fonction à changer de place.
     public function verif($data){
         $data = trim($data);
         $data = strip_tags($data);
@@ -187,7 +197,9 @@ class UserController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
+        //var_dump($_SESSION);
         return $this->twig->render('Article/homePage.html.twig', ['article' => $articles]);
+
 
     }
 

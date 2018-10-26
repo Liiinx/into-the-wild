@@ -128,12 +128,16 @@ class AdminController extends AbstractController
 
                 $uploadDir = 'assets/images/';
                 if($_FILES['image']['name'] != "") {
-                    $filename = $_FILES['image']['name'];
-                    $extension = pathinfo($filename, PATHINFO_EXTENSION); //récupère l'extension
-                    $filename = 'image' . uniqid() . '.' .$extension; //numéro unique
-                    $article->setImageName($filename);
-                    $uploadFile = $uploadDir . basename($filename);
-                    move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
+                    $this->validator->checkExtension($_FILES['image']['name']);
+                    $this->validator->checkSize($_FILES['image']['size']);
+                    if(empty($this->validator->getErrors())) {
+                        $filename = $_FILES['image']['name'];
+                        $extension = pathinfo($filename, PATHINFO_EXTENSION); //récupère l'extension
+                        $filename = 'image' . uniqid() . '.' . $extension; //numéro unique
+                        $article->setImageName($filename);
+                        $uploadFile = $uploadDir . basename($filename);
+                        move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
+                    }
                 }
 
                 $articleManager->update($article);
