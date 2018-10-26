@@ -5944,9 +5944,9 @@ button.close {
   -ms-flex-pack: center;
   justify-content: center;
   width: 15%;
-  color: #fff;
+  color: #FFA948;
   text-align: center;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .carousel-control-prev:hover, .carousel-control-prev:focus,
@@ -5986,7 +5986,7 @@ button.close {
 .carousel-indicators {
   position: absolute;
   right: 0;
-  bottom: 10px;
+  bottom: 20px;
   left: 0;
   z-index: 15;
   display: -ms-flexbox;

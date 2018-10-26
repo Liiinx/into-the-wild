@@ -47,6 +47,13 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
 }
 /* HOME PAGE */
 
+.speratorHomePage
+{
+
+}
+.card-img-top:hover{
+
+}
 .banner
 {
     margin-top: -10px;
@@ -66,12 +73,6 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     padding-top: 15%;
     font-size: 3vw;
 }
-.card-text
-{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 .btn-sm
 {
     background-color: orange;
@@ -81,8 +82,18 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
 /* END HOME PAGE */
 
 
-/*---------------------------------------------------*/
-
+/*-----------------------Caroussel----------------------------*/
+.titleCaroussel
+{
+    font-family: "lobsterregular";
+    font-size: 4vw;
+}
+.titleCarouselItems h2
+{
+    font-family: "arial";
+    font-size: 2vw;
+    padding-left: 2vw;
+}
 /* -------SEPARATOR ----------*/
 .bg-separator
 {
@@ -128,7 +139,7 @@ body {
 }
 body
 {
-    background-color: #EDEDED;
+background-color: white;
 }
 
 body > .container {
@@ -169,10 +180,10 @@ code {
 
 }
 
-
+/* liste articles utilisateur */
 .cardDeck
 {
-    max-width: 70%;
+    max-width: 100%;
     background-color: white;
     justify-content: center;
 }
@@ -187,17 +198,22 @@ code {
     margin-left: 20px !important;
 }
 .cardText {
-    width: 80%;
     height: 3.2em;
-    text-align: justify;
-    overflow: hidden;
 }
 
 .imageArticle
 {
-    max-width: 100%;
     margin-bottom: 5px;
+    width: 100%!important;
+    height: 150px!important;
+    object-fit: cover;
 }
+.cardTitle
+{
+    width: 100%!important;
+    height: 50px!important;
+}
+
 
 /* Admin */
 
@@ -221,4 +237,10 @@ showOneArticleUser    vue d'un article en front, coté user */
 
 .orange {
     color: orange;
+}
+.imgArticle {
+    max-height: 250px!important;
+    object-fit: cover;
+    float: left;
+    width: 40%;
 }

@@ -8,20 +8,27 @@
             <tr>
                 <th>Titre</th>
                 <th>Contenu</th>
+                <th>Date / Heure</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             {% for articles in article %}
-            <tr data-toggle="tooltip" data-placement="bottom" data-html="true" title="{{ articles.content }}">
+            <tr>
                 <td><h4>{{ articles.title }}</h4></td>
 
                 <td> <span class="preview_content">{{ articles.content[:50] ~ '...' }}</span> </td>
+                <td> <span class="preview_content">{{ articles.date}}</span> </td>
 
                 <td>
-                        <a type="button" href="/admin/article/edit/{{ articles.id }}" style="margin-right: 5px;" class="btn btn-outline-secondary"><i class="fas fa-pencil-alt"></i></a>
-
-                        <a type="button" href="/admin/article/delete/{{ articles.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
+                    <div class="row">
+                        <div class="col-6">
+                            <a type="button" href="/admin/article/edit/{{ articles.id }}" class="btn btn-outline-secondary"><i class="fas fa-pencil-alt"></i></a>
+                        </div>
+                        <div class="col-6">
+                            <a type="button" href="/admin/article/delete/{{ articles.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
+                        </div>
+                    </div>
                 </td>
             </tr>
             {% endfor %}

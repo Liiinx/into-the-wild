@@ -87,7 +87,7 @@ class UserController extends AbstractController
                     exit();
                 } else {
                     $this->flasher->setFlash('success', "Vous êtes dès à présent connecté !");
-                    header("location: /dashboard");
+                    header("location: /");
                 }
             } else {
                 $this->flasher->setFlash('danger', "Echec de la connexion !");
@@ -199,7 +199,9 @@ class UserController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
+        //var_dump($_SESSION);
         return $this->twig->render('Article/homePage.html.twig', ['article' => $articles]);
+
 
     }
 

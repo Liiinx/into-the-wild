@@ -128,12 +128,16 @@ class AdminController extends AbstractController
 
                 $uploadDir = 'assets/images/';
                 if($_FILES['image']['name'] != "") {
-                    $filename = $_FILES['image']['name'];
-                    $extension = pathinfo($filename, PATHINFO_EXTENSION); //récupère l'extension
-                    $filename = 'image' . uniqid() . '.' .$extension; //numéro unique
-                    $article->setImageName($filename);
-                    $uploadFile = $uploadDir . basename($filename);
-                    move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
+                    $this->validator->checkExtension($_FILES['image']['name']);
+                    $this->validator->checkSize($_FILES['image']['size']);
+                    if(empty($this->validator->getErrors())) {
+                        $filename = $_FILES['image']['name'];
+                        $extension = pathinfo($filename, PATHINFO_EXTENSION); //récupère l'extension
+                        $filename = 'image' . uniqid() . '.' . $extension; //numéro unique
+                        $article->setImageName($filename);
+                        $uploadFile = $uploadDir . basename($filename);
+                        move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
+                    }
                 }
 
                 $articleManager->update($article);
@@ -184,7 +188,7 @@ class AdminController extends AbstractController
 
 
     /* Affiche tous les commentaires */
-    public function showComment()
+    public function showComments()
     {
         $commentManager = new CommentManager($this->getPdo());
         $comments = $commentManager->selectComments();
@@ -200,5 +204,12 @@ class AdminController extends AbstractController
         //var_dump($users);
         return $this->twig->render('User/adminListUsers.html.twig', ['users' => $users]);
 
+    }
+
+    //supprimer un commentaire
+    public function deleteComment($id)
+    {
+        $commentManager = new CommentManager($this->getPdo());
+        $deleteComment = $commentManager->adminDeleteComment($id);
     }
 }

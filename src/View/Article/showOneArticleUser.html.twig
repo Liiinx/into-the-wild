@@ -23,11 +23,11 @@
 
         <div class="col-10 offset-1">
 
-            <img style="float: left" class="img-fluid mr-3 mb-1" src="/assets/images/{{ article.imageName }}" alt="">
+            <img class="img-fluid mr-3 mb-1 imgArticle" src="/assets/images/{{ article.imageName }}" alt="" >
 
                 <h1>{{ article.title }}</h1>
-                <p class="text-justify">{{ article.content }}</p>
-
+                <p class="text-justify">{{ article.content|nl2br }}</p>
+                <p class="text-justify publish py-3">Publié le {{ article.date }}</p>
         </div>
     </div>
     <div class="row">
@@ -35,10 +35,10 @@
             <form method="post">
                 <div class="form-group">
                     <label for="comment">Votre commentaire : </label>
-                    <textarea name="comment" rows="2" cols="30" class="form-control" placeholder="Votre commentaire"></textarea>
+                    <textarea name="comment" rows="4" cols="30" class="form-control" placeholder="Votre commentaire"></textarea>
                 </div>
-                <div style="padding-bottom: 20px;">
-                    <input type="submit" style="background-color: #6D909C; border-color: #6D909C;" class="btn btn-success" value="Envoyer">
+                <div class="row justify-content-center pb-5">
+                        <input type="submit" style="background-color: #6D909C; border-color: #6D909C;" class="btn btn-success" value="Envoyer">
                 </div>
             </form>
 
@@ -49,12 +49,12 @@
         {% for comment in comments %}
         <div class="col-2 offset-2">
 
-            <h5>{{ comment.name ~ ' ' ~ comment.firstname }}</h5>
+            <h5>{{ comment.firstname ~ ' ' ~ comment.name }}</h5>
             <span class="orange">{{ comment.date }}</span>
         </div>
 
         <div class="col-6 rounded bg-light mb-4">
-            <p class="p-2 text-justify">{{ comment.comment }}</p>
+            <p class="p-2 text-justify">{{ comment.comment|nl2br }}</p>
 
         </div>
         {% endfor %}
