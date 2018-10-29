@@ -14,6 +14,7 @@ use Model\ArticleManager;
 use Model\User;
 use Model\CommentManager;
 use Model\UserManager;
+use Model\CategoryManager;
 
 class AdminController extends AbstractController
 {
@@ -211,5 +212,13 @@ class AdminController extends AbstractController
     {
         $commentManager = new CommentManager($this->getPdo());
         $deleteComment = $commentManager->adminDeleteComment($id);
+    }
+
+    // Affiche toutes les catégories
+    public function showCategories()
+    {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
+        return $this->twig->render('Admin/showCategories.html.twig', ['categories' => $categories]);
     }
 }
