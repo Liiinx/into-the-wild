@@ -11,6 +11,9 @@ namespace Model;
 
 class Category
 {
+    private $id;
+    private $name;
+
     /**
      * @return mixed
      */
@@ -42,6 +45,5 @@ class Category
     {
         $this->name = $name;
     }
-    private $id;
-    private $name;
+
 }

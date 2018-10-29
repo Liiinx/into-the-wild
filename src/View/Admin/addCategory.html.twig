@@ -1,0 +1,21 @@
+{% extends 'adminLayout.html.twig' %}
+
+{% block content %}
+
+    {% if errors %}
+        <div class="alert alert-danger">
+            <b>Attention, des erreurs ont été comises !</b>
+            <ul>
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <h1>Ajouter une categorie</h1>
+
+
+    {% include 'Admin/category.html.twig' %}
+
+
+{% endblock %}

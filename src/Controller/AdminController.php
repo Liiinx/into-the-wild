@@ -11,6 +11,7 @@ namespace Controller; //
 use Model\Article;
 use Model\AdminManager;
 use Model\ArticleManager;
+use Model\Category;
 use Model\User;
 use Model\CommentManager;
 use Model\UserManager;
@@ -220,5 +221,28 @@ class AdminController extends AbstractController
         $categoryManager = new CategoryManager($this->getPdo());
         $categories = $categoryManager->showAllCategory();
         return $this->twig->render('Admin/showCategories.html.twig', ['categories' => $categories]);
+    }
+
+    // Ajouter une categorie
+    public function addCategory()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $categoryManager = new CategoryManager($this->getPdo());
+            $category = new Category();
+
+            /* Validation des champs */
+            $this->validator->sendData($_POST);
+            $this->validator->isNotEmpty('name');
+
+            /* Si il n'y a pas d'erreurs */
+            if(empty($this->validator->getErrors())){
+                $category->setName($_POST['name']);
+                $id = $categoryManager->insert($category);
+                return header('Location: /admin/categories');
+            }
+        }
+
+        return $this->twig->render('Admin/addCategory.html.twig', ['errors' => $this->validator->getErrors()]);
     }
 }

@@ -26,6 +26,23 @@ class CategoryManager extends AbstractManager
     public function showAllCategory()
     {
         return $this->pdo->query("SELECT category.name, count(article.category_id) as quantity FROM category 
-INNER JOIN article ON category.id=article.category_id GROUP BY article.category_id", \PDO::FETCH_CLASS, $this->className)->fetchAll();
+LEFT JOIN article ON category.id=article.category_id GROUP BY category.name", \PDO::FETCH_CLASS, $this->className)->fetchAll();
+    }
+
+    // Ajouter une categorie
+    public function insert($category)
+    {
+        // prepared request
+
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (name)
+    VALUES (:name)");
+
+
+        $statement->bindValue(':name', $category->getName(), \PDO::PARAM_STR);
+
+        $statement->execute();
+
+        return $this->pdo->lastInsertId();
+
     }
 }
