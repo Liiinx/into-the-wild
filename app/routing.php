@@ -30,6 +30,7 @@ $routes = [
         ['inscription', '/inscription', ['GET', 'POST']],
         ['deleteComment', '/comment/delete/{id:\d+}', 'GET'], // action, url, method
         ['disconnect', '/deconnexion', ['GET', 'POST']],
+        ['page', '/page/{page:\d+}', ['GET']],
     ],
 
     'Admin' => [ // Route concernant l'administration.
