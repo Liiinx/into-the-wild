@@ -5,7 +5,7 @@
     <h1>Liste de nos articles</h1>
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <div class="row">
                     {% for articles in article %}
                         <!-- <marquee scrollamount="350"> DEFILEMENT MARRANT--> 
@@ -28,6 +28,9 @@
                         </div>
                     {% endfor %}
                 </div>
+            </div>
+            <div class="col-md-3 mt-2">
+                {% include 'User/category.html.twig' %}
             </div>
         </div>
 

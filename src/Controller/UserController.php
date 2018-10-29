@@ -152,9 +152,13 @@ class UserController extends AbstractController
                 $user->setFirstname(strip_tags(trim(htmlspecialchars($_POST['firstname']))));
                 $user->setMail(strip_tags(trim(htmlspecialchars($_POST['mail']))));
                 $mdpCrypt=password_hash(strip_tags(trim(htmlspecialchars($_POST['password']))), PASSWORD_BCRYPT);
-                $user->setPassword($mdpCrypt);//
+                $user->setPassword($mdpCrypt);
                 $id = $UserManager->insert($user);
+
+                $_SESSION['user'] = $user->getAll();
+                $_SESSION["user"]["id"] = $id;
                 header('Location:/');
+
             }
 
         }
