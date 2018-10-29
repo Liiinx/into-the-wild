@@ -1,9 +1,8 @@
 
-<div >
-    <div class="list-group" id="list-tab" role="tablist">
+    <div id="menuCategory" class="list-group" id="list-tab" role="tablist">
         <div class="list-group-item category"><h4 class="white">Categories</h4></div>
         {% for category in categories %}
-        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">{{ category.name }}</a>
+        <a class="list-group-item list-group-item-action" href="/category/{{ category.id }}">{{ category.name }}</a>
         {% endfor %}
     </div>
-</div>
+

@@ -71,7 +71,7 @@ LEFT JOIN article ON category.id=article.category_id GROUP BY category.id", \PDO
     public function selectArticlesByCategory(int $id)
     {
         // prepared request
-        $statement = $this->pdo->prepare("SELECT category.id, category.name, article.title, article.date, article.content FROM $this->table 
+        $statement = $this->pdo->prepare("SELECT category.id, category.name, article.id, article.imageName, article.title, article.date, article.content FROM $this->table 
 INNER JOIN article ON category.id=article.category_id WHERE category.id=:id");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
