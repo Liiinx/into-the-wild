@@ -184,7 +184,7 @@ class AdminController extends AbstractController
     {
 
         $articleManager = new ArticleManager($this->getPdo());
-        $articles = $articleManager->selectAll();
+        $articles = $articleManager->selectAllArticles();
         return $this->twig->render('Article/adminListArticles.html.twig', ['article' => $articles]);
     }
 
