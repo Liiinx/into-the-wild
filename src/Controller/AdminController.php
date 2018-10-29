@@ -270,4 +270,14 @@ class AdminController extends AbstractController
         }
         return $this->twig->render('Admin/editCategory.html.twig', ['errors' => $this->validator->getErrors(), 'category' => $category]);
     }
+
+    public function deleteCategory(int $id)
+    {
+
+        // TODO faire une securité qui permet de verifier si c'est bien un admin et qu'il est bien connecté.
+
+        $categoryManager = new CategoryManager($this->getPdo());
+        $deleteCategory = $categoryManager->delete($id);
+
+    }
 }

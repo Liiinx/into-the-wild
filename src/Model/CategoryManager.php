@@ -57,4 +57,14 @@ LEFT JOIN article ON category.id=article.category_id GROUP BY category.id", \PDO
 
         return $statement->execute();
     }
+
+    // Delete une catégorie dans admin
+    public function delete($id)
+    {
+        $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id = :id");
+        $statement->execute([':id' => $id]);
+
+        //$_SERVER['HTTP_REFERER'] = Sert à retourner sur la page précédente
+        return header('Location: ' .  $_SERVER['HTTP_REFERER']);
+    }
 }
