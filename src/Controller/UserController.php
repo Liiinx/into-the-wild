@@ -91,11 +91,13 @@ class UserController extends AbstractController
                     header("location: /");
                 }
             } else {
+                $this->flasher->setFlash('danger', "Echec de la connexion !");
                 $this->validator->setErrors("Echec de la connexion !");
             }
         }
 
         /* Retour des erreurs ici  */
+
         return $this->twig->render('login.html.twig', ['errors' => $this->validator->getErrors()]);
     }
 
