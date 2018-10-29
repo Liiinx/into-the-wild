@@ -280,4 +280,13 @@ class AdminController extends AbstractController
         $deleteCategory = $categoryManager->delete($id);
 
     }
+
+    /* Affiche un seul catégorie */
+    public function showCategory(int $id)
+    {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->selectArticlesByCategory($id);
+
+        return $this->twig->render('Admin/showCategory.html.twig', ['categories' => $categories]);
+    }
 }

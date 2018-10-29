@@ -67,4 +67,16 @@ LEFT JOIN article ON category.id=article.category_id GROUP BY category.id", \PDO
         //$_SERVER['HTTP_REFERER'] = Sert à retourner sur la page précédente
         return header('Location: ' .  $_SERVER['HTTP_REFERER']);
     }
+    // Affiche tous les articles d'une catégorie
+    public function selectArticlesByCategory(int $id)
+    {
+        // prepared request
+        $statement = $this->pdo->prepare("SELECT category.id, category.name, article.title, article.date, article.content FROM $this->table 
+INNER JOIN article ON category.id=article.category_id WHERE category.id=:id");
+        $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
 }
