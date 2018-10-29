@@ -245,4 +245,29 @@ class AdminController extends AbstractController
 
         return $this->twig->render('Admin/addCategory.html.twig', ['errors' => $this->validator->getErrors()]);
     }
+
+    // Editer une catégorie
+    public function editCategory(int $id): string
+    {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $category = $categoryManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            /* Validation des champs */
+            $this->validator->sendData($_POST);
+            $this->validator->isNotEmpty('name');
+
+            /* Si il n'y a pas d'erreurs */
+            if(empty($this->validator->getErrors())) {
+                $category->setName($_POST['name']);
+
+
+                $categoryManager->update($category);
+                return header('Location: /admin/categories');
+
+            }
+        }
+        return $this->twig->render('Admin/editCategory.html.twig', ['errors' => $this->validator->getErrors(), 'category' => $category]);
+    }
 }

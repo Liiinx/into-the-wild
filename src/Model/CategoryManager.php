@@ -25,8 +25,8 @@ class CategoryManager extends AbstractManager
     //Affiche toutes les categories
     public function showAllCategory()
     {
-        return $this->pdo->query("SELECT category.name, count(article.category_id) as quantity FROM category 
-LEFT JOIN article ON category.id=article.category_id GROUP BY category.name", \PDO::FETCH_CLASS, $this->className)->fetchAll();
+        return $this->pdo->query("SELECT category.id, category.name, count(article.category_id) as quantity FROM category 
+LEFT JOIN article ON category.id=article.category_id GROUP BY category.id", \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 
     // Ajouter une categorie
@@ -44,5 +44,17 @@ LEFT JOIN article ON category.id=article.category_id GROUP BY category.name", \P
 
         return $this->pdo->lastInsertId();
 
+    }
+
+    // Edit un article dans admin
+    public function update(Category $category):int
+    {
+
+        // prepared request
+        $statement = $this->pdo->prepare("UPDATE $this->table SET name = :name WHERE id=:id");
+        $statement->bindValue('id', $category->getId(), \PDO::PARAM_INT);
+        $statement->bindValue('name', $category->getName(), \PDO::PARAM_STR);
+
+        return $statement->execute();
     }
 }
