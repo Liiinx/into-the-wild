@@ -11,9 +11,11 @@ namespace Controller; //
 use Model\Article;
 use Model\AdminManager;
 use Model\ArticleManager;
+use Model\Category;
 use Model\User;
 use Model\CommentManager;
 use Model\UserManager;
+use Model\CategoryManager;
 
 class AdminController extends AbstractController
 {
@@ -211,5 +213,71 @@ class AdminController extends AbstractController
     {
         $commentManager = new CommentManager($this->getPdo());
         $deleteComment = $commentManager->adminDeleteComment($id);
+    }
+
+    // Affiche toutes les catégories
+    public function showCategories()
+    {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
+        return $this->twig->render('Admin/showCategories.html.twig', ['categories' => $categories]);
+    }
+
+    // Ajouter une categorie
+    public function addCategory()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            $categoryManager = new CategoryManager($this->getPdo());
+            $category = new Category();
+
+            /* Validation des champs */
+            $this->validator->sendData($_POST);
+            $this->validator->isNotEmpty('name');
+
+            /* Si il n'y a pas d'erreurs */
+            if(empty($this->validator->getErrors())){
+                $category->setName($_POST['name']);
+                $id = $categoryManager->insert($category);
+                return header('Location: /admin/categories');
+            }
+        }
+
+        return $this->twig->render('Admin/addCategory.html.twig', ['errors' => $this->validator->getErrors()]);
+    }
+
+    // Editer une catégorie
+    public function editCategory(int $id): string
+    {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $category = $categoryManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            /* Validation des champs */
+            $this->validator->sendData($_POST);
+            $this->validator->isNotEmpty('name');
+
+            /* Si il n'y a pas d'erreurs */
+            if(empty($this->validator->getErrors())) {
+                $category->setName($_POST['name']);
+
+
+                $categoryManager->update($category);
+                return header('Location: /admin/categories');
+
+            }
+        }
+        return $this->twig->render('Admin/editCategory.html.twig', ['errors' => $this->validator->getErrors(), 'category' => $category]);
+    }
+
+    public function deleteCategory(int $id)
+    {
+
+        // TODO faire une securité qui permet de verifier si c'est bien un admin et qu'il est bien connecté.
+
+        $categoryManager = new CategoryManager($this->getPdo());
+        $deleteCategory = $categoryManager->delete($id);
+
     }
 }
