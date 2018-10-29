@@ -14,6 +14,7 @@ use Model\CommentManager;
 use Model\User;
 use Model\UserManager;
 use Model\ArticleManager;
+use Model\CategoryManager;
 
 
 class UserController extends AbstractController
@@ -154,9 +155,13 @@ class UserController extends AbstractController
                 $user->setFirstname(strip_tags(trim(htmlspecialchars($_POST['firstname']))));
                 $user->setMail(strip_tags(trim(htmlspecialchars($_POST['mail']))));
                 $mdpCrypt=password_hash(strip_tags(trim(htmlspecialchars($_POST['password']))), PASSWORD_BCRYPT);
-                $user->setPassword($mdpCrypt);//
+                $user->setPassword($mdpCrypt);
                 $id = $UserManager->insert($user);
+
+                $_SESSION['user'] = $user->getAll();
+                $_SESSION["user"]["id"] = $id;
                 header('Location:/');
+
             }
 
         }
@@ -175,9 +180,15 @@ class UserController extends AbstractController
     /* Affiche un seul article */
     public function showArticleUser(int $id)
     {
+        //va chercher toute les categories
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
+
+        //va chercher un article avec son id
         $articleManager = new ArticleManager($this->getPdo());
         $article = $articleManager->selectOneById($id);
 
+        //gere, ajout et affichage des commentaires
         $commentManager = new CommentManager($this->getPdo());
         if (!empty($_POST)) {
             //var_dump($_POST);
@@ -189,7 +200,7 @@ class UserController extends AbstractController
         }
         $comments = $commentManager->selectArticleComments($id);
 
-        return $this->twig->render('Article/showOneArticleUser.html.twig', ['article' => $article, 'comments' => $comments]);
+        return $this->twig->render('Article/showOneArticleUser.html.twig', ['article' => $article, 'comments' => $comments, 'categories' => $categories]);
 
     }
 
@@ -199,7 +210,7 @@ class UserController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
-        //var_dump($_SESSION);
+
         return $this->twig->render('Article/homePage.html.twig', ['article' => $articles]);
 
 
@@ -208,10 +219,13 @@ class UserController extends AbstractController
     /* Afficher la liste globale des articles */
     public function showListArticles()
     {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
+        //var_dump($categories);
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
-        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles]);
+        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles, 'categories' => $categories]);
 
     }
 
@@ -221,5 +235,17 @@ class UserController extends AbstractController
         $commentManager = new CommentManager($this->getPdo());
         $comment = $commentManager->deleteComment($id);
 
+    }
+
+    /* Affiche un seul catégorie */
+    public function showCategory(int $id)
+    {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $articleCategory = $categoryManager->selectArticlesByCategory($id);
+
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
+
+        return $this->twig->render('User/showArticlesCategory.html.twig', ['articleCategory' => $articleCategory, 'categories' => $categories]);
     }
 }
