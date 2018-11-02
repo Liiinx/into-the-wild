@@ -43,7 +43,7 @@ CREATE TABLE `article` (
   KEY `categorie_id` (`category_id`),
   CONSTRAINT `article_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `article_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,7 +52,7 @@ CREATE TABLE `article` (
 
 LOCK TABLES `article` WRITE;
 /*!40000 ALTER TABLE `article` DISABLE KEYS */;
-INSERT INTO `article` VALUES (73,'kookijiojio','drggf',NULL,2,'image5bcf079f3724f.png','2018-10-25 17:05:21'),(77,'hello','doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc. \r\nAoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx.\r\n\r\nPajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc. \r\nPoajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie.\r\n\r\nFajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j ',NULL,2,'image5bd2e305517a9.jpg','2018-10-26 08:30:25'),(78,'bidule','doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j ',NULL,2,'image5bd2e1d071af6.jpg','2018-10-26 08:35:23');
+INSERT INTO `article` VALUES (73,'kookijiojio','drggf',NULL,2,'image5bcf079f3724f.png','2018-10-25 17:05:21'),(77,'hello','hfuihdiuzehciueh',NULL,2,'image5bd2e305517a9.jpg','2018-10-26 08:30:25'),(78,'bidule','jdzhfiuezhfiuezhd',NULL,2,'image5bd2e1d071af6.jpg','2018-10-26 08:35:23'),(82,'truc','jjjckzjcojcoi',1,4,NULL,'2018-10-29 14:51:09');
 /*!40000 ALTER TABLE `article` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,6 +202,8 @@ CREATE TABLE `user` (
   `status_id` int(11) NOT NULL DEFAULT '2',
   `password` varchar(255) NOT NULL,
   `date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `confirmation_token` varchar(255) DEFAULT NULL,
+  `is_validate` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `status_id` (`status_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
@@ -213,7 +215,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'root','root','root@yahoo.fr',1,'$2y$10$dNOeJ5bzFjKRfYwpYKTSy.2VvQXrGmr0igI03nmS3JwOTjeavDY.S','2018-10-25 17:05:52'),(21,'Smith','John','John@gmail.com',2,'$2y$10$E2IIxoFbGs4bryjV17bdYOSapD.OJ1dTdaVZ0vcowilEBqKEhT1hG','2018-10-25 17:05:52'),(23,'gfdgdhg','jfdjdj','fkrlk@nfdnf.com',2,'ggg','2018-10-25 17:14:37');
+INSERT INTO `user` VALUES (1,'root','root','root@yahoo.fr',1,'$2y$10$dNOeJ5bzFjKRfYwpYKTSy.2VvQXrGmr0igI03nmS3JwOTjeavDY.S','2018-10-25 17:05:52',NULL,0),(21,'Smith','John','John@gmail.com',2,'$2y$10$E2IIxoFbGs4bryjV17bdYOSapD.OJ1dTdaVZ0vcowilEBqKEhT1hG','2018-10-25 17:05:52',NULL,0),(23,'gfdgdhg','jfdjdj','fkrlk@nfdnf.com',2,'ggg','2018-10-25 17:14:37',NULL,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -226,4 +228,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-29 14:35:46
+-- Dump completed on 2018-11-02 10:53:16
