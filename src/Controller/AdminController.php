@@ -90,6 +90,8 @@ class AdminController extends AbstractController
             if(empty($this->validator->getErrors())){
                 $article->setTitle($_POST['title']);
                 $article->setContent($_POST['content']);
+                $article->setCategoryId($_POST['category']);
+
                 // chargement des images
                 $uploadDir = 'assets/images/';
                 if(isset($_FILES) && !empty($_FILES)) {
@@ -102,6 +104,7 @@ class AdminController extends AbstractController
                 }
 
                 $id = $articleManager->insert($article);
+
                 return header('Location: /admin/articles');
             }
         }
