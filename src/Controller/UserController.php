@@ -222,4 +222,10 @@ class UserController extends AbstractController
         $comment = $commentManager->deleteComment($id);
 
     }
+
+    public function editDashboard ()
+    {
+        return $this->twig->render("User/editProfile.html.twig");
+    }
+
 }
