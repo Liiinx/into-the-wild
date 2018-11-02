@@ -31,6 +31,15 @@
                 <input type="text" name="title" value="{{ article.title }}" class="form-control" placeholder="Titre de votre article">
         </div>
 
+        <select name="category">
+                <option selected value=""> Choisissez la Categorie
+                <option value="4"> Wild breackfast
+                <option value="1"> Wild Apéro
+                <option value="2"> Hackathon
+                <option value="6"> Interventions
+                <option value="7"> Divers
+        </select><br/><br/>
+
         <div class="form-group">
                 <label for="content">Contenu de l'article : </label>
                 <textarea name="content" rows="6" cols="30" class="form-control" placeholder="Contenu de l'article">{{ article.content }}</textarea>

@@ -126,7 +126,7 @@ class Validator {
      */
     public function checkExtension(string $imageName){
         $fileExtension = strrchr($imageName, ".");
-        $extensionAllow = array(".jpg", ".png", ".gif");
+        $extensionAllow = array(".jpg", ".jpeg", ".png", ".gif");
         if (!in_array($fileExtension, $extensionAllow)) {
             $this->errors['verif'] = "Seuls les fichiers .jpg, .png et .gif sont autorisés";
             return false;
