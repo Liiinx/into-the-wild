@@ -19,6 +19,7 @@
             <tr>
                 <th>Titre</th>
                 <th>Contenu</th>
+                <th>Catégorie</th>
                 <th>Date / Heure</th>
                 <th>Action</th>
             </tr>
@@ -29,6 +30,7 @@
                 <td><h4>{{ articles.title }}</h4></td>
 
                 <td> <span class="preview_content">{{ articles.content[:50] ~ '...' }}</span> </td>
+                <td> <span class="preview_content">{{ articles.name}}</span> </td>
                 <td> <span class="preview_content">{{ articles.date}}</span> </td>
 
                 <td>
