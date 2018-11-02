@@ -116,7 +116,7 @@ class User
 
     public function getAll(){
         return [
-            'id' =>$this->id,
+            'id' => $this->id,
             'name' => $this->name,
             'firstname' => $this->firstname,
             'mail' => $this->mail,

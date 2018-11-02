@@ -62,6 +62,7 @@
 
         <ul class="navbar-nav mr-auto">
 
+
             {% if(session.user) %}
 
                 <li class="nav-item ">
@@ -82,9 +83,14 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="/inscription">INSCRIPTION</a>
                 </li>
-
+            {% endif %}
+            {% if(session.user.status_id == "1") %}
+                <li class="nav-item ">
+                    <a class="nav-link" href="/admin/">Admin</a>
+                </li>
 
             {% endif %}
+
         </ul>
 
 

@@ -42,8 +42,8 @@ CREATE TABLE `article` (
   KEY `user_id` (`user_id`),
   KEY `categorie_id` (`category_id`),
   CONSTRAINT `article_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `article_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
+  CONSTRAINT `article_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,7 +52,7 @@ CREATE TABLE `article` (
 
 LOCK TABLES `article` WRITE;
 /*!40000 ALTER TABLE `article` DISABLE KEYS */;
-INSERT INTO `article` VALUES (73,'kookijiojio','drggf',NULL,NULL,'image5bcf079f3724f.png','2018-10-25 17:05:21'),(77,'hello','doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc. \r\nAoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx.\r\n\r\nPajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc. \r\nPoajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie.\r\n\r\nFajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j ',NULL,NULL,'image5bd2e305517a9.jpg','2018-10-26 08:30:25'),(78,'bidule','doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j doizadozahdzohdoiz joisjoijsoj sojcoasjcoajcx pojsc apojcx pajsc poasjc xpokjaposjc poasjc poskjc poasjc poajc poajc pojcspoja pocjaspocj oajcpoasjc pasjc oaejf pocao cpoajf pojc poacapoc poa apojc poajc poj cpojc poajc ôau aozjkpoajcoaejpaojfd apjca efoau pos jcaoeif poacjaoef a cpos caie fajc aoeifpoajc paojefpoacpo cpo j ',NULL,NULL,'image5bd2e1d071af6.jpg','2018-10-26 08:35:23');
+INSERT INTO `article` VALUES (83,'Hackathon spécial Halloween','Retour en images sur le hackathon spécial Hallowen qui vient de s\'achever à la WildCodeSchool de Lyon ! Js Php Java',1,2,'image5bdc4764a1386.jpg','2018-10-31 16:15:25'),(97,'BIPP','Aujourd\'hui, nos Wilders ont découvert les composantes d\'un système d\'information en entreprise, avec un focus sur le fonctionnement d\'un système décisionnel. Merci à Laurent-Xavier Gusse, directeur de BIPP Consulting pour cette intervention très intéressante !',1,6,'image5bdc47736c1c3.jpg','2018-10-25 14:45:58'),(98,'Wild Apéro du 23/10/18','Curieux de découvrir à quoi ressemble un campus qui fourmille de (futurs) développeurs ? Viens nous rencontrer à l\'occasion de notre prochain Wild Apero, mercredi 23 octobre à 18h, à la Wild Code School ! Pour t\'inscrire, c\'est ici https://www.meetup.com/fr-FR/wild-code-school-lyon/events/255637498/ …',1,1,'image5bdc4749a9b91.jpg','2018-11-02 09:05:31'),(99,'Manpower France','Merci Manpower France pour l\'atelier sur le thème de l\'insertion professionnelle des développeurs web juniors Dans 4 mois 52 Wilders débarqueront sur le marché de l\'emploi lyonnais !  JavaScript PHP Java',1,6,'image5bdc478458bcc.jpg','2018-10-04 18:50:19'),(100,'Eleves VS Formateur ','C\'est ça l\'esprit wild à la WildSchool_Lyon ! Élève VS formateur javascript ! ',1,7,'image5bdc479ad1cf1.jpg','2018-10-02 19:36:58'),(101,'Découverte de la méthode Agile','Après-midi atelier agile à la WildSchool_Lyon ! Mise en pratique du scrum Kanban et autres pratiques agiles. Donnons de la liberté aux developpeurs pour créer de la valeur !',1,7,'image5bdc47b5c835b.jpg','2018-09-27 18:06:10'),(102,'Levée de 3M d\'euro','Nous venons de lever 3M d\'euro à la WildCodeSchool avec alterequity pour nous développer en Europe et diversifier notre offre de formation. Une nouvelle page s\'ouvre dans l\'aventure de la Wild Code School.\r\nArticle sur : https://www.lesechos.fr/pme-regions/innovateurs/0302281988991-wild-code-school-reconvertit-les-adultes-en-specialistes-du-numerique-2208810.php',1,7,'image5bdc47be50a8c.jpeg','2018-09-27 12:32:03'),(103,'Wild Apéro du 27/09/18','Merci à tous les participants du Wild Apero à la WildSchool_Lyon ! Rencontres et échanges avec nos Wilders sur leurs projets et leur formation de 5 mois ',1,1,'image5bdc485b864a2.jpg','2018-09-27 00:20:59'),(104,'Le gagnant du concours \"Je code sans chaussure\"','Notre Wilder Mathieu Thomas, grand gagnant du concours twitter JeCodeSansChaussure à la WildSchoolReims a apparement bien reçu notre cadeau : des chaussettes + de la pizza ! La base pour un futur developpeur non ? On lui souhaite beaucoup de succès \r\n\r\n',1,7,'image5bdc481861fbf.jpg','2018-09-20 09:00:54'),(105,'Demoday du Projet 1','Première Demoday pour nos Wilders à la WildSchool_Lyon ! C\'est avec grande fierté que nous découvrons vos projets, un grand bravo à tous et à toutes. Ça annonce du lourd pour la suite ! Apprends à coder en 5 mois développement web PHP Java JavaScript agilité',1,7,'image5bdc47d82587b.jpg','2018-09-23 00:26:34'),(106,'Pollen Metrology','Aujourd\'hui nos Wilders découvrent l\'Intelligence Artificielle avec Pollen Metrology ! Merci au co-fondateur Johann Foucher pour ce sujet passionnant.',1,6,'image5bdc47e834c22.jpg','2018-09-20 20:11:55'),(107,'Anciens Wilders','Merci à nos anciens Wilders pour vos témoignages sur la formation de developpeur web et mobile à la WildSchool_Lyon ! Nous sommes fiers de vos parcours et de vos belles réussites',1,6,'image5bdc482208988.jpg','2018-09-13 22:00:39'),(108,'Je code sans chaussure!','Le concours de chaussons est officiellement lancé à la WildSchool_Lyon ! Les sans-chaussures font la révolution du numérique !',1,7,'image5bdc482eccfd4.jpg','2018-09-07 00:03:18'),(109,'C\'est la rentrée!','54 Wilders ont fait leur rentrée à la WildSchool_Lyon ! Bienvenue à vous tous, et à la nouvelle team de formateurs ! C\'est parti pour 5 mois intensifs de challenge personnel et professionnel JavaScript PHP javaee',1,7,'image5bdc48367fa9c.jpg','2018-09-03 15:36:01');
 /*!40000 ALTER TABLE `article` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,7 +90,7 @@ CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,6 +99,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` VALUES (1,'Wild Apéro '),(2,'Hackathon'),(4,'Wild Breackfast'),(6,'Interventions'),(7,'Divers');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +130,6 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (5,'C\'est null!!!!!!',73,1,'2018-10-24 16:39:50'),(6,'jdjccxixcjdsdc',73,1,'2018-10-24 16:39:50'),(30,'bojour',73,21,'2018-10-19 16:39:50'),(38,'vvvvvv',73,21,'2018-10-24 16:49:02'),(100,'sdazdzdzadfhj,fbey',78,NULL,'2018-10-26 08:50:11'),(101,'test',77,21,'2018-10-26 08:52:59'),(102,'kcizu',77,23,'2018-10-26 08:52:59'),(104,'fjsicjie',77,23,'2018-10-26 08:52:59'),(105,'J\'adore votre article!!!!',77,NULL,'2018-10-26 11:50:26'),(106,'J\'adore votre article!!!!!',77,21,'2018-10-26 11:51:22'),(107,'Oh il est trop mignon ce petit chat!!!!',78,21,'2018-10-26 11:51:44');
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,6 +201,8 @@ CREATE TABLE `user` (
   `status_id` int(11) NOT NULL DEFAULT '2',
   `password` varchar(255) NOT NULL,
   `date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `confirmation_token` varchar(255) DEFAULT NULL,
+  `is_validate` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `status_id` (`status_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
@@ -212,7 +214,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'root','root','root@yahoo.fr',1,'$2y$10$dNOeJ5bzFjKRfYwpYKTSy.2VvQXrGmr0igI03nmS3JwOTjeavDY.S','2018-10-25 17:05:52'),(21,'Smith','John','John@gmail.com',2,'$2y$10$E2IIxoFbGs4bryjV17bdYOSapD.OJ1dTdaVZ0vcowilEBqKEhT1hG','2018-10-25 17:05:52'),(23,'gfdgdhg','jfdjdj','fkrlk@nfdnf.com',2,'ggg','2018-10-25 17:14:37');
+INSERT INTO `user` VALUES (1,'root','root','root@yahoo.fr',1,'$2y$10$dNOeJ5bzFjKRfYwpYKTSy.2VvQXrGmr0igI03nmS3JwOTjeavDY.S','2018-10-25 17:05:52',NULL,0),(21,'Smith','John','John@gmail.com',2,'$2y$10$E2IIxoFbGs4bryjV17bdYOSapD.OJ1dTdaVZ0vcowilEBqKEhT1hG','2018-10-25 17:05:52',NULL,0),(23,'gfdgdhg','jfdjdj','fkrlk@nfdnf.com',2,'ggg','2018-10-25 17:14:37',NULL,0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -225,4 +227,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-26 11:53:35
+-- Dump completed on 2018-11-02 13:54:20
