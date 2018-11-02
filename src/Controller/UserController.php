@@ -236,6 +236,11 @@ class UserController extends AbstractController
         $comment = $commentManager->deleteComment($id);
 
     }
+  
+    public function editDashboard ()
+    {
+        return $this->twig->render("User/editProfile.html.twig");
+    }
 
     /* Affiche un seul catégorie */
     public function showCategory(int $id)
@@ -248,4 +253,5 @@ class UserController extends AbstractController
 
         return $this->twig->render('User/showArticlesCategory.html.twig', ['articleCategory' => $articleCategory, 'categories' => $categories]);
     }
+  
 }

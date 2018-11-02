@@ -24,11 +24,13 @@ $routes = [
     'User' => [ // Route côté client
         ['homeShowListArticles', '/', 'GET'],
         ['dashboard', '/dashboard', 'GET'],
+        ['editDashboard', '/dashboard/edit', ['GET', 'POST']],
         ['showListArticles', '/articles', 'GET'],
         ['showArticleUser', '/article/{id:\d+}', ['GET', 'POST']],
         ['login', '/connexion', ['GET', 'POST']],
         ['inscription', '/inscription', ['GET', 'POST']],
         ['deleteComment', '/comment/delete/{id:\d+}', 'GET'], // action, url, method
+        ['disconnect', '/deconnexion', ['GET', 'POST']],
         ['disconnect', '/deconnexion', ['GET', 'POST']],
         ['showCategory', '/category/{id:\d+}', 'GET'], // action, url, method
     ],
@@ -48,6 +50,6 @@ $routes = [
       ['showComments', '/admin/comment', 'GET'], // action, url, method
       ['showCategories', '/admin/categories', 'GET'], // action, url, method
       ['deleteComment', '/admin/comment/delete/{id:\d+}', 'GET'], // action, url, method
-      ['deleteUser', '/admin/user/delete/{id:\d+}', 'GET'], // action, url, method
+      ['deleteUser', '/admin/user/delete/{page:\d+}', 'GET'], // action, url, method
     ],
 ];
