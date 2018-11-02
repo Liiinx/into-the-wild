@@ -6,7 +6,7 @@
 
         <div class="col-12 col-lg-6">
 
-            <h2>Categorie : <span class="orange">{{ categories.name }}</span></h2>
+            <h2>Categorie : <span class="orange">{{ categories[0].name }}</span></h2>
         </div>
         <div class="col-12 col-lg-2 offset-3 mt-2">
             <a class="orange" href="/articles">
@@ -22,12 +22,16 @@
 
             <div class="">
 
-                <img class="img-fluid mr-3 mb-1 imgArticle" src="/assets/images/{{ article.imageName }}" alt="" >
+                <img class="img-fluid mr-5 mb-1 imgArticle" src="/assets/images/{{ article.imageName }}" alt="" >
 
                     <h1>{{ article.title }}</h1>
                     <p class="text-justify">{{ article.content|nl2br }}</p>
+                <br/>
                     <p class="text-justify publish py-3">Publié le {{ article.date }}</p>
             </div>
+            <br/>
+            <br/>
+            <br/>
             <div class="row">
                 <div class="col-10 offset-1">
                     <form method="post">
@@ -58,9 +62,7 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-3 mt-5">
-            {% include 'User/category.html.twig' %}
-        </div>
+
 
     </div>
 </div>

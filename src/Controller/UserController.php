@@ -221,7 +221,7 @@ class UserController extends AbstractController
     {
         $categoryManager = new CategoryManager($this->getPdo());
         $categories = $categoryManager->showAllCategory();
-        //var_dump($categories);
+
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
