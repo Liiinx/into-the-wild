@@ -17,11 +17,11 @@
         <tbody>
         {% for user in users %}
             <tr>
-                <td><h5>{{ user.name }}</h5></td>
-                <td><h5>{{ user.firstname }}</h5></td>
-                <td><h5>{{ user.mail }}</h5></td>
-                <td><h5>{{ user.statusid == "1" ? 'Admin' : "Utilisateur" }}</h5></td>
-                <td><h5>{{ user.date }}</h5></td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.firstname }}</td>
+                <td>{{ user.mail }}</td>
+                <td>{{ user.statusid == "1" ? 'Admin' : "Utilisateur" }}</td>
+                <td>{{ user.date|date("d/m/Y") }}</td>
                 <td>
                     <a type="button" href="/admin/user/delete/{{ user.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
                 </td>

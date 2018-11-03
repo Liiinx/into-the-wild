@@ -26,7 +26,7 @@
 
                     <h1>{{ article.title }}</h1>
                     <p class="text-justify">{{ article.content|nl2br }}</p>
-                    <p class="text-justify publish py-3">Publié le {{ article.date }}</p>
+                    <p class="text-justify publish py-3">Publié le {{ article.date|date('d/m/Y à H:i')}}</p>
             </div>
             <div class="row">
                 <div class="col-10 offset-1">
@@ -48,7 +48,7 @@
                 <div class="col-2 offset-1">
 
                     <h5>{{ comment.firstname ~ ' ' ~ comment.name }}</h5>
-                    <span class="orange">{{ comment.date }}</span>
+                    <span class="orange">{{ comment.date|date("d/m/Y") }}</span>
                 </div>
 
                 <div class="col-8 rounded bg-light mb-4">
