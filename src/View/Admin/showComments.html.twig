@@ -19,7 +19,7 @@
                 <td>{{ comment.comment[:50] ~ '...'  }}</td>
                 <td>{{ comment.title}}</td>
                 <td>{{ comment.name}}</td>
-                <td>{{ comment.date}}</td>
+                <td>{{ comment.date|date('d/m/Y H:i')}}</td>
                 <td>
                     <a type="button" href="/admin/comment/delete/{{ comment.id}}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
                 </td>
