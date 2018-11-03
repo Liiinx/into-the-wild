@@ -215,7 +215,7 @@ class AdminController extends AbstractController
     public function deleteComment($id)
     {
         $commentManager = new CommentManager($this->getPdo());
-        $deleteComment = $commentManager->adminDeleteComment($id);
+        $deleteComment = $commentManager->DeleteComment($id);
     }
 
     // Affiche toutes les catégories
