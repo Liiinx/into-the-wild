@@ -191,11 +191,11 @@ class UserController extends AbstractController
         //gere, ajout et affichage des commentaires
         $commentManager = new CommentManager($this->getPdo());
         if (!empty($_POST)) {
-            //var_dump($_POST);
             $comment = new Comment();
             $comment->setComment($_POST['comment']);
             $comment->setArticleId($article->getId());
             $comment->setUserId($_SESSION["user"]["id"]);
+            $comment->setId($_POST['id']);
             $commentManager->insert($comment);
         }
         $comments = $commentManager->selectArticleComments($id);
@@ -221,7 +221,6 @@ class UserController extends AbstractController
     {
         $categoryManager = new CategoryManager($this->getPdo());
         $categories = $categoryManager->showAllCategory();
-        //var_dump($categories);
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
@@ -233,7 +232,7 @@ class UserController extends AbstractController
     public function deleteComment($id)
     {
         $commentManager = new CommentManager($this->getPdo());
-        $comment = $commentManager->deleteComment($id);
+        $comment = $commentManager->DeleteComment($id);
 
     }
   
@@ -242,7 +241,7 @@ class UserController extends AbstractController
         return $this->twig->render("User/editProfile.html.twig");
     }
 
-    /* Affiche un seul catégorie */
+    /* Affiche une seule catégorie */
     public function showCategory(int $id)
     {
         $categoryManager = new CategoryManager($this->getPdo());
