@@ -181,10 +181,18 @@ class UserController extends AbstractController
         //va chercher toute les categories
         $categoryManager = new CategoryManager($this->getPdo());
         $categories = $categoryManager->showAllCategory();
+        //var_dump($categories[0][]);
 
         //va chercher un article avec son id
         $articleManager = new ArticleManager($this->getPdo());
         $article = $articleManager->selectOneById($id);
+        //var_dump($article);
+
+        /*foreach ($categories as $key => $category) {
+            if ($category[$key]['id'] == $article['category_id']) {
+                echo $category[$key]['name'];
+            }
+        } */
 
         //gere, ajout et affichage des commentaires
         $commentManager = new CommentManager($this->getPdo());
