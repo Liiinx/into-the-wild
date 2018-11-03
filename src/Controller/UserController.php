@@ -195,7 +195,6 @@ class UserController extends AbstractController
             $comment->setComment($_POST['comment']);
             $comment->setArticleId($article->getId());
             $comment->setUserId($_SESSION["user"]["id"]);
-            $comment->setId($_POST['id']);
             $commentManager->insert($comment);
         }
         $comments = $commentManager->selectArticleComments($id);
