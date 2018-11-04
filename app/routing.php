@@ -22,6 +22,7 @@
 $routes = [
 
     'User' => [ // Route côté client
+        ['confirmUser', '/confirmation/{token:\d+}', ['GET']],
         ['homeShowListArticles', '/', 'GET'],
         ['dashboard', '/dashboard', 'GET'],
         ['editDashboard', '/dashboard/edit', ['GET', 'POST']],
