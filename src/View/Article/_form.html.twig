@@ -1,28 +1,3 @@
-<!--  <form method="post"> -->
-
-        <!-- <br/>
-        <label>Titre de l'article : </label><br/>
-        <input type="text" value="{{ Article.title }}" name="titre"> -->
-
-        <!--
-        <select name="menu">
-            <option> Wild breackfast
-            <option> Hackathon
-            <option> Article 3
-            <option selected> Categorie
-            <option> Article 4
-            <option> Article5
-        </select><br/><br/>
-        -->
-
-        <!-- <br/>
-        <br/>
-        <label>Contenu : </label><br/>
-        <textarea value="{{ article.content }}" name="content" rows="6" cols="30"></textarea>
-        <br/>
-        <br/>
-        <input type="submit" value="Valider">
-</form> -->
 
 <form method="post" enctype="multipart/form-data">
 
@@ -31,13 +6,11 @@
                 <input type="text" name="title" value="{{ article.title }}" class="form-control" placeholder="Titre de votre article">
         </div>
 
-        <select name="category">
+    <select name="category">
                 <option selected value=""> Choisissez la Categorie
-                <option value="4"> Wild breackfast
-                <option value="1"> Wild Apéro
-                <option value="2"> Hackathon
-                <option value="6"> Interventions
-                <option value="7"> Divers
+                {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.name }}
+                {% endfor %}
         </select><br/><br/>
 
         <div class="form-group">
