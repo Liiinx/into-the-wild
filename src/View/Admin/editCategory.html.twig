@@ -1,0 +1,21 @@
+{% extends 'adminLayout.html.twig' %}
+
+{% block content %}
+    <h1>Edit Catégorie {{ category.name }}</h1>
+
+
+
+    {% if(errors) %}
+            <div class="alert alert-danger">
+                <b>Si vous ne remplissez pas le champs autant supprimer la catégorie!</b>
+        {% for error in errors %}
+            <ul>
+                <li>{{ error }}</li>
+            </ul>
+        {% endfor %}
+            </div>
+    {% endif %}
+
+    {% include 'Admin/category.html.twig' %}
+    <a href="/admin/categories">Back</a>
+{% endblock %}

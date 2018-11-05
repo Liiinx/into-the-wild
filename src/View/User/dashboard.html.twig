@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Editer profil"/>
+                    <a class="profile-edit-btn">Logo FA a venir</a>
                 </div>
             </div>
             <div class="row">
@@ -47,16 +47,6 @@
                 <div class="col-md-8">
                     <div class="tab-content profile-tab" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <div class="row">
-
-                                <div class="col-md-6">
-                                    <label>Identifiant :</label>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <p>{{ session.user["id"] }}</p>
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Email</label>
@@ -81,7 +71,7 @@
 
                             {% for comment in allComments %}
 
-                                <div class="col-md-12">
+                                <div class="col-md-12" style="padding-bottom: 10px;">
                                     <div class="card">
                                         <div class="card-header">
                                             {{ "Commentaire" }}

@@ -17,6 +17,16 @@ class User
     private $mail;
     private $status_id;
     private $password;
+    private $confirmation_token;
+    private $is_validate;
+
+    /**
+     * @return mixed
+     */
+    public function getConfirmationToken()
+    {
+        return $this->confirmation_token;
+    }
 
     /**
      * @return mixed
@@ -114,14 +124,39 @@ class User
         $this->password = $password;
     }
 
+    /**
+     * @param mixed $confirmation_token
+     */
+    public function setConfirmationToken($confirmation_token)
+    {
+        $this->confirmation_token = $confirmation_token;
+    }
+
+
     public function getAll(){
         return [
-            'id' =>$this->id,
+            'id' => $this->id,
             'name' => $this->name,
             'firstname' => $this->firstname,
             'mail' => $this->mail,
             'status_id' => $this->status_id,
         ];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisValidate()
+    {
+        return $this->is_validate;
+    }
+
+    /**
+     * @param mixed $is_validate
+     */
+    public function setIsValidate($is_validate)
+    {
+        $this->is_validate = $is_validate;
     }
 
 }
