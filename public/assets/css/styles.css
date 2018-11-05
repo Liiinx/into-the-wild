@@ -245,7 +245,9 @@ showOneArticleUser    vue d'un article en front, coté user */
     width: 40%;
 }
 /* pas commentaire quand pas connecté;  card */
-
+.commentCard {
+    text-align: center;
+}
 
 .category {
     color: #6D909C;
@@ -253,5 +255,5 @@ showOneArticleUser    vue d'un article en front, coté user */
 
 #menuCategory {
     position: fixed;
-    width: 20%;
+
 }
