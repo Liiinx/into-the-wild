@@ -47,5 +47,8 @@ $routes = [
 
     'Portfolio' => [ //Route concernant les portfolios
         ['groupe1', '/portfolio/groupe1', 'GET'], // Route qui affiche le portfolio du groupe1
+        ['groupe2', '/portfolio/groupe2', 'GET'], // Route qui affiche le portfolio du groupe1
+        ['groupe3', '/portfolio/groupe3', 'GET'], // Route qui affiche le portfolio du groupe1
+        ['groupe4', '/portfolio/groupe4', 'GET'], // Route qui affiche le portfolio du groupe1
     ]
 ];
