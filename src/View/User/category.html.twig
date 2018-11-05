@@ -1,8 +1,13 @@
 
-    <div id="menuCategory" class="list-group" id="list-tab" role="tablist">
-        <div class="list-group-item category"><h4 class="white">Categories</h4></div>
-        {% for category in categories %}
-        <a class="list-group-item list-group-item-action" href="/category/{{ category.id }}">{{ category.name }}</a>
-        {% endfor %}
+    <div id="menuCategory" class="container row" role="main">
+        <div class="col-md-3 mt-2">
+            <div class="dropdown-header category"><h4>Categories</h4></div>
+            <div class="dropdown-divider col-6"></div>
+            {% for category in categories %}
+            <a class="dropdown-item"  href="/category/{{ category.id }}">{{ category.name }}</a>
+            {% endfor %}
+        </div>
     </div>
+
+
 

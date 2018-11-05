@@ -246,21 +246,11 @@ showOneArticleUser    vue d'un article en front, coté user */
 }
 /* pas commentaire quand pas connecté;  card */
 
-.commentCard {
-    text-align: center;
-}
-/* category dans article et listes des articles */
-.list-group-item.active {
-    background-color: orange;
-    border-color: orange;
-}
+
 .category {
-    background-color: #6D909C;
-    border-color: #6D909C;
+    color: #6D909C;
 }
-.white {
-    color: white;
-}
+
 #menuCategory {
     position: fixed;
     width: 20%;
