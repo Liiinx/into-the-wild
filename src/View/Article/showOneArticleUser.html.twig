@@ -27,21 +27,36 @@
                     <h1>{{ article.title }}</h1>
                     <p class="text-justify">{{ article.content|nl2br }}</p>
                     <p class="text-justify publish py-3">Publié le {{ article.date|date('d/m/Y à H:i')}}</p>
-                </div>
-                    <div class="row">
-                        <div class="col-10 offset-1">
-                            <form method="post">
-                                <div class="form-group">
-                                    <label for="comment">Votre commentaire : </label>
-                                    <textarea name="comment" rows="4" cols="30" class="form-control" placeholder="Votre commentaire"></textarea>
-                                </div>
-                                <div class="row justify-content-center pb-5">
+            </div>
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="comment">Votre commentaire :</label>
+                                {% if(session.user) %}
+                                <textarea name="comment" rows="3" cols="30" class="form-control" placeholder="Votre commentaire"></textarea>
+                                {% else %}
+                                    <div class="card">
+                                        <div class="card-body commentCard">
+                                            <p>Vous devez vous connecter ou inscrire pour ajouter un commentaire à l'article.</p>
+                                            <a style="text-decoration: none" href="/connexion">
+                                                <button type="button" class="btn btn-secondary btn-sm">Connexion</button>
+                                            </a>
+                                            <a href="/inscription">
+                                                <button type="button" class="btn btn-secondary btn-sm ml-3">Inscription</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {%  endif %}
+                            </div>
+                            <div class="row justify-content-center pb-5">
+                                {% if(session.user) %}
                                     <input type="submit" style="background-color: #6D909C; border-color: #6D909C;" class="btn btn-success" value="Envoyer">
-                                </div>
-                            </form>
-
-                        </div>
+                                {% endif %}
+                            </div>
+                        </form>
                     </div>
+                </div>
 
                 <div class="row">
                     {% for comment in comments %}
@@ -54,13 +69,14 @@
                         <div class="col-8 rounded bg-light mb-4">
                             <p class="p-2 text-justify">{{ comment.comment|nl2br }}</p>
 
-                        </div>
-                        <div class="col-1 mb-4">
-                            <a type="button" href="/comment/delete/{{ comment.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
-
-                        </div>
-                    {% endfor %}
                 </div>
+                    {% if(session.user) %}
+                <div class="col-1 mb-4">
+                    <a type="button" href="/comment/delete/{{ comment.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
+                </div>
+                    {% endif %}
+                {% endfor %}
+
             </div>
             <div class="col-md-3 mt-5">
                 {% include 'User/category.html.twig' %}
