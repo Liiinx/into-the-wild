@@ -46,12 +46,10 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     padding-right: 360px;
 }
 .navbarMargin {
-    margin-left: 20%;
+    display: flex;
+    justify-content: space-around;
 }
 
-.alignBurger{
-    text-align: center;
-}
 
 
 /* HOME PAGE */
@@ -69,8 +67,6 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     height: 55vw;
     background: url("../../assets/images/header_background.jpg") no-repeat fixed 50% 10%;
     background-size: calc(100%);
-
-
 }
 .firstLetter
 {
@@ -82,6 +78,7 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     padding-top: 15%;
     font-size: 3vw;
 }
+
 .btn-sm
 {
     background-color: orange;
@@ -95,7 +92,14 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
 .titleCaroussel
 {
     font-family: "lobsterregular";
-    font-size: 4vw;
+    font-size: 40px;
+}
+@media only screen and (max-width: 768px) {
+    .titleCaroussel {
+        transition-duration: 3s;
+        font-size: 30px;
+        margin-top: -100px;
+    }
 }
 .titleCarouselItems h2
 {
@@ -264,5 +268,25 @@ showOneArticleUser    vue d'un article en front, coté user */
 
 #menuCategory {
     position: fixed;
+
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        padding-top: 5rem;
+    }
+     div.container-fluid.banner > div > h1 {
+        font-size: 22px;
+    }
+    #logo_wcs{
+        display: none;
+    }
+    .flecheHome{
+        height: 0px;
+    }
+    .titleCarouselItems h2{
+        transition-duration: 3s;
+        font-size: 22px;
+    }
 
 }
