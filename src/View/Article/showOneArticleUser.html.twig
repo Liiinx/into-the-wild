@@ -6,23 +6,22 @@
             <div class="col-12 col-lg-6">
             <h2>Categorie : <span class="orange">{{ categories[0].name }}</span></h2>
         </div>
-        <div class="col-12 col-lg-2 offset-2 mt-2">
+        <div class="col-10 col-lg-2 offset-lg-2 mt-2">
             <a class="orange" href="/page/1">
                 <button type="button" class="btn btn-secondary btn">Liste articles</button>
             </a>
         </div>
         <hr>
         <div class="row">
-        <div class="col-md-8">
+        <div class="col-12 col-md-8">
                 <div class="">
                     <img class="img-fluid mr-3 mb-1 imgArticle" src="/assets/images/{{ article.imageName }}" alt="" >
 
-                    <h1>{{ article.title }}</h1>
+                    <h1 class="col-12">{{ article.title }}</h1>
                     <p class="text-justify">{{ article.content|nl2br }}</p>
                     <br/>
                     <p class="text-justify publish py-3">Publié le {{ article.date|date('d/m/Y à H:i')}}</p>
-            </div>
-            <br/>
+                </div>
             <br/>
             <br/>
                 <div class="row">

@@ -160,3 +160,11 @@ code {
     background-color: orange;
 }
 
+/* admin table media query
+-------------------------------------------------- */
+
+@media only screen and (max-width: 768px) {
+    .coloneDisplay {
+        display:none;
+    }
+}

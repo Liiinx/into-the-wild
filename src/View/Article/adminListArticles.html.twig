@@ -3,10 +3,10 @@
 {% block content %}
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-md-6 col-12">
             <h1>Liste des Articles</h1>
         </div>
-        <div class="col-2 offset-3">
+        <div class="col-md-2 offset-md-3 col-12">
             <div style="padding-bottom: 20px;">
                 <a href="/admin/article/add{{ articles.id }}"><input type="submit" style="background-color: #6D909C; border-color: #6D909C;" class="btn btn-success" value="Ajouter un article"></a>
             </div>
@@ -18,9 +18,9 @@
         <thead class="thead-dark">
             <tr>
                 <th>Titre</th>
-                <th>Contenu</th>
+                <th class="coloneDisplay">Contenu</th>
                 <th>Catégorie</th>
-                <th>Date/Heure</th>
+                <th class="coloneDisplay">Date/Heure</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -28,18 +28,18 @@
             {% for articles in article %}
             <tr>
                 <td style="max-width: 230px">{{ articles.title }}</td>
-                <td> <span class="preview_content">{{ articles.content[:50] ~ '...' }}</span> </td>
+                <td style="max-width: 230px" class="coloneDisplay"> <span class="preview_content">{{ articles.content[:50] ~ '...' }}</span> </td>
                 <td> <span class="preview_content">{{ articles.name}}</span> </td>
-                <td> <span class="preview_content">{{ articles.date|date('d/m/Y H:i')}}</span> </td>
+                <td class="coloneDisplay"> <span class="preview_content">{{ articles.date|date('d/m/Y H:i')}}</span> </td>
 
                 <td>
-                    <div class="row">
-                        <div class="col-4">
+                    <div class="row justify-content-center">
+                        <div class="col-md-4 col-10">
                             <a type="button" href="/admin/article/edit/{{ articles.id }}" class="btn btn-outline-secondary"><i class="fas fa-pencil-alt"></i></a>
-                        </div><div class="col-4">
+                        </div><div class="col-md-4 col-10">
                             <a type="button" href="/article/{{ articles.id }}" class="btn btn-outline-secondary"><i class="fas fa-eye"></i></a>
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4 col-10">
                             <a type="button" href="/admin/article/delete/{{ articles.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
                         </div>
                     </div>
