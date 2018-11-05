@@ -22,6 +22,7 @@
 $routes = [
 
     'User' => [ // Route côté client
+        ['confirmUser', '/confirmation/{token:\d+}', ['GET']],
         ['homeShowListArticles', '/', 'GET'],
         ['dashboard', '/dashboard', 'GET'],
         ['editDashboard', '/dashboard/edit', ['GET', 'POST']],
@@ -31,7 +32,9 @@ $routes = [
         ['inscription', '/inscription', ['GET', 'POST']],
         ['deleteComment', '/comment/delete/{id:\d+}', 'GET'], // action, url, method
         ['disconnect', '/deconnexion', ['GET', 'POST']],
+        ['page', '/page/{page:\d+}', ['GET']],
         ['showCategory', '/category/{id:\d+}', 'GET'], // action, url, method
+
     ],
 
     'Admin' => [ // Route concernant l'administration.

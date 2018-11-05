@@ -86,4 +86,15 @@ article.date, category.name FROM $this->table INNER JOIN category ON article.cat
         return $query->fetch(\PDO::FETCH_NUM)[0];
     }
 
+    public function getArticlesForPaginate($first, $per)
+    {
+
+        $state = $this->pdo->prepare("SELECT * FROM $this->table ORDER BY id ASC LIMIT :fist,:per ");
+        $state->bindParam(':fist', $first, \PDO::PARAM_INT);
+        $state->bindParam(':per', $per, \PDO::PARAM_INT);
+        $state->execute();
+        $res = $state->fetchAll(\PDO::FETCH_CLASS, 'Model\User');
+        return $res;
+    }
+
 }

@@ -35,6 +35,16 @@ class UserController extends AbstractController
         return $this->twig->render('User/dashboard.html.twig', ['allComments' => $allComments]);
     }
 
+
+    public function isValidateUser(User $user){
+        if($user->getConfirmationToken() !== null && $user->getIsValidate() !== 1){
+            return false;
+        } else {
+            var_dump($user->getConfirmationToken(), $user->getIsValidate());
+            return true;
+        }
+    }
+
     /* Affiche page login */
     public function login ()
     {
@@ -57,13 +67,21 @@ class UserController extends AbstractController
             $user = new UserManager($this->getPdo());
             $val = $user->selectOneByField("mail", $_POST['username']);
 
-            /**
+            /*
              * $val => Requête SQL en base de données.
              * Comparaison du mot de passe en base de données avec le mot de passe envoyé dans le POST.
              * Si le mot de passe en BDD === Mot de passe dans $_POST["Password"] alors
              * La connexion est effectuée. Sinon erreur.
              */
             if ($val != false && password_verify($_POST['password'], $val->getPassword())) {
+
+
+                if($this->isValidateUser($val) === false){
+                    $this->flasher->setFlash('danger', "Echec de la connexion : Votre compte n'est pas activé merci de vous rendre dans vos emails");
+                    header("Location: /connexion");
+                    exit;
+                }
+
 
                 session_start();
 
@@ -91,8 +109,9 @@ class UserController extends AbstractController
                     header("location: /");
                 }
             } else {
-                $this->flasher->setFlash('danger', "Echec de la connexion !");
-                $this->validator->setErrors("Echec de la connexion !");
+                $this->flasher->setFlash('danger', "Echec de la connexion : identifiants ou mot de passe non correct !");
+                header("Location: /connexion");
+                exit;
             }
         }
 
@@ -156,6 +175,8 @@ class UserController extends AbstractController
                 $user->setMail(strip_tags(trim(htmlspecialchars($_POST['mail']))));
                 $mdpCrypt=password_hash(strip_tags(trim(htmlspecialchars($_POST['password']))), PASSWORD_BCRYPT);
                 $user->setPassword($mdpCrypt);
+                $token = $this->utils->generateToken();
+                $user->setConfirmationToken($token);
                 $id = $UserManager->insert($user);
 
                 $_SESSION['user'] = $user->getAll();
@@ -251,5 +272,55 @@ class UserController extends AbstractController
 
         return $this->twig->render('User/showArticlesCategory.html.twig', ['articleCategory' => $articleCategory, 'categories' => $categories]);
     }
-  
+
+    /* Fonction pour confirmer l'utilisateur */
+    public function confirmUser($token){
+
+        $userConfirmation = new UserManager($this->getPdo());
+
+        if($userConfirmation->setConfirm($token) === true) {
+            $this->flasher->setFlash('success', "Votre compte à bien été activé ! Vous pouvez dès à présent vous connecté !");
+            header("Location: /connexion");
+            exit();
+        }
+
+        $this->flasher->setFlash("danger", "Echec de la validation: votre token n'est pas valide !");
+        header("Location: /connexion");
+        exit();
+    }
+
+    public function page(int $page){
+
+
+        //Nombre d'article par page
+        $perPage = 6;
+
+        //compter le nombre total d'article
+        $article = new ArticleManager($this->getPdo());
+        $allArticles = count($article->selectAll());
+
+        //Nombre total de page à avoir. arrondi à l'entier supérieur
+        $nbPage = ceil($allArticles / $perPage);
+
+
+        if(isset($page) && !empty($page) && is_int($page)){
+            if ($page > $nbPage) {
+                $current = $nbPage;
+            } else {
+                $current = $page;
+            }
+        } else {
+            $current = 1;
+        }
+
+
+        //Premiere valeur de la page
+        $firstOfPage = ($current - 1) * $perPage;
+
+        $articles = new ArticleManager($this->getPdo());
+        $articles = $articles->getArticlesForPaginate($firstOfPage, $perPage);
+        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles, 'nbPage' => $nbPage]);
+    }
+
+ 
 }
