@@ -1,0 +1,41 @@
+{% extends 'adminLayout.html.twig' %}
+
+{% block content %}
+    <h1>La Catégorie {{ categories[0].name }} contient les articles suivant: </h1>
+<table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+
+        <th>Titre d'article</th>
+        <th>Contenu de l'article</th>
+        <th>Date de l'article</th>
+        <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for category in categories %}
+        <tr>
+            <td><h4>{{ category.title}}</h4></td>
+            <td>{{ category.content[:50] ~ '...' }}</td>
+            <td>{{ category.date}}</td>
+            <td>
+                <div class="row">
+                    <div class="col-4">
+                        <a type="button" href="/admin/article/edit/{{ articles.id }}" class="btn btn-outline-secondary"><i class="fas fa-pencil-alt"></i></a>
+                    </div><div class="col-4">
+                        <a type="button" href="/article/{{ articles.id }}" class="btn btn-outline-secondary"><i class="fas fa-eye"></i></a>
+                    </div>
+                    <div class="col-4">
+                        <a type="button" href="/admin/article/delete/{{ articles.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                </div>
+            </td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+

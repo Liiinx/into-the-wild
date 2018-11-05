@@ -56,23 +56,25 @@
 
 <!-- END SLIDE BAR INFOS -->
 
-<div role="main" class="container row">
-
-        <div class="col-12 col-md-3 mt-4">
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-2 mt-4">
             <h6 class="dropdown-header">Menu</h6>
-            <div class="dropdown-divider col-6"></div>
+            <div class="dropdown-divider col-8"></div>
             <a class="dropdown-item" href="/admin/articles">Articles</a>
             <a class="dropdown-item" href="/admin/article/add">Créer article</a>
             <a class="dropdown-item" href="/admin/comment">Commentaires</a>
+            <a class="dropdown-item" href="/admin/categories">Catégories</a>
             <a class="dropdown-item" href="/admin/users">Utilisateurs</a>
         </div>
-        <div class="col-12 col-md-9">
+        <div class="col-12 col-md-10">
 
             {% include "flashes.html.twig" %}
 
             {% block content %}{% endblock %}
         </div>
     </div>
+</div>
 
 {% block javascript %}{% endblock %}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

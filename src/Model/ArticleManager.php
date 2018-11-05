@@ -24,18 +24,28 @@ class ArticleManager extends AbstractManager
         parent::__construct(self::TABLE, $pdo);
     }
 
+    // Affiche tous les articles avec les catégories associées
+    public function selectAllArticles(): array
+    {
+        return $this->pdo->query("SELECT article.id, article.title, article.content, 
+article.date, category.name FROM $this->table INNER JOIN category ON article.category_id=category.id ORDER BY date DESC ",
+            \PDO::FETCH_CLASS, $this->className)->fetchAll();
+    }
+
 
     public function insert(Article $article)
     {
         // prepared request
 
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (title, content, imageName)
-    VALUES (:title, :content, :imageName)");
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (title, content, imageName, category_id)
+    VALUES (:title, :content, :imageName, :category)");
 
 
         $statement->bindValue(':title', $article->getTitle(), \PDO::PARAM_STR);
         $statement->bindValue(':content', $article->getContent(), \PDO::PARAM_STR);
         $statement->bindValue(':imageName', $article->getImageName(), \PDO::PARAM_STR);
+        $statement->bindValue(':category', $article->getCategoryId(), \PDO::PARAM_STR);
+
 
         // $statement->bindValue(':user_id', $user_id, \PDO::PARAM_STR);
 

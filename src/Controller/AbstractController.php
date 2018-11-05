@@ -42,6 +42,11 @@ abstract class AbstractController
 
     protected $flasher;
 
+    /*
+     * This is utils class
+     */
+    protected $utils;
+
 
 
     public function __construct()
@@ -61,6 +66,7 @@ abstract class AbstractController
 
         $this->validator = new Validator();
         $this->flasher = new Flasher();
+        $this->utils = new Utils();
         $this->twig->addGlobal('session', $_SESSION);
 
         if($this->flasher->hasFlashes()){

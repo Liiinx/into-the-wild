@@ -14,6 +14,7 @@ use Model\CommentManager;
 use Model\User;
 use Model\UserManager;
 use Model\ArticleManager;
+use Model\CategoryManager;
 
 
 class UserController extends AbstractController
@@ -32,6 +33,16 @@ class UserController extends AbstractController
         $commentsInstance = new CommentManager($this->getPdo());
         $allComments = $commentsInstance->selectAllByField('comment', 'user_id', $this->flasher->read('user')["id"]);
         return $this->twig->render('User/dashboard.html.twig', ['allComments' => $allComments]);
+    }
+
+
+    public function isValidateUser(User $user){
+        if($user->getConfirmationToken() !== null && $user->getIsValidate() !== 1){
+            return false;
+        } else {
+            var_dump($user->getConfirmationToken(), $user->getIsValidate());
+            return true;
+        }
     }
 
     /* Affiche page login */
@@ -56,13 +67,21 @@ class UserController extends AbstractController
             $user = new UserManager($this->getPdo());
             $val = $user->selectOneByField("mail", $_POST['username']);
 
-            /**
+            /*
              * $val => Requête SQL en base de données.
              * Comparaison du mot de passe en base de données avec le mot de passe envoyé dans le POST.
              * Si le mot de passe en BDD === Mot de passe dans $_POST["Password"] alors
              * La connexion est effectuée. Sinon erreur.
              */
             if ($val != false && password_verify($_POST['password'], $val->getPassword())) {
+
+
+                if($this->isValidateUser($val) === false){
+                    $this->flasher->setFlash('danger', "Echec de la connexion : Votre compte n'est pas activé merci de vous rendre dans vos emails");
+                    header("Location: /connexion");
+                    exit;
+                }
+
 
                 session_start();
 
@@ -90,8 +109,9 @@ class UserController extends AbstractController
                     header("location: /");
                 }
             } else {
-                $this->flasher->setFlash('danger', "Echec de la connexion !");
-                $this->validator->setErrors("Echec de la connexion !");
+                $this->flasher->setFlash('danger', "Echec de la connexion : identifiants ou mot de passe non correct !");
+                header("Location: /connexion");
+                exit;
             }
         }
 
@@ -154,9 +174,15 @@ class UserController extends AbstractController
                 $user->setFirstname(strip_tags(trim(htmlspecialchars($_POST['firstname']))));
                 $user->setMail(strip_tags(trim(htmlspecialchars($_POST['mail']))));
                 $mdpCrypt=password_hash(strip_tags(trim(htmlspecialchars($_POST['password']))), PASSWORD_BCRYPT);
-                $user->setPassword($mdpCrypt);//
+                $user->setPassword($mdpCrypt);
+                $token = $this->utils->generateToken();
+                $user->setConfirmationToken($token);
                 $id = $UserManager->insert($user);
+
+                $_SESSION['user'] = $user->getAll();
+                $_SESSION["user"]["id"] = $id;
                 header('Location:/');
+
             }
 
         }
@@ -175,12 +201,17 @@ class UserController extends AbstractController
     /* Affiche un seul article */
     public function showArticleUser(int $id)
     {
+        //va chercher toute les categories
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
+
+        //va chercher un article avec son id
         $articleManager = new ArticleManager($this->getPdo());
         $article = $articleManager->selectOneById($id);
 
+        //gere, ajout et affichage des commentaires
         $commentManager = new CommentManager($this->getPdo());
         if (!empty($_POST)) {
-            //var_dump($_POST);
             $comment = new Comment();
             $comment->setComment($_POST['comment']);
             $comment->setArticleId($article->getId());
@@ -189,7 +220,7 @@ class UserController extends AbstractController
         }
         $comments = $commentManager->selectArticleComments($id);
 
-        return $this->twig->render('Article/showOneArticleUser.html.twig', ['article' => $article, 'comments' => $comments]);
+        return $this->twig->render('Article/showOneArticleUser.html.twig', ['article' => $article, 'comments' => $comments, 'categories' => $categories]);
 
     }
 
@@ -199,7 +230,7 @@ class UserController extends AbstractController
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
-        //var_dump($_SESSION);
+
         return $this->twig->render('Article/homePage.html.twig', ['article' => $articles]);
 
 
@@ -208,10 +239,12 @@ class UserController extends AbstractController
     /* Afficher la liste globale des articles */
     public function showListArticles()
     {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
 
         $articleManager = new ArticleManager($this->getPdo());
         $articles = $articleManager->selectAll();
-        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles]);
+        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles, 'categories' => $categories]);
 
     }
 
@@ -219,9 +252,43 @@ class UserController extends AbstractController
     public function deleteComment($id)
     {
         $commentManager = new CommentManager($this->getPdo());
-        $comment = $commentManager->deleteComment($id);
+        $comment = $commentManager->DeleteComment($id);
 
     }
+  
+    public function editDashboard ()
+    {
+        return $this->twig->render("User/editProfile.html.twig");
+    }
+
+    /* Affiche une seule catégorie */
+    public function showCategory(int $id)
+    {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $articleCategory = $categoryManager->selectArticlesByCategory($id);
+
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
+
+        return $this->twig->render('User/showArticlesCategory.html.twig', ['articleCategory' => $articleCategory, 'categories' => $categories]);
+    }
+
+    /* Fonction pour confirmer l'utilisateur */
+    public function confirmUser($token){
+
+        $userConfirmation = new UserManager($this->getPdo());
+
+        if($userConfirmation->setConfirm($token) === true) {
+            $this->flasher->setFlash('success', "Votre compte à bien été activé ! Vous pouvez dès à présent vous connecté !");
+            header("Location: /connexion");
+            exit();
+        }
+
+        $this->flasher->setFlash("danger", "Echec de la validation: votre token n'est pas valide !");
+        header("Location: /connexion");
+        exit();
+    }
+<<<<<<< HEAD
 
     public function page(int $page){
 
@@ -255,4 +322,7 @@ class UserController extends AbstractController
         $articles = $articles->getArticlesForPaginate($firstOfPage, $perPage);
         return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles, 'nbPage' => $nbPage]);
     }
+=======
+  
+>>>>>>> da523433e3e05bf9230c29dc7548f6edb928dc11
 }
