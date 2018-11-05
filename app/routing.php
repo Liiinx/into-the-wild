@@ -9,16 +9,6 @@
  * @link     https://github.com/WildCodeSchool/simple-mvc
  */
 
-/* $routes = [
-    'Item' => [ // Controller
-        ['index', '/', 'GET'], // action, url, method
-        ['add', '/item/add', ['GET', 'POST']], // action, url, method
-        ['edit', '/item/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
-        ['show', '/item/{id:\d+}', 'GET'], // action, url, method
-        ['delete', '/item/delete/{id:\d+}', 'GET'], // action, url, method
-    ],
-]; */
-
 $routes = [
 
     'User' => [ // Route côté client
@@ -54,4 +44,8 @@ $routes = [
       ['deleteComment', '/admin/comment/delete/{id:\d+}', 'GET'], // action, url, method
       ['deleteUser', '/admin/user/delete/{page:\d+}', 'GET'], // action, url, method
     ],
+
+    'Portfolio' => [ //Route concernant les portfolios
+        ['groupe1', '/portfolio/groupe1', 'GET'], // Route qui affiche le portfolio du groupe1
+    ]
 ];
