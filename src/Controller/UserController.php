@@ -319,7 +319,12 @@ class UserController extends AbstractController
 
         $articles = new ArticleManager($this->getPdo());
         $articles = $articles->getArticlesForPaginate($firstOfPage, $perPage);
-        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles, 'nbPage' => $nbPage]);
+
+        //ajouter les catégories à la vue
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
+
+        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles, 'nbPage' => $nbPage, 'categories' => $categories]);
     }
 
  

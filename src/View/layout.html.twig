@@ -42,50 +42,46 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse navbarMargin" id="navbarsExampleDefault">
 
-        <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item">
-                <a class="nav-link" href="#"><span class="sr-only"></span></a>
-            </li>
+        <ul class="navbar-nav alignBurger">
 
             <li class="nav-item">
                 <a class="nav-link" href="#">PORTFOLIO</a>
             </li>
 
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a class="nav-link" href="/page/1">BLOG</a>
             </li>
 
         </ul>
 
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav alignBurger">
 
 
             {% if(session.user) %}
 
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="/dashboard">Bonjour {{ session.user.firstname }}</a>
                 </li>
 
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="/deconnexion">DECONNEXION</a>
                 </li>
 
 
             {% else %}
 
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="/connexion">CONNEXION</a>
                 </li>
 
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="/inscription">INSCRIPTION</a>
                 </li>
             {% endif %}
             {% if(session.user.status_id == "1") %}
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="/admin/">Admin</a>
                 </li>
 

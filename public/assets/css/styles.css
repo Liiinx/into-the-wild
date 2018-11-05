@@ -35,16 +35,25 @@ body {
     color: white;
 }
 
-
+/*
 li.nav-item:nth-child(2) > a:nth-child(1) {
     margin-right: 40px;
     margin-left: 75px;
-}
+} */
 
 
 li.nav-item:nth-child(4) > a:nth-child(1) {
     padding-right: 360px;
 }
+.navbarMargin {
+    margin-left: 20%;
+}
+
+.alignBurger{
+    text-align: center;
+}
+
+
 /* HOME PAGE */
 
 .speratorHomePage
