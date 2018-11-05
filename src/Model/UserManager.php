@@ -41,6 +41,29 @@ class UserManager extends AbstractManager
         return $this->pdo->lastInsertId();
 
     }
+
+    public function insertByAdmin(User $user)
+    {
+        // prepared request
+
+        $statement = $this->pdo->prepare("INSERT INTO $this->table (name, firstname, password, mail, status_id, confirmation_token, is_validate) VALUES (:name, :firstname, :password, :mail, :status_id, :confirmation_token, :is_validate)");
+
+
+        $statement->bindValue(':name', $user->getName(), \PDO::PARAM_STR);
+        $statement->bindValue(':firstname', $user->getFirstname(), \PDO::PARAM_STR);
+        $statement->bindValue(':password', $user->getPassword(), \PDO::PARAM_STR);
+        $statement->bindValue(':mail', $user->getMail(), \PDO::PARAM_STR);
+        $statement->bindValue(':status_id', $user->getStatusId(), \PDO::PARAM_STR);
+        $statement->bindValue(':confirmation_token', $user->getConfirmationToken(), \PDO::PARAM_STR);
+        $statement->bindValue(':is_validate', $user->getisValidate(), \PDO::PARAM_STR);
+
+        // $statement->bindValue(':user_id', $user_id, \PDO::PARAM_STR);
+
+        $statement->execute();
+        return $this->pdo->lastInsertId();
+
+    }
+
     public function countUsers()
     {
         $query = $this->pdo->query('SELECT COUNT(*) FROM ' . $this->table);
