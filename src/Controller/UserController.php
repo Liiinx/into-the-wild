@@ -288,5 +288,39 @@ class UserController extends AbstractController
         header("Location: /connexion");
         exit();
     }
-  
+
+    public function page(int $page){
+
+
+        //Nombre d'article par page
+        $perPage = 6;
+
+        //compter le nombre total d'article
+        $article = new ArticleManager($this->getPdo());
+        $allArticles = count($article->selectAll());
+
+        //Nombre total de page à avoir. arrondi à l'entier supérieur
+        $nbPage = ceil($allArticles / $perPage);
+
+
+        if(isset($page) && !empty($page) && is_int($page)){
+            if ($page > $nbPage) {
+                $current = $nbPage;
+            } else {
+                $current = $page;
+            }
+        } else {
+            $current = 1;
+        }
+
+
+        //Premiere valeur de la page
+        $firstOfPage = ($current - 1) * $perPage;
+
+        $articles = new ArticleManager($this->getPdo());
+        $articles = $articles->getArticlesForPaginate($firstOfPage, $perPage);
+        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles, 'nbPage' => $nbPage]);
+    }
+
+ 
 }
