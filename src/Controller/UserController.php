@@ -288,7 +288,6 @@ class UserController extends AbstractController
         header("Location: /connexion");
         exit();
     }
-<<<<<<< HEAD
 
     public function page(int $page){
 
@@ -322,7 +321,5 @@ class UserController extends AbstractController
         $articles = $articles->getArticlesForPaginate($firstOfPage, $perPage);
         return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles, 'nbPage' => $nbPage]);
     }
-=======
-  
->>>>>>> da523433e3e05bf9230c29dc7548f6edb928dc11
+
 }
