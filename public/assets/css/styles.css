@@ -244,8 +244,8 @@ showOneArticleUser    vue d'un article en front, coté user */
     float: left;
     width: 40%;
 }
+/* pas commentaire quand pas connecté;  card */
 
-/* category dans listes des articles */
 
 .category {
     color: #6D909C;
@@ -253,5 +253,5 @@ showOneArticleUser    vue d'un article en front, coté user */
 
 #menuCategory {
     position: fixed;
-    width: 20%t;
+    width: 20%;
 }

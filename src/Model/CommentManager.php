@@ -35,7 +35,7 @@ class CommentManager extends AbstractManager
     public function selectArticleComments($id) {
 
         // prepared request
-        $statement = $this->pdo->prepare("SELECT comment.comment,comment.article_id, comment.date, user.name, user.firstname FROM 
+        $statement = $this->pdo->prepare("SELECT comment.comment,comment.article_id, comment.id, comment.date, user.name, user.firstname FROM 
   $this->table INNER JOIN user ON comment.user_id=user.id
    INNER JOIN article ON article.id=comment.article_id WHERE article_id=:id ORDER BY comment.date DESC");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
@@ -67,18 +67,9 @@ VALUES (:comment, :article_id, :user_id)");
         return $this->pdo->lastInsertId();
 
     }
-    //suppression d'un commentaire côté user
-    public function deleteComment($id)
-    {
-        $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
-        $statement->execute([':id' => $id]);
 
-        //$_SERVER['HTTP_REFERER'] = Sert à retourner sur la page précédente
-        return header('Location: ' .  $_SERVER['HTTP_REFERER']);
-    }
-
-    //supprimer un article côté admin
-    public function adminDeleteComment($id)
+    //supprimer un article côté admin et côté user
+    public function DeleteComment($id)
     {
         $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id=:id");
         $statement->execute([':id' => $id]);
