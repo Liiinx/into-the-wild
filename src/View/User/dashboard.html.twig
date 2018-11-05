@@ -69,23 +69,37 @@
 
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
-                            {% for comment in allComments %}
+                            {% if(allComments) %}
 
-                                <div class="col-md-12" style="padding-bottom: 10px;">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            {{ "Commentaire" }}
-                                        </div>
-                                        <div class="card-body">
-                                            <blockquote class="blockquote mb-0">
-                                                <p>{{ comment.comment }}</p>
-                                                <footer class="blockquote-footer">sur l'article <cite title="Source Title">{{ "Titre article" }}</cite></footer>
-                                            </blockquote>
+                                {% for comment in allComments %}
+
+                                    <div class="col-md-12" style="padding-bottom: 10px;">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                {{ "Commentaire" }}
+                                            </div>
+                                            <div class="card-body">
+                                                <blockquote class="blockquote mb-0">
+                                                    <p>{{ comment.comment }}</p>
+                                                    <footer class="blockquote-footer">sur l'article <cite title="Source Title">{{ "Titre article" }}</cite></footer>
+                                                </blockquote>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            {% endfor %}
+                                {% endfor %}
+
+                                {% else %}
+
+                                    <div class="col-md-12" style="padding-bottom: 10px;">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                    <p>Aucunes contributions </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            {% endif %}
 
                         </div>
 

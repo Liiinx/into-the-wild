@@ -179,6 +179,11 @@ class UserController extends AbstractController
                 $user->setConfirmationToken($token);
                 $id = $UserManager->insert($user);
 
+                $mailer = new Mailer();
+
+                $message = "Bonjour merci d'activer votre compte en cliquant sur ce <a href='http://localhost:8080/confirmation/{$user->getConfirmationToken()}'>lien </a>";
+                $mailer->mailConfig($user->getMail(), $user->getName(), $message);
+                die("Email envoyé !");
                 $_SESSION['user'] = $user->getAll();
                 $_SESSION["user"]["id"] = $id;
                 header('Location:/');
