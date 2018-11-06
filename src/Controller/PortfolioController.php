@@ -50,4 +50,9 @@ class PortfolioController extends AbstractController
     {
         return $this->twig->render('Portfolio/groupe8.html.twig');
     }
+
+    public function groupe9()
+    {
+        return $this->twig->render('Portfolio/groupe9.html.twig');
+    }
 }
