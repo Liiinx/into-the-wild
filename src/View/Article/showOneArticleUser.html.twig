@@ -4,9 +4,10 @@
 
     <style type="text/css">
         
-        @media screen and (max-width: 768px) {
+        @media screen and (min-width: 768px) {
             .img_article {
-                width: 100%;
+                width: 40%;
+                margin-right: 12px;
             }
             .article_title {
                 font-size: 25px;
@@ -39,12 +40,12 @@
         <hr>
 
         <div class="row">
-            <div class="col-md-12 text-center">
-                <img style="align-content: center;" src="/assets/images/{{ article.imageName }}" class="img-thumbnail img_article" width="60%">
-            </div>
 
-            <div class="col-md-12">
+
+            <div class="col-12">
+
                 <div class="article_text">
+                    <img style="align-content: center;" src="/assets/images/{{ article.imageName }}" class="float-left img-thumbnail img_article">
                     <p class="text-justify">
                         {{ article.content|nl2br }}
                     </p>
