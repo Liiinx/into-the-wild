@@ -2,11 +2,22 @@
 
 {% block content %}
 
+    <style type="text/css">
+        @media screen and (max-width: 768px) {
+            .page-title {
+                text-align: center;
+                padding-top: 15px;
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+    </style>
+
     <div class="row">
-        <div class="col-lg-6 col-10">
-            <h1>Liste des utilisateurs</h1>
+        <div class="col-lg-8">
+            <h1 class="page-title animated fadeInLeft">Liste des utilisateurs</h1>
         </div>
-        <div class="col-lg-2 offset-lg-3 col-10">
+        <div style="text-align: center" class="col-lg-2">
             <div style="padding-bottom: 20px;">
                 <a href="/admin/user/add"><input type="submit" style="background-color: #6D909C; border-color: #6D909C;" class="btn btn-success" value="Ajouter un utilisateur"></a>
             </div>
@@ -15,7 +26,7 @@
 
 
 
-    <table class="table table-hover">
+    <table class="table table-hover table-responsive-sm animated fadeInRight">
         <thead class="thead-dark">
         <tr>
             <th>Nom</th>
@@ -36,9 +47,7 @@
                 <td class="coloneDisplay">{{ user.date|date("d/m/Y") }}</td>
                 <td>
 
-                    <button type="button" class="btn btn-outline-warning" onclick="deleteUser({{ user.id }}, '{{ user.name }}', '{{ user.firstname }}')">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
+                    <a onclick="deleteUser({{ user.id }}, '{{ user.name }}', '{{ user.firstname }}')" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></a>
 
                 </td>
             </tr>
