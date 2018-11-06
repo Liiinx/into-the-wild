@@ -324,7 +324,7 @@ class UserController extends AbstractController
 
         $articles = new ArticleManager($this->getPdo());
         $articles = $articles->getArticlesForPaginate($firstOfPage, $perPage);
-
+    
         //ajouter les catégories à la vue
         $categoryManager = new CategoryManager($this->getPdo());
         $categories = $categoryManager->showAllCategory();
@@ -333,4 +333,5 @@ class UserController extends AbstractController
     }
 
  
+
 }
