@@ -47,13 +47,14 @@ $routes = [
 
     'Portfolio' => [ //Route concernant les portfolios
         ['groupe1', '/portfolio/groupe1', 'GET'], // Route qui affiche le portfolio du groupe1
-        ['groupe2', '/portfolio/groupe2', 'GET'], // Route qui affiche le portfolio du groupe1
-        ['groupe3', '/portfolio/groupe3', 'GET'], // Route qui affiche le portfolio du groupe1
-        ['groupe4', '/portfolio/groupe4', 'GET'], // Route qui affiche le portfolio du groupe1
-        ['groupe5', '/portfolio/groupe5', 'GET'], // Route qui affiche le portfolio du groupe1
-        ['groupe6', '/portfolio/groupe6', 'GET'], // Route qui affiche le portfolio du groupe1
-        ['groupe7', '/portfolio/groupe7', 'GET'], // Route qui affiche le portfolio du groupe1
-        ['groupe8', '/portfolio/groupe8', 'GET'], // Route qui affiche le portfolio du groupe1
-        ['groupe9', '/portfolio/groupe9', 'GET'], // Route qui affiche le portfolio du groupe1
+        ['groupe2', '/portfolio/groupe2', 'GET'], // Route qui affiche le portfolio du groupe2
+        ['groupe3', '/portfolio/groupe3', 'GET'], // Route qui affiche le portfolio du groupe3
+        ['groupe4', '/portfolio/groupe4', 'GET'], // Route qui affiche le portfolio du groupe4
+        ['groupe5', '/portfolio/groupe5', 'GET'], // Route qui affiche le portfolio du groupe5
+        ['groupe6', '/portfolio/groupe6', 'GET'], // Route qui affiche le portfolio du groupe6
+        ['groupe7', '/portfolio/groupe7', 'GET'], // Route qui affiche le portfolio du groupe7
+        ['groupe8', '/portfolio/groupe8', 'GET'], // Route qui affiche le portfolio du groupe8
+        ['groupe9', '/portfolio/groupe9', 'GET'], // Route qui affiche le portfolio du groupe9
+        ['index', '/portfolio', 'GET'], // Route qui affiche la page d'accueil du portfolio
     ]
 ];

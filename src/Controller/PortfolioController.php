@@ -11,6 +11,11 @@ namespace Controller;
 
 class PortfolioController extends AbstractController
 {
+    public function index()
+    {
+        return $this->twig->render('Portfolio/portfolioAccueil.html.twig');
+    }
+
     public function groupe1()
     {
         return $this->twig->render('Portfolio/groupe1.html.twig');
