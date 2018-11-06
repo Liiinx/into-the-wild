@@ -217,6 +217,7 @@ code {
 }
 .cardText {
     height: 3.2em;
+    color: black;
 }
 
 .imageArticle
@@ -225,11 +226,21 @@ code {
     width: 100%!important;
     height: 150px!important;
     object-fit: cover;
+    opacity: 0.8;
 }
 .cardTitle
 {
     width: 100%!important;
     height: 50px!important;
+}
+
+.linkDeco:link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card a:hover .imageArticle {
+    opacity: 1;
 }
 
 
@@ -263,6 +274,7 @@ showOneArticleUser    vue d'un article en front, coté user */
     float: left;
     width: 40%;
 }
+
 /* pas commentaire quand pas connecté;  card */
 .commentCard {
     text-align: center;
@@ -296,3 +308,4 @@ showOneArticleUser    vue d'un article en front, coté user */
     }
 
 }
+
