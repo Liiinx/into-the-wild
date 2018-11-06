@@ -23,10 +23,15 @@
                 <td>{{ user.statusid == "1" ? 'Admin' : "Utilisateur" }}</td>
                 <td>{{ user.date|date("d/m/Y") }}</td>
                 <td>
-                    <a type="button" href="/admin/user/delete/{{ user.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
+                    <button type="button" class="btn btn-outline-warning" onclick="deleteUser({{ user.id }}, '{{ user.name }}', '{{ user.firstname }}')">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+
+    <script src="/assets/js/delete.js"></script>
+
 {% endblock %}
