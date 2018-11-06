@@ -27,12 +27,13 @@
 <div>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top  justify-content-between">
         <div class="offset-1">
-            <img class="navbar-brand img-fluid img_wcs " src="/assets/images/adminLogo.png" alt="logo">
+            <a href="/admin/">
+            <img class="navbar-brand img-fluid img_wcs " src="/assets/images/adminLogo.png" alt="logo"></a>
         </div>
-        <div>
+        <div class="coloneDisplay">
             <a class="navbar-brand" href="/admin/"><span class="base_wcs_orange">wcs</span><span class="base_wcs_white">.admin</span></a>
         </div>
-        <div class="offset-5">
+        <div class="offset-lg-5">
             <a class="navbar-brand "   href="/deconnexion" role="button">Déconnexion</a>
             <a class="navbar-brand "   href="/" role="button">blog</a>
         </div>
@@ -60,9 +61,9 @@
 <div role="main" class="container">
     <div class="row justify-content-center">
 
-        <div class="col-10 col-md-2 mt-4">
+        <div class="col-10 col-md-2 mt-lg-5 menuAlignText">
             <h4 class="dropdown-header">Menu</h4>
-            <div class="dropdown-divider col-6"></div>
+            <div class="dropdown-divider col-lg-6 col-12"></div>
             <a class="dropdown-item" href="/admin/articles">Articles</a>
             <a class="dropdown-item" href="/admin/article/add">Créer article</a>
             <a class="dropdown-item" href="/admin/comment">Commentaires</a>
