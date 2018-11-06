@@ -48,7 +48,7 @@ abstract class AbstractManager
      */
     public function selectAll(): array
     {
-        return $this->pdo->query("SELECT * FROM $this->table ORDER BY date DESC ", \PDO::FETCH_CLASS, $this->className)->fetchAll();
+        return $this->pdo->query("SELECT * FROM $this->table ORDER BY date ASC ", \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
 
     /**

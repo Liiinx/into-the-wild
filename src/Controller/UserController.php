@@ -179,6 +179,11 @@ class UserController extends AbstractController
                 $user->setConfirmationToken($token);
                 $id = $UserManager->insert($user);
 
+                $mailer = new Mailer();
+
+                $message = "Bonjour merci d'activer votre compte en cliquant sur ce <a href='http://localhost:8080/confirmation/{$user->getConfirmationToken()}'>lien </a>";
+                $mailer->mailConfig($user->getMail(), $user->getName(), $message);
+                die("Email envoyé !");
                 $_SESSION['user'] = $user->getAll();
                 $_SESSION["user"]["id"] = $id;
                 header('Location:/');
@@ -319,7 +324,14 @@ class UserController extends AbstractController
 
         $articles = new ArticleManager($this->getPdo());
         $articles = $articles->getArticlesForPaginate($firstOfPage, $perPage);
-        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles, 'nbPage' => $nbPage]);
+    
+        //ajouter les catégories à la vue
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
+
+        return $this->twig->render('Article/showListArticles.html.twig', ['article' => $articles, 'nbPage' => $nbPage, 'categories' => $categories]);
     }
+
+ 
 
 }

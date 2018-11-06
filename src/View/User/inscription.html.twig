@@ -2,12 +2,12 @@
 
 {% block content %}
 <div class="container">
-    <div class="row justify-content-center">
-        <h2>Inscription</h2>
+    <div class="offset-1 col-10">
+        <h1>Inscription</h1><hr/>
     </div>
 
     <div class="row justify-content-center mt-3">
-            <div class="col-4">
+            <div class="col-lg-4 col-9">
              <form method="post">
                 <div class="form-group w-20">
                     <label for="name">Nom</label>
@@ -25,7 +25,7 @@
                     <span>{{ errors.mail }}</span>
                 </div>
             </div>
-            <div class="col-4 offset-1">
+            <div class="col-lg-4 offset-lg-1 col-9">
                 <div class="form-group w-20">
                     <label for="exampleInputPassword1">Mot de passe</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Mot de passe">
@@ -39,11 +39,10 @@
                     <span>{{ errors.confirmation }}</span>
                 </div>
                 <div class="mt-4">
-                    <button type="submit" class="btn btn-primary">Inscription</button>
+                    <button type="submit" class="btn btn-success">Inscription</button>
                 </div>
             </form>
             </div>
-
     </div>
 </div>
 

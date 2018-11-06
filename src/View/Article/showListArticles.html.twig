@@ -3,9 +3,8 @@
 {% block content %}
     <div class="container mb-4">
     <h1>Liste de nos articles</h1>
-
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="row">
                     {% for articles in article %}
                         <!-- <marquee scrollamount="350"> DEFILEMENT MARRANT--> 
@@ -16,7 +15,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="cardTitle">
-                                        <h5 class="card-title">{{ articles.title [:100] ~ '...' }}</h5>
+                                        <h5 class="card-title">{{ articles.title [:50] ~ '...' }}</h5>
                                     </div>
 
                                     <p class="card-text cardText">{{ articles.content[:50] ~ '...' }}</p>
@@ -29,7 +28,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3 mt-2 offset-1">
                 {% include 'User/category.html.twig' %}
             </div>
         </div>

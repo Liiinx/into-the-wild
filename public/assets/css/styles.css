@@ -35,16 +35,23 @@ body {
     color: white;
 }
 
-
+/*
 li.nav-item:nth-child(2) > a:nth-child(1) {
     margin-right: 40px;
     margin-left: 75px;
-}
+} */
 
 
 li.nav-item:nth-child(4) > a:nth-child(1) {
     padding-right: 360px;
 }
+.navbarMargin {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
 /* HOME PAGE */
 
 .speratorHomePage
@@ -60,8 +67,6 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     height: 55vw;
     background: url("../../assets/images/header_background.jpg") no-repeat fixed 50% 10%;
     background-size: calc(100%);
-
-
 }
 .firstLetter
 {
@@ -73,6 +78,7 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     padding-top: 15%;
     font-size: 3vw;
 }
+
 .btn-sm
 {
     background-color: orange;
@@ -86,7 +92,14 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
 .titleCaroussel
 {
     font-family: "lobsterregular";
-    font-size: 4vw;
+    font-size: 40px;
+}
+@media only screen and (max-width: 768px) {
+    .titleCaroussel {
+        transition-duration: 3s;
+        font-size: 30px;
+        margin-top: -100px;
+    }
 }
 .titleCarouselItems h2
 {
@@ -127,6 +140,11 @@ body {
     height: 60px;
     line-height: 60px; /* Vertically center the text there */
     background-color: #f5f5f5;
+}
+@media only screen and (max-width: 768px) {
+    .footerDisplay {
+        display:none;
+    }
 }
 
 
@@ -244,20 +262,36 @@ showOneArticleUser    vue d'un article en front, coté user */
     float: left;
     width: 40%;
 }
+/* pas commentaire quand pas connecté;  card */
+.commentCard {
+    text-align: center;
+}
 
-/* category dans article et listes des articles */
-.list-group-item.active {
-    background-color: orange;
-    border-color: orange;
-}
 .category {
-    background-color: #6D909C;
-    border-color: #6D909C;
+    color: #6D909C;
 }
-.white {
-    color: white;
-}
+
 #menuCategory {
     position: fixed;
-    width: 20%;
+
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        padding-top: 5rem;
+    }
+     div.container-fluid.banner > div > h1 {
+        font-size: 22px;
+    }
+    #logo_wcs{
+        display: none;
+    }
+    .flecheHome{
+        height: 0px;
+    }
+    .titleCarouselItems h2{
+        transition-duration: 3s;
+        font-size: 22px;
+    }
+
 }

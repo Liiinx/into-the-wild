@@ -5,42 +5,42 @@
 
     <h1>Dashboard</h1><hr/>
 
-    <div class="row">
+    <div class="row justify-content-center">
 
         <!-- Card des utilisateurs -->
-        <div class="col-md-4">
+        <div class="col-md-4 pt-4">
             <div class="card">
                 <div class="card-header text-white admin-infos-card-color">
                     <i class="fas fa-users"></i> Nombre Utilisateurs
                 </div>
                 <div class="card-body">
-                    <p class="card-text"><span class="admin-infos-card">{{ countTable.users }} </span></p>
+                    <p class="card-text admin-infos-card">{{ countTable.users }}</p>
                     <div class="admin-infos-card-button"><a href="/admin/users" class="btn btn-outline-primary"><i class="fas fa-list-ol"></i> Liste complète</a></div>
                 </div>
             </div>
         </div>
 
         <!-- Card des articles -->
-        <div class="col-md-4">
+        <div class="col-md-4 pt-4">
             <div class="card">
                 <div class="card-header text-white admin-infos-card-color">
                     <i class="fas fa-newspaper"></i> Nombre articles
                 </div>
                 <div class="card-body">
-                    <p class="card-text"><span class="admin-infos-card">{{ countTable.article }} </span></p>
+                    <p class="card-text admin-infos-card">{{ countTable.article }}</p>
                     <div class="admin-infos-card-button"><a href="/admin/articles" class="btn btn-outline-warning"><i class="fas fa-list-ol"></i> Liste complète</a></div>
                 </div>
             </div>
         </div>
 
         <!-- Card des commentaires -->
-        <div class="col-md-4">
+        <div class="col-md-4 pt-4">
             <div class="card">
                 <div class="card-header text-white admin-infos-card-color">
                     <i class="fas fa-comments"></i> Nombre Commentaires
                 </div>
                 <div class="card-body">
-                    <p class="card-text"><span class="admin-infos-card">{{ countTable.comments }} </span></p>
+                    <p class="card-text admin-infos-card">{{ countTable.comments }}</p>
                     <div class="admin-infos-card-button"><a href="/admin/comment" class="btn btn-outline-danger"><i class="fas fa-list-ol"></i> Liste complète</a></div>
                 </div>
             </div>

@@ -134,13 +134,11 @@ code {
 
 .admin-infos-card {
     text-align: center;
-    margin-left: 50%;
     font-weight: bold;
     font-size: 45px;
 }
 .admin-infos-card-button {
     text-align: center;
-    padding-top: 30px;
 }
 
 .admin-infos-card-color {
@@ -160,3 +158,17 @@ code {
     background-color: orange;
 }
 
+/* admin table media query
+-------------------------------------------------- */
+
+@media only screen and (max-width: 768px) {
+    .coloneDisplay {
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .menuAlignText {
+        text-align: center;
+    }
+}

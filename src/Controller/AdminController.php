@@ -74,10 +74,14 @@ class AdminController extends AbstractController
     /* Ajout d'un article */
     public function add()
     {
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $articleManager = new ArticleManager($this->getPdo());
             $article = new Article();
+
 
             /* Validation des champs */
             $this->validator->sendData($_POST);
@@ -96,8 +100,8 @@ class AdminController extends AbstractController
                 $uploadDir = 'assets/images/';
                 if(isset($_FILES) && !empty($_FILES)) {
                     $filename = $_FILES['image']['name'];
-                    $extension = pathinfo($filename, PATHINFO_EXTENSION); //récupère l'extension
-                    $filename = 'image' . uniqid() . '.' .$extension; //numéro unique
+                    //$extension = pathinfo($filename, PATHINFO_EXTENSION); //récupère l'extension
+                    //$filename = 'image' . uniqid() . '.' .$extension; //numéro unique
                     $article->setImageName($filename);
                     $uploadFile = $uploadDir . basename($filename);
                     move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
@@ -109,7 +113,7 @@ class AdminController extends AbstractController
             }
         }
 
-        return $this->twig->render('Article/add.html.twig', ['errors' => $this->validator->getErrors()]);
+        return $this->twig->render('Article/add.html.twig', ['errors' => $this->validator->getErrors(), 'categories' => $categories]);
     }
 
     /* Edition d'un article */
@@ -137,8 +141,8 @@ class AdminController extends AbstractController
                     $this->validator->checkSize($_FILES['image']['size']);
                     if(empty($this->validator->getErrors())) {
                         $filename = $_FILES['image']['name'];
-                        $extension = pathinfo($filename, PATHINFO_EXTENSION); //récupère l'extension
-                        $filename = 'image' . uniqid() . '.' . $extension; //numéro unique
+                        //$extension = pathinfo($filename, PATHINFO_EXTENSION); //récupère l'extension
+                        //$filename = 'image' . uniqid() . '.' . $extension; //numéro unique
                         $article->setImageName($filename);
                         $uploadFile = $uploadDir . basename($filename);
                         move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
@@ -179,6 +183,46 @@ class AdminController extends AbstractController
         $userManager = new UserManager($this->getPdo());
         $deleteUser = $userManager->delete($id);
 
+    }
+
+    /* Permet de créer un utilisateur */
+
+    public function addUser ()
+    {
+        if($_SERVER["REQUEST_METHOD"] === "POST") {
+
+            $this->validator->sendData($_POST);
+            $this->validator->isSecure('name');
+            $this->validator->isSecure('firstname');
+            $this->validator->isNotEmpty('password');
+            $this->validator->isNotEmpty('password_confirm');
+            $this->validator->isEmail('mail');
+            $this->validator->isSame('password', 'password_confirm');
+
+            if($this->validator->getErrors() === null){
+
+                $UserManager = new UserManager($this->getPdo());
+                $user = new User();
+                $user->setName(strip_tags(trim(htmlspecialchars($_POST['name']))));
+                $user->setFirstname(strip_tags(trim(htmlspecialchars($_POST['firstname']))));
+                $user->setMail(strip_tags(trim(htmlspecialchars($_POST['mail']))));
+                $user->setStatusId( $_POST["status_id"]);
+                $mdpCrypt=password_hash(strip_tags(trim(htmlspecialchars($_POST['password']))), PASSWORD_BCRYPT);
+                $user->setPassword($mdpCrypt);
+                $user->setIsValidate("1");
+                $id = $UserManager->insertByAdmin($user);
+
+                $this->flasher->setFlash('success', "L'utilisateur à bien été ajouté !");
+                header("Location: /admin/users");
+                exit();
+
+            }
+
+        }
+
+        return $this->twig->render('Admin/addUser.html.twig', [
+            'errors' => $this->validator->getErrors()
+        ]);
     }
 
 
