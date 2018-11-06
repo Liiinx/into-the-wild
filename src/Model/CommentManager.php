@@ -28,16 +28,14 @@ class CommentManager extends AbstractManager
     //Affiche tous les commentaires côté Admin
     public function selectComments()
     {
-        return $this->pdo->query('SELECT comment.comment, comment.id,comment.date, article.title, user.name FROM
-   $this->table INNER JOIN article ON comment.article_id=article.id INNER JOIN user ON comment.user_id=user.id ORDER BY date DESC', \PDO::FETCH_CLASS, $this->className)->fetchAll();
+        return $this->pdo->query("SELECT comment.comment, comment.id,comment.date, article.title, user.name FROM
+   $this->table INNER JOIN article ON comment.article_id=article.id INNER JOIN user ON comment.user_id=user.id ORDER BY date DESC", \PDO::FETCH_CLASS, $this->className)->fetchAll();
     }
     //Affiche la liste des commentaires côté user
     public function selectArticleComments($id) {
 
         // prepared request
-        $statement = $this->pdo->prepare("SELECT comment.comment,comment.article_id, comment.id, comment.user_id, comment.date, user.name, user.firstname FROM 
-  $this->table INNER JOIN user ON comment.user_id=user.id
-   INNER JOIN article ON article.id=comment.article_id WHERE article_id=:id ORDER BY comment.date DESC");
+        $statement = $this->pdo->prepare("SELECT comment.comment,comment.article_id, comment.id, comment.date, user.name, user.firstname FROM $this->table INNER JOIN user ON comment.user_id=user.id INNER JOIN article ON article.id=comment.article_id WHERE article_id=:id ORDER BY comment.date DESC");
         $statement->setFetchMode(\PDO::FETCH_CLASS, $this->className);
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
