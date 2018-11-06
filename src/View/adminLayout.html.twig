@@ -61,7 +61,7 @@
 <div role="main" class="container">
     <div class="row justify-content-center">
 
-        <div class="col-10 col-md-2 mt-lg-5 menuAlignText">
+        <div class="col-10 col-md-2 mt-lg-5 menuAlignText animated fadeInLeft">
             <h4 class="dropdown-header">Menu</h4>
             <div class="dropdown-divider col-lg-6 col-12"></div>
             <a class="dropdown-item" href="/admin/articles">Articles</a>
@@ -70,7 +70,7 @@
             <a class="dropdown-item" href="/admin/categories">Catégories</a>
             <a class="dropdown-item" href="/admin/users">Utilisateurs</a>
         </div>
-        <div class="col-10 col-md-9 mt-4">
+        <div class="col-12 col-md-8">
             {% include "flashes.html.twig" %}
             {% block content %}{% endblock %}
         </div>
@@ -87,6 +87,42 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script src="assets/js/app.js"></script>
+
+<style>
+    /* Sticky footer styles
+-------------------------------------------------- */
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+    body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+    }
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        line-height: 60px; /* Vertically center the text there */
+        background-color: orange;
+    }
+
+    body > .container {
+        padding: 60px 15px 0;
+    }
+
+    .footer > .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    code {
+        font-size: 80%;
+    }
+</style>
+
 <footer class="footer">
     <div class="container">
 

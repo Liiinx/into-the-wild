@@ -236,6 +236,7 @@ code {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-size: 80px;
 }
 
 .gray-btn {
