@@ -50,5 +50,9 @@ $routes = [
         ['groupe2', '/portfolio/groupe2', 'GET'], // Route qui affiche le portfolio du groupe1
         ['groupe3', '/portfolio/groupe3', 'GET'], // Route qui affiche le portfolio du groupe1
         ['groupe4', '/portfolio/groupe4', 'GET'], // Route qui affiche le portfolio du groupe1
+        ['groupe5', '/portfolio/groupe5', 'GET'], // Route qui affiche le portfolio du groupe1
+        ['groupe6', '/portfolio/groupe6', 'GET'], // Route qui affiche le portfolio du groupe1
+        ['groupe7', '/portfolio/groupe7', 'GET'], // Route qui affiche le portfolio du groupe1
+        ['groupe8', '/portfolio/groupe8', 'GET'], // Route qui affiche le portfolio du groupe1
     ]
 ];
