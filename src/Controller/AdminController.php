@@ -66,7 +66,6 @@ class AdminController extends AbstractController
         $countTable['comments'] = $commentsCount;
 
 
-
         return $this->twig->render('Admin/index.html.twig', ['countTable' => $countTable]);
 
     }

@@ -36,7 +36,7 @@
     <div class="container">
         <div class="panel_info">
             <h2 class="article_title">{{ article.title }}</h2>
-            <h6>Fait le {{ article.date|date("d/m/Y à h:i:s") }}</h6>
+            <h6>Ajouté le {{ article.date|date("d/m/Y à h:i:s") }}</h6>
 
         </div>
         <hr>
@@ -101,12 +101,13 @@
                                     <div class="col-md-8">
                                         <p style="padding-top: 10px;">
                                             <a class="float-left"><strong> {{ comment.name }} {{ comment.firstname }}</strong></a>
+                                            <a class="float-right"> Le {{ comment.date|date("d/m/Y à h:i:s") }}</a>
                                         </p>
 
                                         <div class="clearfix"></div>
                                         <p class="text-justify">{{ comment.comment }}</p>
                                         <p>
-                                            <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> </a>
+                                           <!-- <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> </a> -->
                                             {% if(session.user.id == comment.userid) %}
                                                 <a href="/comment/delete/{{ comment.id }}" class="float-right btn text-white btn-danger"> <i class="fa fa-trash"></i></a>
                                             {% endif %}
