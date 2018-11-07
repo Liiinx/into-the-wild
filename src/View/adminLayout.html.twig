@@ -27,12 +27,13 @@
 <div>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top  justify-content-between">
         <div class="offset-1">
-            <img class="navbar-brand img-fluid img_wcs " src="/assets/images/adminLogo.png" alt="logo">
+            <a href="/admin/">
+            <img class="navbar-brand img-fluid img_wcs " src="/assets/images/adminLogo.png" alt="logo"></a>
         </div>
-        <div>
+        <div class="coloneDisplay">
             <a class="navbar-brand" href="/admin/"><span class="base_wcs_orange">wcs</span><span class="base_wcs_white">.admin</span></a>
         </div>
-        <div class="offset-5">
+        <div class="offset-lg-5">
             <a class="navbar-brand "   href="/deconnexion" role="button">Déconnexion</a>
             <a class="navbar-brand "   href="/" role="button">blog</a>
         </div>
@@ -50,30 +51,32 @@
         <p>Connectés-></p>
     </div>
     <div class="col-8">
-        <marquee>Le texte à faire défiler</marquee>
+        <marquee>Bienvenue sur l'admin de Into The Wild</marquee>
     </div>
 </div>
 
 <!-- END SLIDE BAR INFOS -->
 
 
-<div role="main" class="container-fluid mt-5 row">
+<div role="main" class="container">
+    <div class="row justify-content-center">
 
-        <div class="col-12 col-md-3 mt-4">
+        <div class="col-10 col-md-2 mt-lg-5 menuAlignText animated fadeInLeft">
             <h4 class="dropdown-header">Menu</h4>
-            <div class="dropdown-divider col-6"></div>
+            <div class="dropdown-divider col-lg-6 col-12"></div>
             <a class="dropdown-item" href="/admin/articles">Articles</a>
             <a class="dropdown-item" href="/admin/article/add">Créer article</a>
             <a class="dropdown-item" href="/admin/comment">Commentaires</a>
             <a class="dropdown-item" href="/admin/categories">Catégories</a>
             <a class="dropdown-item" href="/admin/users">Utilisateurs</a>
         </div>
-        <div class="col-12 col-md-8 mt-4">
+        <div class="col-12 col-md-8">
             {% include "flashes.html.twig" %}
             {% block content %}{% endblock %}
         </div>
     </div>
 </div>
+
 
 {% block javascript %}{% endblock %}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -84,6 +87,42 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script src="assets/js/app.js"></script>
+
+<style>
+    /* Sticky footer styles
+-------------------------------------------------- */
+    html {
+        position: relative;
+        min-height: 100%;
+    }
+    body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+    }
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        line-height: 60px; /* Vertically center the text there */
+        background-color: orange;
+    }
+
+    body > .container {
+        padding: 60px 15px 0;
+    }
+
+    .footer > .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    code {
+        font-size: 80%;
+    }
+</style>
+
 <footer class="footer">
     <div class="container">
 

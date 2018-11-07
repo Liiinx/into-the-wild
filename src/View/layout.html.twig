@@ -36,56 +36,52 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow p-3 mb-5 bg-white">
 
-    <img class="navbar-brand img-fluid img_wcs" src="/assets/images/logo.png" alt="logo">
+    <img id="logo_wcs" class="navbar-brand img-fluid img_wcs" src="/assets/images/logo.png" alt="logo">
     <a class="navbar-brand" href="/"><span class="base_wcs_orange">into the </span><span class="base_wcs_white">wild</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse navbarMargin" id="navbarsExampleDefault">
 
-        <ul class="navbar-nav mr-auto">
-
-            <li class="nav-item">
-                <a class="nav-link" href="#"><span class="sr-only"></span></a>
-            </li>
+        <ul class="navbar-nav text-right">
 
             <li class="nav-item">
                 <a class="nav-link" href="/portfolio">PORTFOLIO</a>
             </li>
 
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a class="nav-link" href="/page/1">BLOG</a>
             </li>
 
         </ul>
 
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav text-right">
 
 
             {% if(session.user) %}
 
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="/dashboard">Bonjour {{ session.user.firstname }}</a>
                 </li>
 
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="/deconnexion">DECONNEXION</a>
                 </li>
 
 
             {% else %}
 
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="/connexion">CONNEXION</a>
                 </li>
 
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="/inscription">INSCRIPTION</a>
                 </li>
             {% endif %}
             {% if(session.user.status_id == "1") %}
-                <li class="nav-item ">
+                <li class="nav-item">
                     <a class="nav-link" href="/admin/">Admin</a>
                 </li>
 

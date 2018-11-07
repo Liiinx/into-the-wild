@@ -2,50 +2,67 @@
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-6">
-            <h1>Liste des Articles</h1>
-        </div>
-        <div class="col-2 offset-3">
-            <div style="padding-bottom: 20px;">
-                <a href="/admin/article/add{{ articles.id }}"><input type="submit" style="background-color: #6D909C; border-color: #6D909C;" class="btn btn-success" value="Ajouter un article"></a>
+    <style type="text/css">
+        @media screen and (max-width: 768px) {
+            .page-title {
+                text-align: center;
+                padding-top: 15px;
+                font-weight: bold;
+                font-size: 20px;
+            }
+            .btn-add {
+                text-align: center;
+            }
+        }
+    </style>
+
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-md-9">
+                <h1 class="page-title animated fadeInLeft">Liste des Articles</h1>
+                <hr>
+            </div>
+            
+            <div class="col-md-3 btn-add">
+                    <div style="padding-bottom: 20px;">
+                        <a href="/admin/article/add{{ articles.id }}"><input type="submit" style="background-color: #6D909C; border-color: #6D909C;" class="btn btn-success animated tada" value="Ajouter un article"></a>
+                    </div>
             </div>
         </div>
-    </div>
 
-
-    <table class="table table-hover">
-        <thead class="thead-dark">
+        <table class="table table-responsive-sm animated fadeInRight">
+            <thead class="thead-dark">
             <tr>
                 <th>Titre</th>
-                <th>Contenu</th>
+                <th class="coloneDisplay">Contenu</th>
                 <th>Catégorie</th>
-                <th>Date/Heure</th>
+                <th class="coloneDisplay">Date/Heure</th>
                 <th>Action</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             {% for articles in article %}
-            <tr>
-                <td style="max-width: 230px">{{ articles.title }}</td>
-                <td> <span class="preview_content">{{ articles.content[:50] ~ '...' }}</span> </td>
-                <td> <span class="preview_content">{{ articles.name}}</span> </td>
-                <td> <span class="preview_content">{{ articles.date|date('d/m/Y H:i')}}</span> </td>
+                <tr>
+                    <td>{{ articles.title }}</td>
+                    <td class="coloneDisplay"> <span class="preview_content">{{ articles.content[:50] ~ '...' }}</span> </td>
+                    <td> <span class="preview_content">{{ articles.name}}</span> </td>
+                    <td class="coloneDisplay"> <span class="preview_content" style="font-size: 15px;">{{ articles.date|date('d/m/Y H:i')}}</span></td>
 
-                <td>
-                    <div class="row">
-                        <div class="col-4">
-                            <a type="button" href="/admin/article/edit/{{ articles.id }}" class="btn btn-outline-secondary"><i class="fas fa-pencil-alt"></i></a>
-                        </div><div class="col-4">
-                            <a type="button" href="/article/{{ articles.id }}" class="btn btn-outline-secondary"><i class="fas fa-eye"></i></a>
-                        </div>
-                        <div class="col-4">
-                            <a type="button" href="/admin/article/delete/{{ articles.id }}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+                    <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="/article/{{ articles.id }}" class="btn btn-outline-primary btn-sm"><i class="fas fa-eye"></i></a>
+                                <a href="/admin/article/edit/{{ articles.id }}" class="btn btn-outline-warning btn-sm"><i class="fas fa-edit"></i></a>
+                                <a onclick="deleteArticle({{ articles.id }}, '{{ articles.title }}')" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></a>
+                            </div>
+                    </td>
+                </tr>
             {% endfor %}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
+
+<script src="/assets/js/delete.js"></script>
+
 {% endblock %}

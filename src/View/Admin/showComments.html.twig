@@ -2,14 +2,25 @@
 
 {% block content %}
 
-    <h1>Liste des commentaires</h1>
-    <table class="table table-hover">
+    <style type="text/css">
+        @media screen and (max-width: 768px) {
+            .page-title {
+                text-align: center;
+                padding-top: 15px;
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+    </style>
+
+    <h1 class="page-title animated fadeInLeft">Liste des commentaires</h1>
+    <table class="table table-hover table-responsive-sm animated fadeInRight">
         <thead class="thead-dark">
         <tr>
             <th>Contenu</th>
             <th>Article</th>
             <th>User</th>
-            <th>Date / Heure</th>
+            <th class="coloneDisplay">Date / Heure</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -19,12 +30,15 @@
                 <td>{{ comment.comment[:50] ~ '...'  }}</td>
                 <td>{{ comment.title}}</td>
                 <td>{{ comment.name}}</td>
-                <td>{{ comment.date|date('d/m/Y H:i')}}</td>
+                <td class="coloneDisplay">{{ comment.date|date('d/m/Y H:i')}}</td>
                 <td>
-                    <a type="button" href="/admin/comment/delete/{{ comment.id}}" class="btn btn-outline-warning"><i class="fas fa-trash-alt"></i></a>
+                    <a onclick="deleteComment({{ comment.id }}, '{{ comment.comment[:50] ~ '...'  }}')" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></a>
                 </td>
+
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    <script src="/assets/js/delete.js"></script>
+
 {% endblock %}

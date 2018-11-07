@@ -42,7 +42,9 @@ $routes = [
       ['showComments', '/admin/comment', 'GET'], // action, url, method
       ['showCategories', '/admin/categories', 'GET'], // action, url, method
       ['deleteComment', '/admin/comment/delete/{id:\d+}', 'GET'], // action, url, method
+      ['addUser', '/admin/user/add', ['GET', 'POST']],
       ['deleteUser', '/admin/user/delete/{page:\d+}', 'GET'], // action, url, method
+
     ],
 
     'Portfolio' => [ //Route concernant les portfolios
