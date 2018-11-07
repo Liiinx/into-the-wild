@@ -32,6 +32,7 @@ class UserController extends AbstractController
     public function dashboard() {
         $commentsInstance = new CommentManager($this->getPdo());
         $allComments = $commentsInstance->selectAllByField('comment', 'user_id', $this->flasher->read('user')["id"]);
+
         return $this->twig->render('User/dashboard.html.twig', ['allComments' => $allComments]);
     }
 
