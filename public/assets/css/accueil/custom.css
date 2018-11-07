@@ -1,0 +1,48 @@
+/* Add here all your css styles (customizations) */
+#navbarsExampleDefault {
+    background-color: #6D909C;
+    font-weight: bold;
+}
+
+.navbar {
+    background-color: #6D909C !important;
+    font-weight: bold;
+}
+
+.img_wcs {
+    width: 40px;
+}
+
+.base_wcs_orange {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+    color: orange;
+}
+
+
+.base_wcs_white {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+}
+li.nav-item:nth-child(2) > a:nth-child(1) {
+    margin-right: 40px;
+    margin-left: 75px;
+}
+
+
+li.nav-item:nth-child(4) > a:nth-child(1) {
+    padding-right: 360px;
+}
+
+.nav-item {
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#groupe2{
+    margin-left: 40px;
+}
+
