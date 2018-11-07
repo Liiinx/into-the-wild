@@ -103,9 +103,9 @@
                                             <a class="float-left"><strong> {{ comment.name }} {{ comment.firstname }}</strong></a>
                                             <a class="float-right"> Le {{ comment.date|date("d/m/Y à h:i:s") }}</a>
                                         </p>
-
+                                        <br/>
                                         <div class="clearfix"></div>
-                                        <p class="text-justify">{{ comment.comment }}</p>
+                                        <p class="text-justify">{{ comment.comment|nl2br }}</p>
                                         <p>
 
                                            <!-- <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> </a> -->
