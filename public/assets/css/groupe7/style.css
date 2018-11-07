@@ -43,7 +43,7 @@ a { text-decoration: none;  border:none; }
 
 /* Style de la section */
 .accueil {
-  margin: 5% auto;
+  margin: 9% auto;
   width:90%;
   display: flex;
   justify-content: space-around;

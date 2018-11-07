@@ -14,6 +14,11 @@
     <link rel="shortcut icon" href="../../../favicon.ico">
     <!-- Google Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C300%2C500%2C600%2C700%7CPlayfair+Display%7CRoboto%7CRaleway%7CSpectral%7CRubik">
+
+    <!-- CSS Unify -->
+    <link rel="stylesheet" href="/assets/css/accueil/unify-core.css">
+    <link rel="stylesheet" href="/assets/css/accueil/unify-components.css">
+    <link rel="stylesheet" href="/assets/css/accueil/unify-globals.css">
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="/assets/vendor/bootstrap/bootstrap.min.css">
     <!-- CSS Global Icons -->
@@ -28,13 +33,12 @@
     <link rel="stylesheet" href="/assets/vendor/hamburgers/hamburgers.min.css">
     <link rel="stylesheet" href="/assets/vendor/animate.css">
 
-    <!-- CSS Unify -->
-    <link rel="stylesheet" href="/assets/css/accueil/unify-core.css">
-    <link rel="stylesheet" href="/assets/css/accueil/unify-components.css">
-    <link rel="stylesheet" href="/assets/css/accueil/unify-globals.css">
+    <!-- Font awesome style -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="/assets/css/accueil/custom.css">
+    <link rel="stylesheet" href="/assets/css/accueil/footer.css">
     <style>
         .bg-orange {
             background-color: #eba844!important;
@@ -45,14 +49,30 @@
 <body>
 <main>
     <header class="masthead mb-auto">
-        <div class="inner" style="padding:0px;">
-            <nav class="navbar navbar-expand-lg navbar-light bg-orange">
-                <a class="navbar-brand" href="/portfolio">Portfolio</a>
-                <a class="navbar-brand" href="/">Blog</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow p-3 mb-5 bg-white">
+            <img class="navbar-brand img-fluid img_wcs" src="/assets/images/logo.png" alt="logo">
+            <a class="navbar-brand" href="/"><span class="base_wcs_orange">into the </span><span class="base_wcs_white">wild</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><span class="sr-only"></span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/portfolio">PORTFOLIO</a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="/page/1">BLOG</a>
+                    </li>
+
+                </ul>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto mr-5">
                         <li class="nav-item dropdown">
@@ -92,9 +112,8 @@
                         </li>
                     </ul>
                 </div>
-            </nav>
-        </div>
-
+            </div>
+        </nav>
     </header>
     <!-- Promo Block -->
     <section class="g-bg-cover g-bg-pos-top-center g-bg-img-hero g-bg-black-opacity-0_3--after g-min-height-100vh g-flex-centered g-py-100"
@@ -264,60 +283,75 @@
     <!-- End Footer -->
 
     <!-- Copyright Footer -->
-    <footer class="g-bg-gray-dark-v1 g-color-white-opacity-0_8 g-py-20">
+    {#<footer class="g-bg-gray-dark-v1 g-color-white-opacity-0_8 g-py-20">#}
+        {#<div class="container">#}
+            {#<div class="row">#}
+                {#<div class="col-md-8 text-center text-md-left g-mb-10 g-mb-0--md" >#}
+                    {#<div class="d-lg-flex" >#}
+                        {#<small class="d-block g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">2017 © All Rights Reserved.</small>#}
+                        {#<ul class="u-list-inline">#}
+                            {#<li class="list-inline-item">#}
+                                {#<a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Privacy Policy</a>#}
+                            {#</li>#}
+                            {#<li class="list-inline-item">#}
+                                {#<span>|</span>#}
+                            {#</li>#}
+                            {#<li class="list-inline-item">#}
+                                {#<a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Terms of Use</a>#}
+                            {#</li>#}
+                            {#<li class="list-inline-item">#}
+                                {#<span>|</span>#}
+                            {#</li>#}
+                            {#<li class="list-inline-item">#}
+                                {#<a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">License</a>#}
+                            {#</li>#}
+                            {#<li class="list-inline-item">#}
+                                {#<span>|</span>#}
+                            {#</li>#}
+                            {#<li class="list-inline-item">#}
+                                {#<a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Support</a>#}
+                            {#</li>#}
+                        {#</ul>#}
+                    {#</div>#}
+                {#</div>#}
+
+                {#<div class="col-md-4 align-self-right">#}
+                    {#<ul class="list-inline text-center text-md-right mb-0">#}
+
+                        {#<li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Facebook">#}
+                            {#<a href="#" class="g-color-white-opacity-0_5 g-color-white--hover">#}
+                                {#<i class="fa fa-facebook"></i>#}
+                            {#</a>#}
+                        {#</li>#}
+                        {#<li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Linkedin">#}
+                            {#<a href="https://www.linkedin.com/school/10387519?pathWildcard=10387519" class="g-color-white-opacity-0_5 g-color-white--hover">#}
+                                {#<i class="fa fa-linkedin"></i>#}
+                            {#</a>#}
+                        {#</li>#}
+                        {#<li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Twitter">#}
+                            {#<a href="https://twitter.com/wildcodeschool" class="g-color-white-opacity-0_5 g-color-white--hover">#}
+                                {#<i class="fa fa-twitter"></i>#}
+                            {#</a>#}
+                        {#</li>#}
+
+                    {#</ul>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</footer>#}
+    <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 text-center text-md-left g-mb-10 g-mb-0--md" style='visibility: hidden;'>
-                    <div class="d-lg-flex" >
-                        <small class="d-block g-font-size-default g-mr-10 g-mb-10 g-mb-0--md">2017 © All Rights Reserved.</small>
-                        <ul class="u-list-inline">
-                            <li class="list-inline-item">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Privacy Policy</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span>|</span>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Terms of Use</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span>|</span>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">License</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <span>|</span>
-                            </li>
-                            <li class="list-inline-item">
-                                <a class="g-color-white-opacity-0_8 g-color-white--hover" href="#">Support</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
 
-                <div class="col-md-4 align-self-right">
-                    <ul class="list-inline text-center text-md-right mb-0">
+            <span class="text-muted"> <span class="wcs_brand_orange">into the </span> <span class="wcs_brand_white">wild</span> </span>
 
-                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Facebook">
-                            <a href="#" class="g-color-white-opacity-0_5 g-color-white--hover">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Linkedin">
-                            <a href="https://www.linkedin.com/school/10387519?pathWildcard=10387519" class="g-color-white-opacity-0_5 g-color-white--hover">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item g-mx-10" data-toggle="tooltip" data-placement="top" title="Twitter">
-                            <a href="https://twitter.com/wildcodeschool" class="g-color-white-opacity-0_5 g-color-white--hover">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
 
-                    </ul>
-                </div>
-            </div>
+            <a href="https://www.github.com/WildCodeSchool/" target="_blank"><button class="btn btn-outline-light rounded-circle"> <i class="fab fa-github"></i> </button></a>
+            <a href="https://www.twitter.com/wildcodeschool/" target="_blank"><button class="btn btn-outline-light rounded-circle"> <i class="fab fa-twitter"></i> </button></a>
+            <a href="https://www.facebook.com/wildcodeschool/" target="_blank"><button class="btn btn-outline-light rounded-circle"> <i class="fab fa-facebook"></i> </button></a>
+            <a href="https://www.instagram.com/wildcodeschool/" target="_blank"><button class="btn btn-outline-light rounded-circle"> <i class="fab fa-instagram"></i> </button></a>
+            <a href="https://www.youtube.com/channel/UCi99G_0QPx5sYsK8zdvQzfw/" target="_blank"><button class="btn btn-outline-light rounded-circle"> <i class="fab fa-youtube"></i> </button></a>
+
+
         </div>
     </footer>
     <!-- End Copyright Footer -->

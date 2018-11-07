@@ -398,3 +398,7 @@ de 768px pour le cacher et moins de 768px pour l'afficher */
 	height: 2px;
 	width: 2px;
 }
+
+.titre{
+    margin-top: 100px;
+}
