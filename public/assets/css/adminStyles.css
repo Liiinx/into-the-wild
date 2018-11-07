@@ -172,3 +172,38 @@ code {
         text-align: center;
     }
 }
+
+
+/* ----------------------------------------------------------------------------*/
+
+/*BUTTON UPLOAD FILE BY CAMILO TUTAAAH */
+
+.uploadButton {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+
+}
+
+.btnUp {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+.btnUp:hover, .uploadButton:hover {
+    background-color: dimgrey;
+    color: white;
+}
+
+.uploadButton input[type=file] {
+    width: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
