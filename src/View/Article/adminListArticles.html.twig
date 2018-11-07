@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
     <style type="text/css">
         @media screen and (max-width: 768px) {
             .page-title {
@@ -11,20 +10,26 @@
                 font-weight: bold;
                 font-size: 20px;
             }
+            .btn-add {
+                text-align: center;
+            }
         }
     </style>
+
     <div class="container">
+
+
         <div class="row">
             <div class="col-md-9">
                 <h1 class="page-title animated fadeInLeft">Liste des Articles</h1>
+                <hr>
             </div>
-
-            <div style="text-align: center" class="col-md-3">
+            
+            <div class="col-md-3 btn-add">
                     <div style="padding-bottom: 20px;">
-                        <a href="/admin/article/add{{ articles.id }}"><input type="submit" style="background-color: #6D909C; border-color: #6D909C;" class="btn btn-success" value="Ajouter un article"></a>
+                        <a href="/admin/article/add{{ articles.id }}"><input type="submit" style="background-color: #6D909C; border-color: #6D909C;" class="btn btn-success animated tada" value="Ajouter un article"></a>
                     </div>
             </div>
-
         </div>
 
         <table class="table table-responsive-sm animated fadeInRight">
