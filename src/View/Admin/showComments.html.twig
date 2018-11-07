@@ -2,8 +2,19 @@
 
 {% block content %}
 
-    <h1>Liste des commentaires</h1>
-    <table class="table table-hover">
+    <style type="text/css">
+        @media screen and (max-width: 768px) {
+            .page-title {
+                text-align: center;
+                padding-top: 15px;
+                font-weight: bold;
+                font-size: 20px;
+            }
+        }
+    </style>
+
+    <h1 class="page-title animated fadeInLeft">Liste des commentaires</h1>
+    <table class="table table-hover table-responsive-sm animated fadeInRight">
         <thead class="thead-dark">
         <tr>
             <th>Contenu</th>
@@ -17,13 +28,11 @@
         {% for comment in comments %}
             <tr data-toggle="tooltip" data-placement="bottom" data-html="true" title="{{ comment.comment }}">
                 <td>{{ comment.comment[:50] ~ '...'  }}</td>
-                <td>{{ comment.title}}</td>
+                <td class="coloneDisplay">{{ comment.title}}</td>
                 <td>{{ comment.name}}</td>
                 <td class="coloneDisplay">{{ comment.date|date('d/m/Y H:i')}}</td>
                 <td>
-                    <button type="button" class="btn btn-outline-warning" onclick="deleteComment({{ comment.id }}, '{{ comment.comment[:50] ~ '...'  }}')">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
+                    <a onclick="deleteComment({{ comment.id }}, '{{ comment.comment[:50] ~ '...'  }}')" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></a>
                 </td>
 
             </tr>
