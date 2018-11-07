@@ -107,9 +107,13 @@
                                         <div class="clearfix"></div>
                                         <p class="text-justify">{{ comment.comment }}</p>
                                         <p>
+
                                            <!-- <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> </a> -->
-                                            {% if(session.user.id == comment.userid) %}
-                                                <a href="/comment/delete/{{ comment.id }}" class="float-right btn text-white btn-danger"> <i class="fa fa-trash"></i></a>
+
+                                            {% if(session.user) %}
+                                                {% if(session.user.id == comment.userid) %}
+                                                    <a href="/comment/delete/{{ comment.id }}" class="float-right btn text-white btn-danger"> <i class="fa fa-trash"></i></a>
+                                                {% endif %}
                                             {% endif %}
                                         </p>
                                     </div>
