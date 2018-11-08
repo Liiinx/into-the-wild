@@ -196,3 +196,6 @@ transition: 0.5s;
   display: none !important;
   transition: 0.5s;
 }
+.menusIntegral{
+    margin-top: 87px;
+}
