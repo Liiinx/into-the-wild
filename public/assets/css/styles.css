@@ -52,10 +52,10 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     justify-content: space-around;
 }
 
-.nav-link{
+.lien{
     color: #5B8EA3 !important;
 }
-.nav-link:hover{
+.lien:hover{
     color: #ffffff !important;
 }
 /* HOME PAGE */
