@@ -24,7 +24,6 @@ $routes = [
         ['disconnect', '/deconnexion', ['GET', 'POST']],
         ['page', '/page/{page:\d+}', ['GET']],
         ['showCategory', '/category/{id:\d+}', 'GET'], // action, url, method
-
     ],
 
     'Admin' => [ // Route concernant l'administration.
@@ -39,7 +38,7 @@ $routes = [
       ['editCategory', '/admin/category/edit/{id:\d+}', ['GET', 'POST']], // action, url, method
       ['deleteArticle', '/admin/article/delete/{id:\d+}', 'GET'], // action, url, method
       ['deleteCategory', '/admin/category/delete/{id:\d+}', 'GET'], // action, url, method
-      ['showComments', '/admin/comment', 'GET'], // action, url, method
+      ['showComments', '/admin/comments', 'GET'], // action, url, method
       ['showCategories', '/admin/categories', 'GET'], // action, url, method
       ['deleteComment', '/admin/comment/delete/{id:\d+}', 'GET'], // action, url, method
       ['addUser', '/admin/user/add', ['GET', 'POST']],

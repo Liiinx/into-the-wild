@@ -16,6 +16,9 @@ use App\Connection;
 
 use Controller\Validator;
 use Controller\Flasher;
+
+use Aptoma\Twig\Extension\MarkdownExtension;
+use Aptoma\Twig\Extension\MarkdownEngine;
 /**
  *
  */
@@ -60,7 +63,11 @@ abstract class AbstractController
             ]
         );
 
+        $engine = new MarkdownEngine\MichelfMarkdownEngine();
+
         $this->twig->addExtension(new \Twig_Extension_Debug());
+        $this->twig->addExtension(new MarkdownExtension($engine));
+
         $connection = new Connection();
         $this->pdo = $connection->getPdoConnection();
 
