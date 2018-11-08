@@ -185,7 +185,7 @@ class UserController extends AbstractController
                 $message = "Bonjour merci d'activer votre compte en cliquant sur ce <a href='http://localhost:8080/confirmation/{$user->getConfirmationToken()}'>lien </a>";
                 $mailer->mailConfig($user->getMail(), $user->getName(), $message);
                 $this->flasher->setFlash('success', "Inscription réussie ! Un email de confirmation viens de vous être envoyé");
-                header('Location: /login');
+                header('Location: /connexion');
                 exit();
                 /// $_SESSION['user'] = $user->getAll();
                 // $_SESSION["user"]["id"] = $id;
