@@ -3,7 +3,7 @@
 function deleteArticle (id, title){
     let response = prompt("Attention vous allez supprimer l'article : " + title + '\n' + " Merci de mettre le message 'confirmer' afin de supprimer.").toLowerCase();
     if(response === "confirmer"){
-        window.location.replace("http://localhost:8080/admin/article/delete/" + id);
+        window.location.replace("/admin/article/delete/" + id);
         return false;
     } else {
         alert("Anulation de la suppression !");
@@ -14,7 +14,7 @@ function deleteArticle (id, title){
 function deleteCategory (id, name){
     let response = prompt("Attention vous allez supprimer la catégorie : " + name + '\n' + " Merci de mettre le message 'confirmer' afin de supprimer.").toLowerCase();
     if(response === "confirmer"){
-        window.location.replace("http://localhost:8080/admin/category/delete/" + id);
+        window.location.replace("/admin/category/delete/" + id);
         return false;
     } else {
         alert("Anulation de la suppression !");
@@ -25,7 +25,7 @@ function deleteCategory (id, name){
 function deleteUser (id, name, firstame){
     let response = prompt("Attention vous allez supprimer l' user : " + name + ' ' + firstame +'\n' + " Merci de mettre le message 'confirmer' afin de supprimer.").toLowerCase();
     if(response === "confirmer"){
-        window.location.replace("http://localhost:8080/admin/user/delete/" + id);
+        window.location.replace("/admin/user/delete/" + id);
         return false;
     } else {
         alert("Anulation de la suppression !");
@@ -36,7 +36,7 @@ function deleteUser (id, name, firstame){
 function deleteComment (id, comment){
     let response = prompt("Attention vous allez supprimer le commentaire : " + comment +'\n' + " Merci de mettre le message 'confirmer' afin de supprimer.").toLowerCase();
     if(response === "confirmer"){
-        window.location.replace("http://localhost:8080/admin/comment/delete/" + id);
+        window.location.replace("/admin/comment/delete/" + id);
         return false;
     } else {
         alert("Anulation de la suppression !");
