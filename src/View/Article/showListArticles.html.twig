@@ -19,9 +19,7 @@
                                             <h5 class="card-title">{{ articles.title [:50] ~ '...' }}</h5>
                                         </div>
                                         <p class="card-text cardText">
-                                            {% markdown %}
-                                                {{ articles.content[:50] ~ '...' }}
-                                            {% endmarkdown %}
+                                            {{ articles.content[:50] ~ '...' }}
                                         </p>
                                         <button type="button" class="btn btn-outline-secondary"><i class="fas fa-eye"></i> Lire</button>
                                     </div>

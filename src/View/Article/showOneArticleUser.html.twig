@@ -48,9 +48,7 @@
                 <div class="article_text">
                     <img style="align-content: center;" src="/assets/images/{{ article.imageName }}" class="float-left img-thumbnail img_article">
                     <p id="article-content" class="text-justify">
-                        {% markdown %}
-                            {{ article.content|nl2br }}
-                        {% endmarkdown %}
+                        {{ article.content|nl2br }}
                     </p>
                 </div>
             </div>
