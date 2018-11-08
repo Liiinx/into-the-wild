@@ -317,70 +317,55 @@ showOneArticleUser    vue d'un article en front, coté user */
 
 .flecheLeft
 {
-    padding-top: 39%;
-    padding-left: 1%;
-    font-size: 25px;
-    color: black;
-
+    top: 40%;
+    left: 30px;
+    font-size: 30px;
+    color: orange;
+    padding: 10px;
+    background-color: rgba(255,255,255,.5);
 }
 .flecheRight
 {
-    padding-top: 0%;
-    padding-left: 92%;
-    font-size: 25px;
-    color: black;
+    top: 40%;
+    right: 30px;
+    font-size: 30px;
+    color: orange;
+    padding: 10px;
+    background-color: rgba(255,255,255,.5);
 }
 @media only screen and (max-width: 1200px) {
     .flecheLeft
     {
-        padding-top: 38%;
-        padding-left: 2%;
-        font-size: 25px;
-        color: black;
+
 
     }
     .flecheRight
     {
-        padding-top: 0%;
-        padding-left: 90%;
-        font-size: 25px;
-        color: black;
+
     }
 
 }
 @media only screen and (max-width: 768px) {
     .flecheLeft
     {
-        padding-top: 36%;
-        padding-left: 2%;
-        font-size: 25px;
-        color: black;
+
 
     }
     .flecheRight
     {
-        padding-top: 0%;
-        padding-left: 88%;
-        font-size: 25px;
-        color: black;
+
     }
 
 }
 @media only screen and (max-width: 768px) {
     .flecheLeft
     {
-        padding-top: 30%;
-        padding-left: 2%;
-        font-size: 18px;
-        color: black;
+
 
     }
     .flecheRight
     {
-        padding-top: 0%;
-        padding-left: 82%;
-        font-size: 18px;
-        color: black;
+
     }
 
 }
