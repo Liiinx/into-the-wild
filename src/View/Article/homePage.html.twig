@@ -229,8 +229,9 @@
 
     <!--  Articles View -->
 
-<div class="container d-flex flex-wrap shadow p-3 mt-5 bg-white rounded justify-content-around">
-    <h2 class="mt-3 mb-3 text-center titleCaroussel"><span class="firstLetter">L</span>iste de nos articles</h2>
+<div class="container d-flex flex-wrap shadow p-3 mt-5 rounded justify-content-around">
+        <h2 class="container mt-3 mb-5 titleCaroussel"><span class="firstLetter">L</span>iste de nos articles</h2>
+
     <div class="container-fluid d-flex justify-content-center">
 
 
@@ -241,7 +242,10 @@
         <div class="card-body">
             <h5 class="card-title cardTitle">{{ articles.title  }}</h5>
             <p class="card-text">{{ articles.content[:50] ~ " ..." }}</p>
-            <a href="/article/{{ articles.id }}" class="btn btn-primary btn-sm">Read me!</a>
+            <a href="/article/{{ articles.id }}">
+            <button type="button" class="btn btn-outline-secondary"><i class="fas fa-eye"></i> Lire</button>
+            </a>
+
         </div>
     </div>
     {% endfor %}
