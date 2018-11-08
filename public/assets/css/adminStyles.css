@@ -8,13 +8,13 @@ body {
 
 
 #navbarsExampleDefault {
-    background-color: #FFA948;
+    background-color: #2C3E50 !important;
     font-weight: bold;
 }
 
 
 .navbar {
-    background-color: #FFA948 !important;
+    background-color: #2C3E50 !important;
     font-weight: bold;
 }
 
@@ -29,6 +29,7 @@ body {
     font-weight: bold;
     font-size: 30px;
     color: #5B8EA3;
+    text-shadow: 1px 2px 3px rgba(0,0,0, 0.5);
 }
 
 
@@ -36,7 +37,8 @@ body {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 30px;
-    color: white;
+    color: #FFAE54;
+    text-shadow: 1px 2px 3px rgba(0,0,0, 0.5);
 }
 
 
@@ -53,7 +55,7 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
 
 .slide-admin-infos
 {
-    background-color: black;
+    background-color: #5B8EA3;
     height: 28px;
     margin-top: -10px;
     font-size: 12px;
@@ -89,7 +91,7 @@ body {
     /* Set the fixed height of the footer here */
     height: 60px;
     line-height: 60px; /* Vertically center the text there */
-    background-color: #f5f5f5;
+    background-color: #5B8EA3 !important;
 }
 
 
@@ -98,7 +100,8 @@ body {
 /* Not required for template or sticky footer method. */
 
 .footer {
-    background-color: #FFA948;
+    background-color: #FFAE54
+;
 }
 
 body > .container {
@@ -122,14 +125,16 @@ code {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
-    color: #5B8EA3;
+    color: #2C3E50;
+    text-shadow: 1px 2px 3px rgba(0,0,0, 0.5);
 }
 
 .wcs_brand_white {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
-    color: white;
+    color: #FFAE54;
+    text-shadow: 1px 2px 3px rgba(0,0,0, 0.5);
 }
 
 .admin-infos-card {
@@ -207,3 +212,9 @@ code {
     top: 0;
     opacity: 0;
 }
+
+.CardAdmin-personal {
+    background-color: #5B8EA3 !important;
+    color: #fefefe;
+}
+
