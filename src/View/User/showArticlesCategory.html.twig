@@ -2,26 +2,28 @@
 
 {% block content %}
 <div class="container mb-4">
-    <h1>Categorie : {{ articleCategory[0].name }}</h1>
+    <h1><span class="firstLetter">C</span>ategorie : {{ articleCategory[0].name }}</h1>
         <div class="row">
             <div class="col-md-9">
                 <div class="row">
                     {% for value in articleCategory %}
                         <div class="col-xs-12 col-md-6 col-lg-6">
                             <div class="card p-3 m-2">
-                                <div>
-                                    <img class="card-img-top imageArticle" src="/assets/images/{{ value.imageName }}" alt="Card image cap">
-                                </div>
-                                <div class="card-body">
+                                <a class="linkDeco" href="/article/{{ value.id }}">
+                                    <div>
+                                        <img class="card-img-top imageArticle" src="/assets/images/{{ value.imageName }}" alt="Card image cap">
+                                    </div>
+                                    <div class="card-body">
                                     <div class="cardTitle">
                                         <h5 class="card-title">{{ value.title [:100] ~ '...' }}</h5>
                                     </div>
 
                                     <p class="card-text cardText">{{ value.content[:50] ~ '...' }}</p>
-                                    <a href="/article/{{ value.id }}">
-                                        <button type="button" class="btn btn-secondary">Voir plus...</button>
-                                    </a>
-                                </div>
+                                    <button type="button" class="btn btn-outline-secondary"><i class="fas fa-eye"></i> Lire</button>
+
+
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     {% endfor %}
@@ -32,26 +34,6 @@
             </div>
         </div>
 
-
-        <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
 </div>
 
 {% endblock %}

@@ -66,7 +66,6 @@ class AdminController extends AbstractController
         $countTable['comments'] = $commentsCount;
 
 
-
         return $this->twig->render('Admin/index.html.twig', ['countTable' => $countTable]);
 
     }
@@ -183,6 +182,46 @@ class AdminController extends AbstractController
         $userManager = new UserManager($this->getPdo());
         $deleteUser = $userManager->delete($id);
 
+    }
+
+    /* Permet de créer un utilisateur */
+
+    public function addUser ()
+    {
+        if($_SERVER["REQUEST_METHOD"] === "POST") {
+
+            $this->validator->sendData($_POST);
+            $this->validator->isSecure('name');
+            $this->validator->isSecure('firstname');
+            $this->validator->isNotEmpty('password');
+            $this->validator->isNotEmpty('password_confirm');
+            $this->validator->isEmail('mail');
+            $this->validator->isSame('password', 'password_confirm');
+
+            if($this->validator->getErrors() === null){
+
+                $UserManager = new UserManager($this->getPdo());
+                $user = new User();
+                $user->setName(strip_tags(trim(htmlspecialchars($_POST['name']))));
+                $user->setFirstname(strip_tags(trim(htmlspecialchars($_POST['firstname']))));
+                $user->setMail(strip_tags(trim(htmlspecialchars($_POST['mail']))));
+                $user->setStatusId( $_POST["status_id"]);
+                $mdpCrypt=password_hash(strip_tags(trim(htmlspecialchars($_POST['password']))), PASSWORD_BCRYPT);
+                $user->setPassword($mdpCrypt);
+                $user->setIsValidate("1");
+                $id = $UserManager->insertByAdmin($user);
+
+                $this->flasher->setFlash('success', "L'utilisateur à bien été ajouté !");
+                header("Location: /admin/users");
+                exit();
+
+            }
+
+        }
+
+        return $this->twig->render('Admin/addUser.html.twig', [
+            'errors' => $this->validator->getErrors()
+        ]);
     }
 
 
