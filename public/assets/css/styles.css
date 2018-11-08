@@ -7,12 +7,12 @@ body {
 }
 
 #navbarsExampleDefault {
-    background-color: #6D909C;
+    background-color: #44454F;
     font-weight: bold;
 }
 
 .navbar {
-    background-color: #6D909C !important;
+    background-color: #44454F !important;
     font-weight: bold;
 }
 
@@ -23,8 +23,9 @@ body {
 .base_wcs_orange {
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 30px;
-    color: orange;
+    font-size: 35px;
+    color: #FFAE54;
+    text-shadow: 1px 2px 3px rgba(0,0,0, 0.5);
 }
 
 
@@ -33,6 +34,7 @@ body {
     font-weight: bold;
     font-size: 30px;
     color: white;
+    text-shadow: 1px 2px 3px rgba(0,0,0, 0.5);
 }
 
 /*
@@ -50,8 +52,12 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     justify-content: space-around;
 }
 
-
-
+.nav-link{
+    color: #5B8EA3 !important;
+}
+.nav-link:hover{
+    color: #ffffff !important;
+}
 /* HOME PAGE */
 
 .speratorHomePage
@@ -70,7 +76,7 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
 }
 .firstLetter
 {
-    color: orange;
+    color: #FFAE54;
 }
 .banner h1
 {
@@ -153,7 +159,7 @@ body {
 /* Not required for template or sticky footer method. */
 
 .footer {
-    background-color: #6D909C;
+    background-color:  #44454F;
 }
 body
 {
@@ -180,14 +186,16 @@ code {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
-    color: orange;
+    color: #FFAE54;
+    text-shadow: 1px 2px 3px rgba(0,0,0, 0.5);
 }
 
 .wcs_brand_white {
     text-transform: uppercase;
     font-weight: bold;
     font-size: 20px;
-    color: white;
+    color: #ffffff;
+    text-shadow: 1px 2px 3px rgba(0,0,0, 0.5);
 }
 
 
