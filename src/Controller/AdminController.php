@@ -121,6 +121,9 @@ class AdminController extends AbstractController
         $articleManager = new ArticleManager($this->getPdo());
         $article = $articleManager->selectOneById($id);
 
+        $categoryManager = new CategoryManager($this->getPdo());
+        $categories = $categoryManager->showAllCategory();
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             /* Validation des champs */
@@ -132,6 +135,8 @@ class AdminController extends AbstractController
             if(empty($this->validator->getErrors())) {
                 $article->setTitle($_POST['title']);
                 $article->setContent($_POST['content']);
+                $article->setCategoryId($_POST['category']);
+
                 // chargement des images
 
                 $uploadDir = 'assets/images/';
@@ -153,7 +158,7 @@ class AdminController extends AbstractController
 
             }
         }
-        return $this->twig->render('Article/edit.html.twig', ['errors' => $this->validator->getErrors(), 'article' => $article]);
+        return $this->twig->render('Article/edit.html.twig', ['errors' => $this->validator->getErrors(), 'article' => $article, 'categories' => $categories]);
     }
 
     /* Affiche un seul article */
