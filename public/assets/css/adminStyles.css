@@ -191,7 +191,7 @@ code {
 }
 
 .btnUp {
-    border: 2px solid gray;
+    border: 3px solid dimgrey;
     color: gray;
     background-color: white;
     padding: 8px 10px;
@@ -206,13 +206,14 @@ code {
 
 .uploadButton input[type=file] {
 
-    height: 100%;
+    height: 0px;
     position: absolute;
     left: 0;
     top: 0;
     opacity: 0;
-    -webkit-appearance: none;
+
 }
+
 .CardAdmin-personal {
     background-color: #5B8EA3 !important;
     color: #fefefe;
