@@ -194,11 +194,10 @@ code {
     border: 2px solid gray;
     color: gray;
     background-color: white;
-    padding: 5px 10px;
+    padding: 8px 10px;
     border-radius: 8px;
     font-size: 15px;
     font-weight: bold;
-
 }
 .btnUp:hover, .uploadButton:hover {
     background-color: dimgrey;
@@ -206,13 +205,14 @@ code {
 }
 
 .uploadButton input[type=file] {
-    width: 50%;
+
+    height: 100%;
     position: absolute;
     left: 0;
     top: 0;
     opacity: 0;
+    -webkit-appearance: none;
 }
-
 .CardAdmin-personal {
     background-color: #5B8EA3 !important;
     color: #fefefe;
