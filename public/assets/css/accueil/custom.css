@@ -1,11 +1,12 @@
 /* Add here all your css styles (customizations) */
 #navbarsExampleDefault {
-    background-color: #6D909C;
+    background-color: #5B8EA3;
     font-weight: bold;
+
 }
 
 .navbar {
-    background-color: #6D909C !important;
+    background-color: #5B8EA3 !important;
     font-weight: bold;
 }
 
@@ -17,7 +18,8 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: 30px;
-    color: orange;
+    color: #FFAE54;
+    text-shadow: 1px 2px 3px rgba(0,0,0, 0.5);
 }
 
 
@@ -26,6 +28,7 @@
     font-weight: bold;
     font-size: 30px;
     color: white;
+    text-shadow: 1px 2px 3px rgba(0,0,0, 0.5);
 }
 
 li.nav-item:nth-child(4) > a:nth-child(1) {
