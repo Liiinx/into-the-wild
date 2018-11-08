@@ -27,11 +27,6 @@
     font-size: 30px;
     color: white;
 }
-li.nav-item:nth-child(2) > a:nth-child(1) {
-    margin-right: 40px;
-    margin-left: 75px;
-}
-
 
 li.nav-item:nth-child(4) > a:nth-child(1) {
     padding-right: 360px;
@@ -46,3 +41,7 @@ li.nav-item:nth-child(4) > a:nth-child(1) {
     margin-left: 40px;
 }
 
+.navbarMargin{
+    display: flex;
+    justify-content: space-around;
+}
